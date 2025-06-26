@@ -32,12 +32,29 @@
          --glow-gold: 0 0 10px rgba(245, 158, 11, 0.7);
       }
 
+      html, body {
+         height: 100%;
+         margin: 0;
+      }
+
       body {
          font-family: 'Lora', serif;
          background-color: var(--bg-light);
          color: var(--text-dark);
          line-height: 1.8;
-         overflow-x: hidden;
+         display: flex;
+         flex-direction: column;
+         min-height: 100vh;
+      }
+
+      #wrapper {
+         flex: 1 0 auto;
+         min-height: calc(100vh - 4rem);
+      }
+
+      footer {
+         flex-shrink: 0;
+         width: 100%;
       }
 
       .smoothscroll {
@@ -482,14 +499,12 @@
          }
       }
 
-      h1, h2, h3, h5 {
-         transition: transform 0.3s ease, color 0.3s ease;
-      }
+      h1, h2, h3, h5 { transition: transform 0.3s ease, color 0.3s ease; }
+      h1:hover, h2:hover, h3:hover, h5:hover { transform: scale(1.02); color: var(--primary-blue); }
 
-      h1:hover, h2:hover, h3:hover, h5:hover {
-         transform: scale(1.02);
-         color: var(--primary-blue);
-      }
+      /* ==== ADDED TO ACTIVATE SOCIAL ICONS ==== */
+      .intro-bg::before { pointer-events: none; }
+      .intro-bg ul li a { cursor: pointer; }
    </style>
 
    <!-- Scripts -->
@@ -511,620 +526,258 @@
    </script>
 </head>
 <body id="top" class="bg-gray-50">
-
-   <!-- Preloader -->
-   <div id="preloader" aria-label="Loading, please wait...">
-      <div class="loader">
-         <div class="dot"></div>
+   <div id="wrapper">
+      <!-- Preloader -->
+      <div id="preloader" aria-label="Loading, please wait...">
+         <div class="loader"><div class="dot"></div></div>
       </div>
-   </div>
 
-   <!-- Header -->
-   <header class="bg-white header-shadow sticky top-0 z-40">
-      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-         <div class="logo">
-            <a href="index.html" class="text-3xl font-bold text-gray-900 tracking-tight">MIRUGWE</a>
+      <!-- Header -->
+      <header class="bg-white header-shadow sticky top-0 z-40">
+         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="logo">
+               <a href="index.html" class="text-3xl font-bold text-gray-900 tracking-tight">MIRUGWE</a>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+               <a href="#intro" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Home</a>
+               <a href="#about" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">About</a>
+               <a href="#resume" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Resume</a>
+               <a href="#portfolio" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Portfolio</a>
+               <a href="#services" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Services</a>
+               <a href="#publications" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Publications</a>
+               <a href="#blogs" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Blogs</a>
+               <a href="#contact" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Contact</a>
+            </nav>
+            <a class="menu-toggle md:hidden text-gray-700 hover:text-gray-900" href="#" aria-label="Toggle Menu"><i class="fas fa-bars text-2xl"></i></a>
          </div>
-         <nav class="hidden md:flex space-x-8">
-            <a href="#intro" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Home</a>
-            <a href="#about" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">About</a>
-            <a href="#resume" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Resume</a>
-            <a href="#portfolio" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Portfolio</a>
-            <a href="#services" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Services</a>
-            <a href="#publications" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Publications</a>
-            <a href="#blogs" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Blogs</a>
-            <a href="#contact" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Contact</a>
+         <nav class="mobile-nav hidden md:hidden flex-col w-full bg-white">
+            <a href="#intro" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Home</a>
+            <a href="#about" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">About</a>
+            <a href="#resume" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Resume</a>
+            <a href="#portfolio" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Portfolio</a>
+            <a href="#services" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Services</a>
+            <a href="#publications" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Publications</a>
+            <a href="#blogs" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Blogs</a>
+            <a href="#contact" class="nav-link smoothscroll font-medium text-gray-700 hover:text-gray-900">Contact</a>
          </nav>
-         <a class="menu-toggle md:hidden text-gray-700 hover:text-gray-900" href="#" aria-label="Toggle Menu"><i class="fas fa-bars text-2xl"></i></a>
-      </div>
-      <nav class="mobile-nav hidden md:hidden flex-col w-full bg-white">
-         <a href="#intro" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Home</a>
-         <a href="#about" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">About</a>
-         <a href="#resume" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Resume</a>
-         <a href="#portfolio" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Portfolio</a>
-         <a href="#services" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Services</a>
-         <a href="#publications" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Publications</a>
-         <a href="#blogs" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Blogs</a>
-         <a href="#contact" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Contact</a>
-      </nav>
-   </header>
+      </header>
 
-   <!-- Intro Section -->
-   <section id="intro" class="intro-bg text-white py-32 relative" data-parallax="scroll" data-image-src="https://source.unsplash.com/1600x900/?data,science">
-      <div class="container mx-auto px-6 text-center fade-in">
-         <h5 class="text-lg font-light tracking-wide text-teal-200">Welcome</h5>
-         <h1 class="text-5xl md:text-7xl font-bold mt-3 tracking-tight text-white">Alex Mirugwe</h1>
-         <p class="mt-5 text-xl md:text-2xl max-w-3xl mx-auto font-light text-gray-100">
-            Data Scientist Specializing in<br>
-            Machine Learning | Deep Learning | Health Informatics
-         </p>
-         <a href="#about" class="smoothscroll mt-8 inline-block btn-primary px-8 py-3 font-medium">Discover More</a>
-         <ul class="flex justify-center space-x-6 mt-12">
-            <li><a href="https://www.facebook.com/mirugwe.alex" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f text-2xl"></i></a></li>
-            <li><a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Google Scholar"><i class="fab fa-google text-2xl"></i></a></li>
-            <li><a href="https://twitter.com/mirugwealex1" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Twitter"><i class="fab fa-twitter text-2xl"></i></a></li>
-            <li><a href="https://www.researchgate.net/profile/Alex-Mirugwe" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="ResearchGate"><i class="fas fa-file-alt text-2xl"></i></a></li>
-            <li><a href="https://www.instagram.com/mirugwe_alex/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-2xl"></i></a></li>
-            <li><a href="https://github.com/mirugwe1" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="GitHub"><i class="fab fa-github text-2xl"></i></a></li>
-         </ul>
-      </div>
-   </section>
+      <!-- Intro Section -->
+      <section id="intro" class="intro-bg text-white py-32 relative" data-parallax="scroll" data-image-src="https://source.unsplash.com/1600x900/?data,science">
+         <div class="container mx-auto px-6 text-center fade-in">
+            <h5 class="text-lg font-light tracking-wide text-teal-200">Welcome</h5>
+            <h1 class="text-5xl md:text-7xl font-bold mt-3 tracking-tight text-white">Alex Mirugwe</h1>
+            <p class="mt-5 text-xl md:text-2xl max-w-3xl mx-auto font-light text-gray-100">
+               Data Scientist Specializing in<br>
+               Machine Learning | Deep Learning | Health Informatics
+            </p>
+            <a href="#about" class="smoothscroll mt-8 inline-block btn-primary px-8 py-3 font-medium">Discover More</a>
+            <ul class="flex justify-center space-x-6 mt-12">
+               <li><a href="https://www.facebook.com/mirugwe.alex" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f text-2xl"></i></a></li>
+               <li><a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fab fa-google text-2xl"></i></a></li>
+               <li><a href="https://twitter.com/mirugwealex1" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter text-2xl"></i></a></li>
+               <li><a href="https://www.researchgate.net/profile/Alex-Mirugwe" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate"><i class="fas fa-file-alt text-2xl"></i></a></li>
+               <li><a href="https://www.instagram.com/mirugwe_alex/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram text-2xl"></i></a></li>
+               <li><a href="https://github.com/mirugwe1" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github text-2xl"></i></a></li>
+            </ul>
+         </div>
+      </section>
 
-   <!-- About Section -->
-   <section id="about" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h2 class="text-lg text-accent-teal font-medium tracking-wide">About</h2>
-         <div class="section-divider"></div>
-         <div class="mt-12 flex flex-col md:grid md:grid-cols-2 gap-12 fade-in">
-            <div class="flex flex-col space-y-10">
-               <div class="flex items-center">
-                  <img src="images/profile-pic.png" alt="Profile Picture of Alex Mirugwe" class="w-56 h-56 rounded-full mb-6 md:mb-0 md:mr-12 border-4 border-white shadow-2xl" loading="lazy">
-                  <div class="max-w-xl">
-                     <h3 class="text-2xl font-semibold text-gray-900 mb-4">About Me</h3>
-                     <p class="text-lg text-gray-700 font-light leading-relaxed">
-                        As a highly skilled Data Scientist with over four years of experience, I specialize in developing and deploying machine learning solutions that significantly impact healthcare outcomes, particularly in HIV, Cancer, Tuberculosis, and public health emergencies. I have successfully utilized data-driven methodologies to improve patient outcomes and public health responses.
-                     </p>
-                     <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-4">My Vision</h3>
-                     <p class="text-lg text-gray-700 font-light leading-relaxed">
-                        My work is driven by a vision to harness the power of AI and data science to transform conventional health systems into dynamic, adaptive, and intelligent health ecosystems that proactively respond to the needs of communities, particularly in resource-constrained settings. My goal is to create a resilient infrastructure that elevates healthcare service delivery, accelerates disease prevention, and enhances the impact of diagnosis and treatment. By integrating cutting-edge technology with a deep understanding of public health challenges, I strive to lead initiatives that drive sustainable health outcomes and revolutionize how we address complex health issues globally.
-                     </p>
+      <!-- About Section -->
+      <section id="about" class="section-bg py-28">
+         <div class="container mx-auto px-6">
+            <h2 class="text-lg text-accent-teal font-medium tracking-wide">About</h2>
+            <div class="section-divider"></div>
+            <div class="mt-12 flex flex-col md:grid md:grid-cols-2 gap-12 fade-in">
+               <div class="flex flex-col space-y-10">
+                  <div class="flex items-center">
+                     <img src="images/profile-pic.png" alt="Profile Picture of Alex Mirugwe" class="w-56 h-56 rounded-full mb-6 md:mb-0 md:mr-12 border-4 border-white shadow-2xl" loading="lazy">
+                     <div class="max-w-xl">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">About Me</h3>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                           As a highly skilled Data Scientist with over four years of experience, I specialize in developing and deploying machine learning solutions that significantly impact healthcare outcomes, particularly in HIV, Cancer, Tuberculosis, and public health emergencies. I have successfully utilized data-driven methodologies to improve patient outcomes and public health responses.
+                        </p>
+                        <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-4">My Vision</h3>
+                        <p class="text-lg text-gray-700 font-light leading-relaxed">
+                           My work is driven by a vision to harness the power of AI and data science to transform conventional health systems into dynamic, adaptive, and intelligent health ecosystems that proactively respond to the needs of communities, particularly in resource-constrained settings. My goal is to create a resilient infrastructure that elevates healthcare service delivery, accelerates disease prevention, and enhances the impact of diagnosis and treatment. By integrating cutting-edge technology with a deep understanding of public health challenges, I strive to lead initiatives that drive sustainable health outcomes and revolutionize how we address complex health issues globally.
+                        </p>
+                     </div>
+                  </div>
+                  <div>
+                     <h3 class="text-2xl font-semibold text-gray-900">Core Expertise</h3>
+                     <ul class="expertise-list mt-6 text-gray-600 font-light">
+                        <li>Machine Learning</li>
+                        <li>Deep Learning</li>
+                        <li>Health Informatics</li>
+                        <li>AI in Medical Imaging</li>
+                        <li>Geospatial Modelling</li>
+                        <li>Time-Series Analysis & Natural Language Processing</li>
+                        <li>Data Mining, Cleaning, & Visualization</li>
+                     </ul>
                   </div>
                </div>
-               <div>
-                  <h3 class="text-2xl font-semibold text-gray-900">Core Expertise</h3>
-                  <ul class="expertise-list mt-6 text-gray-600 font-light">
-                     <li>Machine Learning</li>
-                     <li>Deep Learning</li>
-                     <li>Health Informatics</li>
-                     <li>AI in Medical Imaging</li>
-                     <li>Geospatial Modelling</li>
-                     <li>Time-Series Analysis & Natural Language Processing</li>
-                     <li>Data Mining, Cleaning, & Visualization</li>
+               <div class="p-8 bg-white rounded-xl shadow-lg">
+                  <h3 class="text-2xl font-semibold text-gray-900">Skills</h3>
+                  <ul class="skill-bars mt-6 space-y-6">
+                     <li>
+                        <strong class="text-gray-800 font-medium">Python</strong>
+                        <div class="progress"><div data-skill="90"><span>90%</span></div></div>
+                     </li>
+                     <li>
+                        <strong class="text-gray-800 font-medium">R</strong>
+                        <div class="progress"><div data-skill="95"><span>95%</span></div></div>
+                     </li>
+                     <li>
+                        <strong class="text-gray-800 font-medium">SQL</strong>
+                        <div class="progress"><div data-skill="70"><span>70%</span></div></div>
+                     </li>
+                     <li>
+                        <strong class="text-gray-800 font-medium">PowerBI</strong>
+                        <div class="progress"><div data-skill="60"><span>60%</span></div></div>
+                     </li>
+                     <li>
+                        <strong class="text-gray-800 font-medium">LaTeX</strong>
+                        <div class="progress"><div data-skill="80"><span>80%</span></div></div>
+                     </li>
+                     <li>
+                        <strong class="text-gray-800 font-medium">Scikit-Learn</strong>
+                        <div class="progress"><div data-skill="85"><span>85%</span></div></div>
+                     </li>
+                     <li>
+                        <strong class="text-gray-800 font-medium">TensorFlow</strong>
+                        <div class="progress"><div data-skill="70"><span>70%</span></div></div>
+                     </li>
+                     <li>
+                        <strong class="text-gray-800 font-medium">OpenCV</strong>
+                        <div class="progress"><div data-skill="60"><span>60%</span></div></div>
+                     </li>
+                     <li>
+                        <strong class="text-gray-800 font-medium">Keras</strong>
+                        <div class="progress"><div data-skill="70"><span>70%</span></div></div>
+                     </li>
+                     <li>
+                        <strong class="text-gray-800 font-medium">AWS</strong>
+                        <div class="progress"><div data-skill="45"><span>45%</span></div></div>
+                     </li>
+                     <li>
+                        <strong class="text-gray-800 font-medium">MLFlow</strong>
+                        <div class="progress"><div data-skill="50"><span>50%</span></div></div>
+                     </li>
+                     <li>
+                        <strong class="text-gray-800 font-medium">LangChain</strong>
+                        <div class="progress"><div data-skill="50"><span>50%</span></div></div>
+                     </li>
+                     <li>
+                        <strong class="text-gray-800 font-medium">GIT</strong>
+                        <div class="progress"><div data-skill="90"><span>90%</span></div></div>
+                     </li>
                   </ul>
                </div>
             </div>
-            <div class="p-8 bg-white rounded-xl shadow-lg">
-               <h3 class="text-2xl font-semibold text-gray-900">Skills</h3>
-               <ul class="skill-bars mt-6 space-y-6">
-                  <li>
-                     <strong class="text-gray-800 font-medium">Python</strong>
-                     <div class="progress"><div data-skill="90"><span>90%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">R</strong>
-                     <div class="progress"><div data-skill="95"><span>95%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">SQL</strong>
-                     <div class="progress"><div data-skill="70"><span>70%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">PowerBI</strong>
-                     <div class="progress"><div data-skill="60"><span>60%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">LaTeX</strong>
-                     <div class="progress"><div data-skill="80"><span>80%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">Scikit-Learn</strong>
-                     <div class="progress"><div data-skill="85"><span>85%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">TensorFlow</strong>
-                     <div class="progress"><div data-skill="70"><span>70%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">OpenCV</strong>
-                     <div class="progress"><div data-skill="60"><span>60%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">Keras</strong>
-                     <div class="progress"><div data-skill="70"><span>70%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">AWS</strong>
-                     <div class="progress"><div data-skill="45"><span>45%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">MLFlow</strong>
-                     <div class="progress"><div data-skill="50"><span>50%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">LangChain</strong>
-                     <div class="progress"><div data-skill="50"><span>50%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">GIT</strong>
-                     <div class="progress"><div data-skill="90"><span>90%</span></div></div>
-                  </li>
-               </ul>
+            <div class="mt-16 text-center">
+               <a href="#contact" class="smoothscroll inline-block btn-primary px-8 py-3 font-medium">Hire Me</a>
+               <a href="https://drive.google.com/drive/u/0/folders/1Xua1E1iASNrR7XZ7ICUEm7lE4VMi1Q9l" target="_blank" rel="noopener noreferrer" class="inline-block btn-secondary px-8 py-3 font-medium ml-6">Download CV</a>
             </div>
          </div>
-         <div class="mt-16 text-center">
-            <a href="#contact" class="smoothscroll inline-block btn-primary px-8 py-3 font-medium">Hire Me</a>
-            <a href="https://drive.google.com/drive/u/0/folders/1Xua1E1iASNrR7XZ7ICUEm7lE4VMi1Q9l" target="_blank" rel="noopener noreferrer" class="inline-block btn-secondary px-8 py-3 font-medium ml-6">Download CV</a>
-         </div>
-      </div>
-   </section>
+      </section>
 
-   <!-- Resume Section -->
-   <section id="resume" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h5 class="text-lg text-accent-teal font-medium tracking-wide">Resume</h5>
-         <div class="section-divider"></div>
-         <div class="mt-12 fade-in">
-            <h2 class="text-2xl font-semibold text-gray-900">Work Experience</h2>
-            <div class="mt-6 space-y-12">
-               <div class="timeline-block flex items-start">
-                  <div class="timeline-ico mr-6"><i class="fas fa-briefcase text-accent-teal text-2xl"></i></div>
-                  <div>
-                     <h3 class="text-xl font-semibold text-gray-900">Data Scientist</h3>
-                     <p class="text-gray-500 font-light">April 2022 - Present</p>
-                     <h4 class="mt-2 text-gray-800 font-medium">Makerere University School of Public Health (<a href="https://mets.or.ug/" target="_blank" rel="noopener noreferrer" class="custom-link">METS-CDC Project</a>)</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
-                        <li>Developed a machine learning model to predict HIV patient dropout, enabling proactive interventions.</li>
-                        <li>Designed a deep learning algorithm for cervical cancer screening, improving accuracy and early detection.</li>
-                        <li>Created a patient matching algorithm to reduce HIV patient data duplicates by 4.8%.</li>
-                        <li>Supported Ebola outbreak response with statistical analysis in September 2022.</li>
-                        <li>Conducted sentiment analysis on Ebola social media data to inform risk communication.</li>
-                     </ul>
+      <!-- Resume Section -->
+      <section id="resume" class="section-bg py-28">
+         <div class="container mx-auto px-6">
+            <h5 class="text-lg text-accent-teal font-medium tracking-wide">Resume</h5>
+            <div class="section-divider"></div>
+            <div class="mt-12 fade-in">
+               <h2 class="text-2xl font-semibold text-gray-900">Work Experience</h2>
+               <div class="mt-6 space-y-12">
+                  <div class="timeline-block flex items-start">
+                     <div class="timeline-ico mr-6"><i class="fas fa-briefcase text-accent-teal text-2xl"></i></div>
+                     <div>
+                        <h3 class="text-xl font-semibold text-gray-900">Data Scientist</h3>
+                        <p class="text-gray-500 font-light">April 2022 - Present</p>
+                        <h4 class="mt-2 text-gray-800 font-medium">Makerere University School of Public Health (<a href="https://mets.or.ug/" target="_blank" rel="noopener noreferrer" class="custom-link">METS-CDC Project</a>)</h4>
+                        <ul class="custom-list mt-3 text-gray-600 font-light">
+                           <li>Developed a machine learning model to predict HIV patient dropout, enabling proactive interventions.</li>
+                           <li>Designed a deep learning algorithm for cervical cancer screening, improving accuracy and early detection.</li>
+                           <li>Created a patient matching algorithm to reduce HIV patient data duplicates by 4.8%.</li>
+                           <li>Supported Ebola outbreak response with statistical analysis in September 2022.</li>
+                           <li>Conducted sentiment analysis on Ebola social media data to inform risk communication.</li>
+                        </ul>
+                     </div>
                   </div>
-               </div>
-               <div class="timeline-block flex items-start">
-                  <div class="timeline-ico mr-6"><i class="fas fa-briefcase text-accent-teal text-2xl"></i></div>
-                  <div>
-                     <h3 class="text-xl font-semibold text-gray-900">Assistant Lecturer</h3>
-                     <p class="text-gray-500 font-light">January 2022 - Present</p>
-                     <h4 class="mt-2 text-gray-800 font-medium">Faculty of Science, Victoria University, Kampala</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
-                        <li>Taught courses including Python, Machine Learning, and AI.</li>
-                        <li>Developed course materials and assignments to enhance learning.</li>
-                        <li>Contributed to curriculum development for Software Engineering and Blockchain programs.</li>
-                     </ul>
+                  <div class="timeline-block flex items-start">
+                     <div class="timeline-ico mr-6"><i class="fas fa-briefcase text-accent-teal text-2xl"></i></div>
+                     <div>
+                        <h3 class="text-xl font-semibold text-gray-900">Assistant Lecturer</h3>
+                        <p class="text-gray-500 font-light">January 2022 - Present</p>
+                        <h4 class="mt-2 text-gray-800 font-medium">Faculty of Science, Victoria University, Kampala</h4>
+                        <ul class="custom-list mt-3 text-gray-600 font-light">
+                           <li>Taught courses including Python, Machine Learning, and AI.</li>
+                           <li>Developed course materials and assignments to enhance learning.</li>
+                           <li>Contributed to curriculum development for Software Engineering and Blockchain programs.</li>
+                        </ul>
+                     </div>
                   </div>
-               </div>
-               <div class="timeline-block flex items-start">
-                  <div class="timeline-ico mr-6"><i class="fas fa-briefcase text-accent-teal text-2xl"></i></div>
-                  <div>
-                     <h3 class="text-xl font-semibold text-gray-900">Tutor</h3>
-                     <p class="text-gray-500 font-light">Jan 2021 - Sept 2021</p>
-                     <h4 class="mt-2 text-gray-800 font-medium">Department of Computer Science, University of Cape Town</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
-                        <li>Supervised lab sessions on machine learning topics like regression and SVMs.</li>
-                        <li>Prepared instructional materials to enhance understanding.</li>
-                        <li>Guided students on projects and collaborated on course content.</li>
-                     </ul>
+                  <div class="timeline-block flex items-start">
+                     <div class="timeline-ico mr-6"><i class="fas fa-briefcase text-accent-teal text-2xl"></i></div>
+                     <div>
+                        <h3 class="text-xl font-semibold text-gray-900">Tutor</h3>
+                        <p class="text-gray-500 font-light">Jan 2021 - Sept 2021</p>
+                        <h4 class="mt-2 text-gray-800 font-medium">Department of Computer Science, University of Cape Town</h4>
+                        <ul class="custom-list mt-3 text-gray-600 font-light">
+                           <li>Supervised lab sessions on machine learning topics like regression and SVMs.</li>
+                           <li>Prepared instructional materials to enhance understanding.</li>
+                           <li>Guided students on projects and collaborated on course content.</li>
+                        </ul>
+                     </div>
                   </div>
                </div>
             </div>
-         </div>
-         <div class="mt-12 fade-in">
-            <h2 class="text-2xl font-semibold text-gray-900">Education</h2>
-            <div class="mt-6 space-y-12">
-               <div class="timeline-block flex items-start">
-                  <div class="timeline-ico mr-6"><i class="fas fa-graduation-cap text-accent-teal text-2xl"></i></div>
-                  <div>
-                     <h3 class="text-xl font-semibold text-gray-900">MSc. Data Science</h3>
-                     <p class="text-gray-500 font-light">Jan 2020 - Nov 2021</p>
-                     <h4 class="mt-2 text-gray-800 font-medium">University of Cape Town, South Africa</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
-                        <li>Thesis: <a href="https://open.uct.ac.za/handle/11427/36492" target="_blank" rel="noopener noreferrer" class="custom-link">Automating bird detection using deep learning</a></li>
-                     </ul>
+            <div class="mt-12 fade-in">
+               <h2 class="text-2xl font-semibold text-gray-900">Education</h2>
+               <div class="mt-6 space-y-12">
+                  <div class="timeline-block flex items-start">
+                     <div class="timeline-ico mr-6"><i class="fas fa-graduation-cap text-accent-teal text-2xl"></i></div>
+                     <div>
+                        <h3 class="text-xl font-semibold text-gray-900">MSc. Data Science</h3>
+                        <p class="text-gray-500 font-light">Jan 2020 - Nov 2021</p>
+                        <h4 class="mt-2 text-gray-800 font-medium">University of Cape Town, South Africa</h4>
+                        <ul class="custom-list mt-3 text-gray-600 font-light">
+                           <li>Thesis: <a href="https://open.uct.ac.za/handle/11427/36492" target="_blank" rel="noopener noreferrer" class="custom-link">Automating bird detection using deep learning</a></li>
+                        </ul>
+                     </div>
                   </div>
-               </div>
-               <div class="timeline-block flex items-start">
-                  <div class="timeline-ico mr-6"><i class="fas fa-graduation-cap text-accent-teal text-2xl"></i></div>
-                  <div>
-                     <h3 class="text-xl font-semibold text-gray-900">BSc. Computer Engineering</h3>
-                     <p class="text-gray-500 font-light">Aug 2014 - June 2019</p>
-                     <h4 class="mt-2 text-gray-800 font-medium">Makerere University, Uganda</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
-                        <li>Dissertation: <a href="http://dissertations.mak.ac.ug/handle/20.500.12281/4468" target="_blank" rel="noopener noreferrer" class="custom-link">A low-cost wireless TV audio transceiver</a></li>
-                     </ul>
+                  <div class="timeline-block flex items-start">
+                     <div class="timeline-ico mr-6"><i class="fas fa-graduation-cap text-accent-teal text-2xl"></i></div>
+                     <div>
+                        <h3 class="text-xl font-semibold text-gray-900">BSc. Computer Engineering</h3>
+                        <p class="text-gray-500 font-light">Aug 2014 - June 2019</p>
+                        <h4 class="mt-2 text-gray-800 font-medium">Makerere University, Uganda</h4>
+                        <ul class="custom-list mt-3 text-gray-600 font-light">
+                           <li>Dissertation: <a href="http://dissertations.mak.ac.ug/handle/20.500.12281/4468" target="_blank" rel="noopener noreferrer" class="custom-link">A low-cost wireless TV audio transceiver</a></li>
+                        </ul>
+                     </div>
                   </div>
-               </div>
-               <div class="timeline-block flex items-start">
-                  <div class="timeline-ico mr-6"><i class="fas fa-graduation-cap text-accent-teal text-2xl"></i></div>
-                  <div>
-                     <h3 class="text-xl font-semibold text-gray-900">Online Courses</h3>
-                     <h4 class="mt-2 text-gray-800 font-medium">Coursera</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
-                        <li><a href="https://www.coursera.org/account/accomplishments/certificate/HZD3ZEGF67LZ" target="_blank" rel="noopener noreferrer" class="custom-link">Data and Health Indicators in Public Health</a></li>
-                        <li><a href="https://www.coursera.org/account/accomplishments/certificate/D262GCLVX3LE" target="_blank" rel="noopener noreferrer" class="custom-link">Essential Epidemiologic Tools</a></li>
-                        <li><a href="https://www.coursera.org/account/accomplishments/certificate/7W4DEFG5FTUE" target="_blank" rel="noopener noreferrer" class="custom-link">Foundations: Data, Data, Everywhere</a></li>
-                        <li><a href="https://www.coursera.org/account/accomplishments/certificate/8VGHM22NHQUB" target="_blank" rel="noopener noreferrer" class="custom-link">Neural Networks and Deep Learning</a></li>
-                     </ul>
-                     <h4 class="mt-4 text-gray-800 font-medium">DataCamp</h4>
-                     <ul class="course-list mt-3 text-gray-600 font-light">
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/4879b90475c84c893319e24a91987155c2a57b16" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Exploratory Data Analysis in Python">Exploratory Data Analysis in Python</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/8f5d45e308cdfebc5a211285bf1a3aeeff9e51e9" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to Data Visualization with Matplotlib">Introduction to Data Visualization with Matplotlib</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/e26cfb9cc6df07a1d93425b3efb8b31041376b4c" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to Relational Databases in SQL">Introduction to Relational Databases in SQL</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/9fddb1d3db2f01d2c9cd5746420ca9b5efd200a3" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Credit Risk Modeling in R">Credit Risk Modeling in R</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/9d102f54535691e2ca81d86be44384d603b3cd0d" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to Git">Introduction to Git</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/93b2513a16a10c6fc1a5529897f0ecdba500980b" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Data Analysis in Excel">Data Analysis in Excel</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/4b6fcdb8b9d1741acdb5aa30012034342402a0ba" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Multiple and Logistic Regression in R">Multiple and Logistic Regression in R</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/cdf5440f2bebe92813397afae426fe714aad23f8" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to Programming Using Python">Introduction to Programming Using Python</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/528d540505abc3e2feb471c78a602f5ae16a7c2c" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to SQL">Introduction to SQL</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/23bac8e8e0bde08d14f9825acb0d15b30a860b51" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Supervised Learning in R">Supervised Learning in R</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/92cff6f784fe3b540e0cd18e5378ccb2ef08bbf3" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Intermediate R">Intermediate R</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/412ca032e1c652e96b929b4d354db4b0b5542687" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to R">Introduction to R</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/68b490bb4ac66e31dd4c2f245e12b187d6967375" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to the Tidyverse">Introduction to the Tidyverse</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/429d6cbd065812f950f8adf690d7d4a2ab9d418a" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Data Manipulation with dplyr">Data Manipulation with dplyr</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/7a6e0b73263a1463d3bd3dfde8b1b27185c449f3" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Data Visualization with ggplot2 Part 1">Data Visualization with ggplot2 (Part 1)</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/48bf8bfea492065ce361dee4c8448821c41e059e" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Data Visualization with ggplot2 Part 2">Data Visualization with ggplot2 (Part 2)</a></li>
-                     </ul>
-                     <h4 class="mt-4 text-gray-800 font-medium">YALI Regional Leadership Center</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
-                        <li>Understanding Climate Change</li>
-                        <li>Understanding Renewable Energy</li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
+                  <div class="timeline-block flex items-start">
+                     <div class="timeline-ico mr-6"><i class="fas fa-graduation-cap text-accent-teal text-2xl"></i></div>
+                     <div>
+                        <h3 class="text-xl font-semibold text-gray-900">Online Courses</h3>
+                        <h4 class="mt-2 text-gray-800 font-medium">Coursera</h4>
+                        <ul class="custom-list mt-3 text-gray-600 font-light">
+                           <li><a href="https://www.coursera.org/account/accomplishments/certificate/HZD3ZEGF67LZ" target="_blank" rel="noopener noreferrer" class="custom-link">Data and Health Indicators in Public Health</a></li>
+                           <li><a href="https://www.coursera.org/account/accomplishments/certificate/D262GCLVX3LE" target="_blank" rel="noopener noreferrer" class="custom-link">Essential Epidemiologic Tools</a></li>
+                           <li><a href="https://www.coursera.org/account/accomplishments/certificate/7W4DEFG5FTUE" target="_blank" rel="noopener noreferrer" class="custom-link">Foundations: Data, Data, Everywhere</a></li>
+                           <li><a href="https://www.coursera.org/account/accomplishments/certificate/8VGHM22NHQUB" target="_blank" rel="noopener noreferrer" class="custom-link">Neural Networks and Deep Learning</a></li>
+                        </ul>
+                        <h4 class="mt-4 text-gray-800 font-medium">DataCamp</h4>
+                        <ul class="course-list mt-3 text-gray-600 font-light">
+                           <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/4879b90475c84c893319e24a91987155c2a57b16" target="_blank" rel="noopener noreferrer" class="custom-link">Exploratory Data Analysis in Python</a></li>
+                           <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/8f5d45e308cdfebc5a211285bf1a3aeeff9e51e9" target="_blank" rel="noopener noreferrer" class="custom-link">Introduction to Data Visualization with Matplotlib</a></li>
+                           <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/e26cfb9cc6df07a1d93425b3efb8b31041376b4c" target="_blank" rel="noopener noreferrer" class="custom-link">Introduction to Relational Databases in SQL</a></li>
+                           <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/9fddb1d3db2f01d2c9cd5746420ca9b5efd200a3" target="_blank" rel="noopener noreferrer" class="custom-link">Credit Risk Modeling in R</a></li>
+                           <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/9d102f54535691e2ca81d86be44384d603b3cd0d" target="_blank" rel="noopener noreferrer" class="custom-link">Introduction to Git</a></li>
+                           <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/93b2513a16a10c6fc1a5529897f0ecdba500980b" target="_blank" rel="noopener noreferrer" class="custom-link">Data Analysis in Excel</a></li>
+                           <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/4b6fcdb8b9d1741acdb5aa30012034342402a0ba" target="_blank" rel="noopener noreferrer" class="custom-link">Multiple and Logistic Regression in R</a></li>
+                           <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/cdf5440f2bebe92813397afae426fe714aad23f8" target="_blank" rel="noopener noreferrer" class="custom-link">Introduction to Programming Using Python</a></li>
+                           <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/528d540505abc3e2feb471c78a602f5ae16a7c2c" target="_blank" rel="noopener noreferrer" class="custom-link">Introduction to SQL</a></li>
+                           <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/23bac8e8e0bde08d14f9825acb0d15b30a860b51" target="_blank" rel="noopener noreferrer" class="custom-link">Supervised Learning  
 
-   <!-- Portfolio Section -->
-   <section id="portfolio" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h5 class="text-lg text-accent-teal font-medium tracking-wide">Portfolio</h5>
-         <div class="section-divider"></div>
-         <p class="mt-5 text-lg text-gray-600 max-w-3xl font-light">Projects showcasing expertise in machine learning, deep learning, computer vision, and NLP, with applications in healthcare and ecology.</p>
-         <div class="mt-12 portfolio-grid">
-            <div class="portfolio-item fade-in">
-               <img src="images/portfolio/cervical_cancer.png" alt="Cervical Cancer Screening Project Image" class="w-full h-64 object-cover" loading="lazy">
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold text-gray-900">Cervical Cancer Screening</h3>
-                  <p class="text-gray-600 mt-3 font-light">Developed a deep learning algorithm to enhance cervical cancer screening accuracy in Uganda.</p>
-                  <a href="https://github.com/mirugwe1/Cervical_Cancer_Screening" target="_blank" rel="noopener noreferrer" class="custom-link mt-4 inline-block font-medium">View Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-               </div>
-            </div>
-            <div class="portfolio-item fade-in">
-               <img src="images/portfolio/encryption.png" alt="Encryption and Decryption Project Image" class="w-full h-64 object-cover" loading="lazy">
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold text-gray-900">Encryption and Decryption</h3>
-                  <p class="text-gray-600 mt-3 font-light">Implemented AES and RSA algorithms for secure data protection.</p>
-                  <a href="https://github.com/mirugwe1/Data_Protection" target="_blank" rel="noopener noreferrer" class="custom-link mt-4 inline-block font-medium">View Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-               </div>
-            </div>
-            <div class="portfolio-item fade-in">
-               <img src="images/portfolio/sentiment.png" alt="Sentiment Analysis Project Image" class="w-full h-64 object-cover" loading="lazy">
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold text-gray-900">Sentiment Analysis</h3>
-                  <p class="text-gray-600 mt-3 font-light">Applied deep learning to analyze public sentiment on social media during the Ebola outbreak.</p>
-                  <a href="https://github.com/mirugwe1/Sentiment_Analysis" target="_blank" rel="noopener noreferrer" class="custom-link mt-4 inline-block font-medium">View Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-               </div>
-            </div>
-            <div class="portfolio-item fade-in">
-               <img src="images/portfolio/Deduplication.png" alt="Patient Matching Algorithm Project Image" class="w-full h-64 object-cover" loading="lazy">
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold text-gray-900">Patient Matching Algorithm</h3>
-                  <p class="text-gray-600 mt-3 font-light">Developed an algorithm to deduplicate HIV patient data, reducing duplicates by 4.8%.</p>
-                  <a href="https://github.com/mirugwe1/Patient_Matching" target="_blank" rel="noopener noreferrer" class="custom-link mt-4 inline-block font-medium">View Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-               </div>
-            </div>
-            <div class="portfolio-item fade-in">
-               <img src="images/portfolio/birds.png" alt="Webcam Bird Detection Project Image" class="w-full h-64 object-cover" loading="lazy">
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold text-gray-900">Webcam Bird Detection</h3>
-                  <p class="text-gray-600 mt-3 font-light">Built a deep learning model for automated bird detection from webcam images.</p>
-                  <a href="https://github.com/mirugwe1/bird_detection" target="_blank" rel="noopener noreferrer" class="custom-link mt-4 inline-block font-medium">View Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-               </div>
-            </div>
-            <div class="portfolio-item fade-in">
-               <img src="images/portfolio/recommendation.png" alt="Recommendation Systems Project Image" class="w-full h-64 object-cover" loading="lazy">
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold text-gray-900">Recommendation Systems</h3>
-                  <p class="text-gray-600 mt-3 font-light">Developed machine learning-based recommendation systems for personalized content.</p>
-                  <a href="https://github.com/mirugwe1/Recommendation-Systems" target="_blank" rel="noopener noreferrer" class="custom-link mt-4 inline-block font-medium">View Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-
-   <!-- Services Section -->
-   <section id="services" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h5 class="text-lg text-accent-teal font-medium tracking-wide">Services</h5>
-         <div class="section-divider"></div>
-         <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:scale-105 hover:shadow-xl fade-in">
-               <i class="fas fa-comment text-4xl text-primary-blue mb-4" aria-label="Consultancy Icon"></i>
-               <h3 class="text-xl font-semibold text-gray-900">Consultancy</h3>
-               <p class="text-gray-600 mt-3 font-light">Leverage AI technologies like machine learning and NLP to enhance healthcare services.</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:scale-105 hover:shadow-xl fade-in">
-               <i class="fas fa-chart-line text-4xl text-primary-blue mb-4" aria-label="Data Analysis Icon"></i>
-               <h3 class="text-xl font-semibold text-gray-900">Data Analysis</h3>
-               <p class="text-gray-600 mt-3 font-light">Extract insights from diverse datasets with analytical reports and dynamic dashboards.</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:scale-105 hover:shadow-xl fade-in">
-               <i class="fas fa-database text-4xl text-primary-blue mb-4" aria-label="Data Mining Icon"></i>
-               <h3 class="text-xl font-semibold text-gray-900">Data Mining</h3>
-               <p class="text-gray-600 mt-3 font-light">Use advanced statistical and ML techniques to gain predictive insights.</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:scale-105 hover:shadow-xl fade-in">
-               <i class="fas fa-chalkboard-teacher text-4xl text-primary-blue mb-4" aria-label="Training Icon"></i>
-               <h3 class="text-xl font-semibold text-gray-900">Training</h3>
-               <p class="text-gray-600 mt-3 font-light">Comprehensive training in statistics, data analysis, and machine learning with R and Python.</p>
-            </div>
-         </div>
-      </div>
-   </section>
-
-   <!-- Publications Section -->
-   <section id="publications" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h5 class="text-lg text-accent-teal font-medium tracking-wide">Publications</h5>
-         <div class="section-divider"></div>
-         <ul class="custom-list mt-10 text-gray-600 font-light fade-in">
-            <li>A. Mirugwe, J. Nyirenda, and E. Dufourq, “Automating bird detection based on webcam captured images using deep learning,” in Proceedings of 43rd Conference of the South African Insti, vol. 85, 2022, pp. 62–76 <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Hk-4f5AAAAAJ&citation_for_view=Hk-4f5AAAAAJ:W7OEmFMy1HYC" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on Google Scholar">Google Scholar</a></li>
-            <li>A. Mirugwe, C. Ashaba, A. Namale, E. Akello, E. Bichetero, E. Kansiime, and J. Nyirenda, “Sentiment Analysis of Social Media Data on Ebola Outbreak Using Deep Learning Classifiers,” in MDPI Life 2024, 14, 708 <a href="https://doi.org/10.3390/life14060708" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on MDPI">MDPI</a></li>
-            <li>A. Mirugwe, C. Ashaba, “Cervical Cancer Screening: Artificial Intelligence Algorithm For Automatic Diagnostic Support,” in Translational Medicine, vol. 13, Iss. 13, 2023, pp. 1–2 <a href="https://www.researchgate.net/publication/378373924_Cervical_Cancer_Screening_Artificial_Intelligence_Algorithm_for_Automatic_Diagnostic_Support" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on ResearchGate">ResearchGate</a></li>
-            <li>A. Mirugwe, J. B. Kibanga, “Digital Outbreak Response System: A Research Study on the Use of the Go.Data Tool for Ebola Outbreak Data Management in Uganda,” in American Journal of Preventive Medicine and Public Health, vol. 9, No. 5, 2023, pp. 01–06 <a href="https://www.researchgate.net/publication/373118609_Digital_Outbreak_Response_System_A_Research_Study_on_the_Use_of_the_GoData_Tool_for_Ebola_Outbreak_Data_Management_in_Uganda" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on ResearchGate">ResearchGate</a></li>
-            <li>A. Mirugwe, L. Tamale, J. Nyirenda, “Improving Tuberculosis Detection in Chest X-ray Images through Transfer Learning and Deep Learning: A Comparative Study of CNN Architectures,” in medRxiv, 2024: 2024-08 <a href="https://doi.org/10.1101/2024.08.02.24311396" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on Google Scholar">Google Scholar</a></li>
-            <li>A. Mirugwe, “Adoption of Artificial Intelligence in the Ugandan Health Sector: A Review of Literature,” [Preprint] <a href="https://www.researchgate.net/publication/370073027_Adoption_of_Artificial_Intelligence_in_the_Ugandan_Health_Sector_a_review_of_Literature" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on ResearchGate">ResearchGate</a></li>
-            <li>A. Mirugwe, “Restaurant Tip Prediction Using Linear Regression,” in International Journal of Data Science and Big Data Analytics, vol. 1, Iss. 2, 2021, pp. 31–38 <a href="https://www.researchgate.net/publication/353100937_Restaurant_tip_prediction_using_linear_regression" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on ResearchGate">ResearchGate</a></li>
-         </ul>
-      </div>
-   </section>
-
-   <!-- Blogs Section -->
-   <section id="blogs" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h5 class="text-lg text-accent-teal font-medium tracking-wide">Blogs</h5>
-         <h1 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900 tracking-tight">My Substack Articles</h1>
-         <div class="section-divider"></div>
-         <p class="mt-5 text-lg text-gray-600 max-w-3xl font-light">Explore my latest thoughts and insights on data science and AI.</p>
-         <div class="mt-12 blog-grid">
-            <div class="blog-post fade-in">
-               <div class="content">
-                  <h3>Why Skipping the Basics in AI Creates Pseudo-Experts</h3>
-                  <p class="date">June 24, 2025</p>
-                  <p>AI tools are ubiquitous, but many overlook the basics and end up with a superficial understanding. In this piece, I explain why that matters and how to build real expertise.</p>
-                  <a href="https://alexmirugwe.substack.com/p/why-skipping-the-basics-in-ai-creates" target="_blank" rel="noopener noreferrer" class="custom-link">Read More</a>
-               </div>
-            </div>
-            <div class="blog-post fade-in">
-               <div class="content">
-                  <h3>AI Panic: Why Strategy Must Come Before Hype</h3>
-                  <p class="date">June 12, 2025</p>
-                  <p>I have been seeing too many teams and organizations dive into AI without a clear plan - no defined use cases, no ROI thinking, just fear of missing out. That kind of rush usually ends badly.
-                     Wrote this article to unpack why hype isn’t enough and what real strategy looks like.</p>
-                  <a href="https://alexmirugwe.substack.com/p/where-is-africa-in-the-ai-conversation" target="_blank" rel="noopener noreferrer" class="custom-link">Read More</a>
-               </div>
-            </div>
-            <div class="blog-post fade-in">
-               <div class="content">
-                  <h3>Where is Africa in the AI Conversation?</h3>
-                  <p class="date">February 17, 2025</p>
-                  <p>I Africa is missing from the global AI revolution. Why? What can be done? Read my latest article on the challenges and opportunities for AI in Africa.</p>
-                  <a href="https://www.linkedin.com/pulse/where-africa-ai-conversation-mirugwe-alex-eu0ef/?trackingId=CVbmNkcvQUoD%2BBlrQ1ZOmg%3D%3D" target="_blank" rel="noopener noreferrer" class="custom-link">Read More</a>
-               </div>
-            </div>
-            <div class="blog-post fade-in">
-               <div class="content">
-                  <h3>OpenAI's 5-Gigawatt Data Centers: A Technological Marvel or an Energy Crisis in the Making?</h3>
-                  <p class="date">October 7, 2024</p>
-                  <p>OpenAI’s ambitious proposal to build 5-to-7 massive 5-gigawatt data centers! I explore what this means for AI development, global energy use, and sustainability. Could this redefine the tech landscape?</p>
-                  <a href="https://www.linkedin.com/pulse/where-africa-ai-conversation-mirugwe-alex-eu0ef/?trackingId=CVbmNkcvQUoD%2BBlrQ1ZOmg%3D%3D" target="_blank" rel="noopener noreferrer" class="custom-link">Read More</a>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-
-   <!-- Contact Section -->
-   <section id="contact" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h5 class="text-lg text-accent-teal font-medium tracking-wide">Contact</h5>
-         <h1 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900 tracking-tight">Connect With Me</h1>
-         <div class="section-divider"></div>
-         <p class="mt-5 text-lg text-gray-600 max-w-3xl font-light">I’m open to questions, ideas, or collaboration opportunities. Reach out to discuss how I can help you achieve your goals.</p>
-         <div class="mt-12 grid md:grid-cols-2 gap-12 fade-in">
-            <div>
-               <div id="contactForm" class="space-y-6">
-                  <div>
-                     <input name="contactName" type="text" id="contactName" placeholder="Your Name" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" minlength="2" required aria-label="Name">
-                  </div>
-                  <div>
-                     <input name="contactEmail" type="email" id="contactEmail" placeholder="Your Email" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" required aria-label="Email">
-                  </div>
-                  <div>
-                     <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" aria-label="Subject">
-                  </div>
-                  <div>
-                     <textarea name="contactMessage" id="contactMessage" placeholder="Your Message" rows="6" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" required aria-label="Message"></textarea>
-                  </div>
-                  <div>
-                     <button type="button" onclick="submitForm()" class="btn-primary px-8 py-3 font-medium">Submit</button>
-                  </div>
-               </div>
-               <div id="message-success" class="hidden mt-5 text-green-600 font-medium">
-                  <i class="fas fa-check mr-2"></i> Your message was sent successfully!
-               </div>
-               <div id="message-warning" class="hidden mt-5 text-red-600 font-medium"></div>
-            </div>
-            <div class="space-y-10">
-               <div>
-                  <h5 class="text-xl font-semibold text-gray-900"><i class="fas fa-map-marker-alt text-primary-blue mr-2"></i>Location</h5>
-                  <p class="mt-3 text-gray-600 font-light leading-loose">
-                     Plot 20A Kawalya Kaggwa Close<br>
-                     Kololo Kampala<br>
-                     Uganda
-                  </p>
-               </div>
-               <div>
-                  <h5 class="text-xl font-semibold text-gray-900"><i class="fas fa-envelope text-primary-blue mr-2"></i>Email</h5>
-                  <p class="mt-3 text-gray-600 font-light leading-loose">
-                     <a href="mailto:mirugwealex@gmail.com" class="custom-link">mirugwealex@gmail.com</a><br>
-                     <a href="mailto:amirugwe@musph.ac.ug" class="custom-link">amirugwe@musph.ac.ug</a>
-                  </p>
-               </div>
-               <div>
-                  <h5 class="text-xl font-semibold text-gray-900"><i class="fas fa-phone text-primary-blue mr-2"></i>Phone</h5>
-                  <p class="mt-3 text-gray-600 font-light leading-loose">
-                     Phone: <a href="tel:+256701120534" class="custom-link">(+256) 701 120534</a><br>
-                     Mobile: <a href="tel:+27737062534" class="custom-link">(+27) 73 706 2534</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-
-   <!-- Footer -->
-   <footer class="bg-dark text-white py-12">
-      <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-         <div class="copyright text-center md:text-left font-light">
-            <p>© 2025 Mirugwe. Designed by Alex Mirugwe</p>
-         </div>
-         <ul class="flex space-x-6 mt-6 md:mt-0">
-            <li><a href="https://www.facebook.com/mirugwe.alex" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f text-2xl"></i></a></li>
-            <li><a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Google Scholar"><i class="fab fa-google text-2xl"></i></a></li>
-            <li><a href="https://twitter.com/mirugwealex1" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Twitter"><i class="fab fa-twitter text-2xl"></i></a></li>
-            <li><a href="https://www.researchgate.net/profile/Alex-Mirugwe" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="ResearchGate"><i class="fas fa-file-alt text-2xl"></i></a></li>
-            <li><a href="https://www.instagram.com/mirugwe_alex/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-2xl"></i></a></li>
-            <li><a href="https://github.com/mirugwe1" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="GitHub"><i class="fab fa-github text-2xl"></i></a></li>
-         </ul>
-         <div class="mt-6 md:mt-0">
-            <a href="#top" class="smoothscroll text-white hover:text-secondary-gold transition-colors">Back to Top <i class="fas fa-arrow-up ml-2"></i></a>
-         </div>
-      </div>
-   </footer>
-
-   <!-- JavaScript -->
-   <script>
-      $(document).ready(function() {
-         // Preloader
-         $(window).on('load', function() {
-            $('#preloader').fadeOut('slow', function() {
-               $(this).remove();
-            });
-         });
-
-         // Mobile menu toggle
-         $('.menu-toggle').click(function() {
-            $('.mobile-nav').toggleClass('hidden active');
-         });
-
-         // Animate skill bars on scroll
-         $('.skill-bars').waypoint(function() {
-            $('.progress div').each(function() {
-               const width = $(this).data('skill');
-               $(this).css('width', width + '%');
-            });
-         }, { offset: '80%' });
-
-         // Fade-in animations
-         function checkFadeIn() {
-            $('.fade-in').each(function() {
-               const elementTop = $(this).offset().top;
-               const windowBottom = $(window).scrollTop() + $(window).height();
-               if (elementTop < windowBottom - 50) {
-                  $(this).addClass('visible');
-               }
-            });
-         }
-
-         $(window).on('scroll', checkFadeIn);
-         checkFadeIn();
-
-         // Highlight navigation tabs based on scroll position
-         $(window).on('scroll', function() {
-            const scrollPosition = $(window).scrollTop();
-            const windowHeight = $(window).height();
-
-            $('section[id]').each(function() {
-               const section = $(this);
-               const sectionId = section.attr('id');
-               const sectionTop = section.offset().top;
-               const sectionBottom = sectionTop + section.outerHeight();
-
-               const navLink = $('a[href="#' + sectionId + '"]');
-               const mobileNavLink = $('.mobile-nav a[href="#' + sectionId + '"]');
-
-               if (scrollPosition + windowHeight / 2 >= sectionTop && scrollPosition < sectionBottom) {
-                  navLink.addClass('active').siblings().removeClass('active');
-                  mobileNavLink.addClass('active').siblings().removeClass('active');
-               }
-            });
-         });
-
-         // Smooth scroll with active state on click
-         $('a[href^="#"]').on('click', function(e) {
-            e.preventDefault();
-            const target = $($(this).attr('href'));
-            if (target.length) {
-               $('html, body').animate({ scrollTop: target.offset().top }, 600);
-               $(this).addClass('active').siblings().removeClass('active');
-               $('.mobile-nav a').removeClass('active');
-               $('.mobile-nav a[href="' + this.hash + '"]').addClass('active');
-            }
-         });
-
-         // Parallax effect
-         if ($(window).width() > 768) {
-            var scene = document.getElementById('intro');
-            var parallax = new Parallax(scene, {
-               relativeInput: true,
-               scalarX: 10,
-               scalarY: 10
-            });
-         }
-      });
-
-      // Form submission with validation
-      function submitForm() {
-         const name = $('#contactName').val().trim();
-         const email = $('#contactEmail').val().trim();
-         const message = $('#contactMessage').val().trim();
-         const warning = $('#message-warning');
-         const success = $('#message-success');
-
-         warning.addClass('hidden').text('');
-         success.addClass('hidden');
-
-         if (name.length < 2) {
-            warning.removeClass('hidden').text('Name must be at least 2 characters long.');
-            return;
-         }
-         if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
-            warning.removeClass('hidden').text('Please enter a valid email address.');
-            return;
-         }
-         if (message.length === 0) {
-            warning.removeClass('hidden').text('Message cannot be empty.');
-            return;
-         }
-
-         // Placeholder for AJAX submission
-         success.removeClass('hidden');
-         $('#contactForm')[0].reset();
-      }
-   </script>
-</body>
-</html>
