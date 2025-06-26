@@ -18,7 +18,7 @@
    <!-- CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;700&display=swap">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:wght@400;700&display=swap">
 
    <!-- Custom Styles -->
    <style>
@@ -29,13 +29,14 @@
          --bg-light: #f8fafc;
          --bg-dark: #1e293b;
          --text-dark: #0f172a;
+         --glow-gold: 0 0 10px rgba(245, 158, 11, 0.7);
       }
 
       body {
-         font-family: 'Poppins', sans-serif;
+         font-family: 'Lora', serif;
          background-color: var(--bg-light);
          color: var(--text-dark);
-         line-height: 1.7;
+         line-height: 1.8;
          overflow-x: hidden;
       }
 
@@ -49,14 +50,14 @@
          display: flex;
          align-items: center;
          justify-content: center;
-         background-color: var(--bg-light);
+         background: linear-gradient(135deg, #f8fafc, #e0e7ff);
          z-index: 50;
          transition: opacity 0.5s ease-out;
       }
 
       .loader {
-         width: 64px;
-         height: 64px;
+         width: 80px;
+         height: 80px;
          position: relative;
          display: flex;
          align-items: center;
@@ -68,30 +69,30 @@
          content: '';
          position: absolute;
          border-radius: 50%;
-         border: 6px solid transparent;
+         border: 8px solid transparent;
          border-top-color: var(--primary-blue);
          border-bottom-color: var(--secondary-gold);
-         animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+         animation: spin 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
       }
 
       .loader::before {
-         width: 64px;
-         height: 64px;
-         animation-delay: -0.2s;
+         width: 80px;
+         height: 80px;
+         animation-delay: -0.3s;
       }
 
       .loader::after {
-         width: 48px;
-         height: 48px;
+         width: 60px;
+         height: 60px;
          animation-delay: 0s;
       }
 
       .loader .dot {
-         width: 12px;
-         height: 12px;
+         width: 16px;
+         height: 16px;
          background: var(--accent-teal);
          border-radius: 50%;
-         animation: pulse 1.2s ease-in-out infinite;
+         animation: pulse 1.5s ease-in-out infinite;
       }
 
       @keyframes spin {
@@ -100,29 +101,32 @@
       }
 
       @keyframes pulse {
-         0%, 100% { transform: scale(0.8); opacity: 0.7; }
-         50% { transform: scale(1.2); opacity: 1; }
+         0%, 100% { transform: scale(0.7); opacity: 0.6; }
+         50% { transform: scale(1.3); opacity: 1; }
       }
 
       .header-shadow {
-         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-         background: linear-gradient(135deg, #ffffff, #f1f5f9);
+         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+         background: linear-gradient(135deg, #ffffff, #eef2ff);
+         transition: background 0.3s ease;
       }
 
       .nav-link {
          position: relative;
-         transition: color 0.3s ease;
+         transition: color 0.3s ease, box-shadow 0.3s ease;
+         font-family: 'Poppins', sans-serif;
       }
 
       .nav-link::after {
          content: '';
          position: absolute;
          width: 0;
-         height: 3px;
-         bottom: -4px;
+         height: 4px;
+         bottom: -6px;
          left: 0;
-         background-color: var(--secondary-gold);
+         background: var(--secondary-gold);
          transition: width 0.3s ease;
+         border-radius: 2px;
       }
 
       .nav-link:hover::after {
@@ -134,47 +138,50 @@
       }
 
       .nav-link.active {
-         font-weight: bold;
+         font-weight: 600;
          color: var(--secondary-gold);
+         box-shadow: var(--glow-gold);
       }
 
       .nav-link.active::after {
          width: 100%;
-         border-bottom: 3px solid var(--secondary-gold);
+         border-bottom: 4px solid var(--secondary-gold);
       }
 
       .btn-primary {
-         background-color: var(--primary-blue);
+         background: linear-gradient(45deg, var(--primary-blue), #3b82f6);
          color: #fff;
-         padding: 12px 24px;
+         padding: 14px 28px;
          border-radius: 9999px;
-         transition: all 0.3s ease;
-         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         transition: all 0.4s ease;
+         box-shadow: 0 6px 15px rgba(30, 58, 138, 0.3);
+         font-family: 'Poppins', sans-serif;
       }
 
       .btn-primary:hover {
-         background-color: #1e40af;
-         transform: translateY(-3px);
-         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+         background: linear-gradient(45deg, #1e40af, #60a5fa);
+         transform: translateY(-4px) scale(1.05);
+         box-shadow: 0 8px 20px rgba(30, 58, 138, 0.4);
       }
 
       .btn-secondary {
-         background-color: var(--secondary-gold);
+         background: linear-gradient(45deg, var(--secondary-gold), #fbbf24);
          color: var(--text-dark);
-         padding: 12px 24px;
+         padding: 14px 28px;
          border-radius: 9999px;
-         transition: all 0.3s ease;
-         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         transition: all 0.4s ease;
+         box-shadow: 0 6px 15px rgba(245, 158, 11, 0.3);
+         font-family: 'Poppins', sans-serif;
       }
 
       .btn-secondary:hover {
-         background-color: #d97706;
-         transform: translateY(-3px);
-         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+         background: linear-gradient(45deg, #d97706, #f59e0b);
+         transform: translateY(-4px) scale(1.05);
+         box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
       }
 
       .section-bg {
-         background: linear-gradient(135deg, #ffffff, #e2e8f0);
+         background: linear-gradient(135deg, #ffffff, #f9fafb);
          position: relative;
          overflow: hidden;
       }
@@ -186,8 +193,8 @@
          left: 0;
          width: 100%;
          height: 100%;
-         background: url('https://www.transparenttextures.com/patterns/white-wave.png');
-         opacity: 0.05;
+         background: url('https://www.transparenttextures.com/patterns/white-carbon.png');
+         opacity: 0.03;
          z-index: 0;
       }
 
@@ -197,10 +204,10 @@
       }
 
       .intro-bg {
-         background: linear-gradient(45deg, var(--bg-dark), var(--primary-blue));
+         background: linear-gradient(45deg, var(--bg-dark), #2a4580);
          position: relative;
          overflow: hidden;
-         animation: gradientFlow 20s ease infinite;
+         animation: gradientFlow 15s ease infinite;
       }
 
       .intro-bg::before {
@@ -210,8 +217,9 @@
          left: 0;
          width: 100%;
          height: 100%;
-         background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent);
+         background: radial-gradient(circle at 30% 30%, rgba(20, 184, 166, 0.1), transparent), radial-gradient(circle at 70% 70%, rgba(245, 158, 11, 0.1), transparent);
          z-index: 0;
+         animation: particleFlow 20s linear infinite;
       }
 
       .intro-bg > * {
@@ -225,119 +233,125 @@
          100% { background-position: 0% 50%; }
       }
 
+      @keyframes particleFlow {
+         0% { transform: translate(0, 0); }
+         100% { transform: translate(-50%, 50%); }
+      }
+
       .skill-bars .progress {
-         height: 10px;
-         background-color: #e5e7eb;
-         border-radius: 5px;
+         height: 12px;
+         background: #e0e7ff;
+         border-radius: 6px;
          overflow: hidden;
+         box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
       }
 
       .skill-bars .progress div {
          height: 100%;
          background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
-         transition: width 1.5s ease-in-out;
+         transition: width 1.8s ease-in-out;
          position: relative;
+         border-radius: 6px;
       }
 
       .skill-bars .progress div span {
          position: absolute;
-         right: 10px;
-         top: -22px;
+         right: 12px;
+         top: -24px;
          font-size: 14px;
          font-weight: 500;
          color: var(--text-dark);
+         background: rgba(255, 255, 255, 0.9);
+         padding: 2px 6px;
+         border-radius: 3px;
       }
 
       .portfolio-item {
-         background: #ffffff;
-         border-radius: 12px;
+         background: linear-gradient(135deg, #ffffff, #f9fafb);
+         border-radius: 15px;
          overflow: hidden;
-         transition: transform 0.3s ease, box-shadow 0.3s ease;
-         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+         transition: transform 0.4s ease, box-shadow 0.4s ease;
+         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       }
 
       .portfolio-item:hover {
-         transform: translateY(-10px);
-         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+         transform: translateY(-12px) rotate(1deg);
+         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
       }
 
       .portfolio-item img {
          width: 100%;
          height: 256px;
          object-fit: cover;
-         background-color: #e5e7eb; /* Fallback background color */
-         display: block; /* Ensure image displays as block */
+         transition: transform 0.4s ease;
       }
 
       .portfolio-item:hover img {
-         transform: scale(1.05);
+         transform: scale(1.1) rotate(-1deg);
       }
 
       .portfolio-item img:not([src]) {
-         background-color: #e5e7eb;
+         background: linear-gradient(135deg, #e5e7eb, #d1d5db);
          display: flex;
          align-items: center;
          justify-content: center;
-         color: #6b7280;
-         font-size: 14px;
+         color: #4b5563;
+         font-size: 16px;
          text-align: center;
-         padding: 10px;
-      }
-
-      .custom-list, .course-list, .expertise-list {
-         list-style: none;
-         padding-left: 1.5rem;
-         position: relative;
+         padding: 15px;
       }
 
       .custom-list li, .course-list li, .expertise-list li {
          position: relative;
-         margin-bottom: 12px;
-         padding-left: 1.5rem;
-         transition: transform 0.2s ease;
+         margin-bottom: 15px;
+         padding-left: 1.75rem;
+         transition: transform 0.3s ease, color 0.3s ease;
       }
 
       .custom-list li:hover, .course-list li:hover, .expertise-list li:hover {
-         transform: translateX(10px);
+         transform: translateX(12px);
+         color: var(--primary-blue);
       }
 
       .custom-list li::before, .course-list li::before, .expertise-list li::before {
-         content: '\f058'; /* Font Awesome circle-check icon */
+         content: '\f058';
          font-family: 'Font Awesome 6 Free';
          font-weight: 900;
          color: var(--accent-teal);
          position: absolute;
          left: 0;
-         top: 2px;
-         font-size: 1rem;
+         top: 3px;
+         font-size: 1.2rem;
       }
 
       .publication-link, .custom-link {
          color: var(--primary-blue);
          font-weight: 600;
          text-decoration: none;
-         transition: color 0.3s ease, background-color 0.3s ease;
-         padding: 2px 4px;
-         border-radius: 4px;
+         transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+         padding: 4px 8px;
+         border-radius: 6px;
+         display: inline-block;
       }
 
       .publication-link:hover, .custom-link:hover {
          color: var(--secondary-gold);
-         background-color: rgba(245, 158, 11, 0.1);
+         background: rgba(245, 158, 11, 0.15);
+         transform: translateY(-2px);
       }
 
       .section-divider {
-         width: 80px;
-         height: 4px;
-         background: var(--secondary-gold);
-         margin: 20px auto;
-         border-radius: 2px;
+         width: 100px;
+         height: 5px;
+         background: linear-gradient(to right, transparent, var(--secondary-gold), transparent);
+         margin: 25px auto;
+         border-radius: 5px;
       }
 
       .fade-in {
          opacity: 0;
-         transform: translateY(20px);
-         transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+         transform: translateY(30px);
+         transition: opacity 0.8s ease-out, transform 0.8s ease-out;
       }
 
       .fade-in.visible {
@@ -346,8 +360,9 @@
       }
 
       .mobile-nav {
-         transition: transform 0.3s ease;
+         transition: transform 0.4s ease, background 0.4s ease;
          transform: translateY(-100%);
+         background: linear-gradient(135deg, #ffffff, #f9fafb);
       }
 
       .mobile-nav.active {
@@ -360,14 +375,14 @@
             top: 64px;
             left: 0;
             width: 100%;
-            background: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             z-index: 30;
          }
          .mobile-nav a {
             display: block;
-            padding: 16px 24px;
+            padding: 18px 24px;
             border-bottom: 1px solid #e5e7eb;
+            font-size: 1.1rem;
          }
          .portfolio-item img {
             height: 200px;
@@ -379,7 +394,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(2, auto);
-            gap: 2rem;
+            gap: 2.5rem;
          }
       }
 
@@ -387,7 +402,7 @@
          .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            gap: 2rem;
          }
       }
 
@@ -395,8 +410,17 @@
          .portfolio-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 2rem;
          }
+      }
+
+      h1, h2, h3, h5 {
+         transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      h1:hover, h2:hover, h3:hover, h5:hover {
+         transform: scale(1.02);
+         color: var(--primary-blue);
       }
    </style>
 
@@ -404,6 +428,7 @@
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 
    <!-- Favicons -->
    <link rel="icon" type="image/png" href="icon.png">
@@ -455,36 +480,36 @@
    </header>
 
    <!-- Intro Section -->
-   <section id="intro" class="intro-bg text-white py-32">
+   <section id="intro" class="intro-bg text-white py-32 relative" data-parallax="scroll" data-image-src="https://source.unsplash.com/1600x900/?data,science">
       <div class="container mx-auto px-6 text-center fade-in">
-         <h5 class="text-lg font-light tracking-wide">Welcome</h5>
-         <h1 class="text-5xl md:text-6xl font-bold mt-3 tracking-tight">Alex Mirugwe</h1>
-         <p class="mt-5 text-xl max-w-2xl mx-auto font-light">
+         <h5 class="text-lg font-light tracking-wide text-teal-200">Welcome</h5>
+         <h1 class="text-5xl md:text-7xl font-bold mt-3 tracking-tight text-white">Alex Mirugwe</h1>
+         <p class="mt-5 text-xl md:text-2xl max-w-3xl mx-auto font-light text-gray-100">
             Data Scientist Specializing in<br>
             Machine Learning | Deep Learning | Health Informatics
          </p>
          <a href="#about" class="smoothscroll mt-8 inline-block btn-primary px-8 py-3 font-medium">Discover More</a>
-         <ul class="flex justify-center space-x-6 mt-10">
-            <li><a href="https://www.facebook.com/mirugwe.alex" class="text-white hover:text-secondary-gold transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f text-xl"></i></a></li>
-            <li><a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" class="text-white hover:text-secondary-gold transition-colors" aria-label="Google Scholar"><i class="fab fa-google text-xl"></i></a></li>
-            <li><a href="https://twitter.com/mirugwealex1" class="text-white hover:text-secondary-gold transition-colors" aria-label="Twitter"><i class="fab fa-twitter text-xl"></i></a></li>
-            <li><a href="https://www.researchgate.net/profile/Alex-Mirugwe" class="text-white hover:text-secondary-gold transition-colors" aria-label="ResearchGate"><i class="fas fa-file-alt text-xl"></i></a></li>
-            <li><a href="https://www.instagram.com/mirugwe_alex/" class="text-white hover:text-secondary-gold transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a></li>
-            <li><a href="https://github.com/mirugwe1" class="text-white hover:text-secondary-gold transition-colors" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a></li>
+         <ul class="flex justify-center space-x-6 mt-12">
+            <li><a href="https://www.facebook.com/mirugwe.alex" class="text-white hover:text-secondary-gold transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f text-2xl"></i></a></li>
+            <li><a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" class="text-white hover:text-secondary-gold transition-colors" aria-label="Google Scholar"><i class="fab fa-google text-2xl"></i></a></li>
+            <li><a href="https://twitter.com/mirugwealex1" class="text-white hover:text-secondary-gold transition-colors" aria-label="Twitter"><i class="fab fa-twitter text-2xl"></i></a></li>
+            <li><a href="https://www.researchgate.net/profile/Alex-Mirugwe" class="text-white hover:text-secondary-gold transition-colors" aria-label="ResearchGate"><i class="fas fa-file-alt text-2xl"></i></a></li>
+            <li><a href="https://www.instagram.com/mirugwe_alex/" class="text-white hover:text-secondary-gold transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-2xl"></i></a></li>
+            <li><a href="https://github.com/mirugwe1" class="text-white hover:text-secondary-gold transition-colors" aria-label="GitHub"><i class="fab fa-github text-2xl"></i></a></li>
          </ul>
       </div>
    </section>
 
    <!-- About Section -->
-   <section id="about" class="section-bg py-24">
+   <section id="about" class="section-bg py-28">
       <div class="container mx-auto px-6">
          <h5 class="text-lg text-accent-teal font-medium tracking-wide">About</h5>
          <h1 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900 tracking-tight">Get to Know Me</h1>
          <div class="section-divider"></div>
-         <div class="mt-10 flex flex-col md:grid md:grid-cols-2 gap-12 fade-in">
-            <div class="flex flex-col space-y-8">
+         <div class="mt-12 flex flex-col md:grid md:grid-cols-2 gap-12 fade-in">
+            <div class="flex flex-col space-y-10">
                <div class="flex items-center">
-                  <img src="images/profile-pic.png" alt="Profile Picture of Alex Mirugwe" class="w-48 h-48 rounded-full mb-6 md:mb-0 md:mr-12 border-4 border-white shadow-xl" loading="lazy">
+                  <img src="images/profile-pic.png" alt="Profile Picture of Alex Mirugwe" class="w-56 h-56 rounded-full mb-6 md:mb-0 md:mr-12 border-4 border-white shadow-2xl" loading="lazy">
                   <div class="max-w-xl">
                      <h3 class="text-2xl font-semibold text-gray-900 mb-4">About Me</h3>
                      <p class="text-lg text-gray-700 font-light leading-relaxed">
@@ -509,7 +534,7 @@
                   </ul>
                </div>
             </div>
-            <div class="p-6 bg-white rounded-lg shadow-md">
+            <div class="p-8 bg-white rounded-xl shadow-lg">
                <h3 class="text-2xl font-semibold text-gray-900">Skills</h3>
                <ul class="skill-bars mt-6 space-y-6">
                   <li>
@@ -556,26 +581,26 @@
                      <strong class="text-gray-800 font-medium">MLFlow</strong>
                      <div class="progress"><div data-skill="50"><span>50%</span></div></div>
                   </li>
-				  <li>
-					<strong class="text-gray-800 font-medium">LangChain</strong>
-					<div class="progress"><div data-skill="50"><span>50%</span></div></div>
-				 </li>
-				 <li>
-					<strong class="text-gray-800 font-medium">GIT</strong>
-					<div class="progress"><div data-skill="90"><span>90%</span></div></div>
-				 </li>
+                  <li>
+                     <strong class="text-gray-800 font-medium">LangChain</strong>
+                     <div class="progress"><div data-skill="50"><span>50%</span></div></div>
+                  </li>
+                  <li>
+                     <strong class="text-gray-800 font-medium">GIT</strong>
+                     <div class="progress"><div data-skill="90"><span>90%</span></div></div>
+                  </li>
                </ul>
             </div>
          </div>
-         <div class="mt-12 text-center">
+         <div class="mt-16 text-center">
             <a href="#contact" class="smoothscroll inline-block btn-primary px-8 py-3 font-medium">Hire Me</a>
-            <a href="https://drive.google.com/drive/u/0/folders/1Xua1E1iASNrR7XZ7ICUEm7lE4VMi1Q9l" class="inline-block btn-secondary px-8 py-3 font-medium ml-4">Download CV</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1Xua1E1iASNrR7XZ7ICUEm7lE4VMi1Q9l" class="inline-block btn-secondary px-8 py-3 font-medium ml-6">Download CV</a>
          </div>
       </div>
    </section>
 
    <!-- Resume Section -->
-   <section id="resume" class="section-bg py-24">
+   <section id="resume" class="section-bg py-28">
       <div class="container mx-auto px-6">
          <h5 class="text-lg text-accent-teal font-medium tracking-wide">Resume</h5>
          <h1 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900 tracking-tight">My Credentials</h1>
@@ -695,13 +720,13 @@
    </section>
 
    <!-- Portfolio Section -->
-   <section id="portfolio" class="section-bg py-24">
+   <section id="portfolio" class="section-bg py-28">
       <div class="container mx-auto px-6">
          <h5 class="text-lg text-accent-teal font-medium tracking-wide">Portfolio</h5>
          <h1 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900 tracking-tight">Explore My Work</h1>
          <div class="section-divider"></div>
          <p class="mt-5 text-lg text-gray-600 max-w-3xl font-light">Projects showcasing expertise in machine learning, deep learning, computer vision, and NLP, with applications in healthcare and ecology.</p>
-         <div class="mt-10 portfolio-grid">
+         <div class="mt-12 portfolio-grid">
             <div class="portfolio-item fade-in">
                <img src="images/portfolio/cervical_cancer.png" alt="Cervical Cancer Screening Project Image" class="w-full h-64 object-cover" loading="lazy">
                <div class="p-6">
@@ -755,28 +780,28 @@
    </section>
 
    <!-- Services Section -->
-   <section id="services" class="section-bg py-24">
+   <section id="services" class="section-bg py-28">
       <div class="container mx-auto px-6">
          <h5 class="text-lg text-accent-teal font-medium tracking-wide">Services</h5>
          <h1 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900 tracking-tight">My Expertise</h1>
          <div class="section-divider"></div>
-         <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-white p-8 rounded-lg shadow-lg text-center transition-transform hover:scale-105 fade-in">
+         <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:scale-105 hover:shadow-xl fade-in">
                <i class="fas fa-comment text-4xl text-primary-blue mb-4" aria-label="Consultancy Icon"></i>
                <h3 class="text-xl font-semibold text-gray-900">Consultancy</h3>
                <p class="text-gray-600 mt-3 font-light">Leverage AI technologies like machine learning and NLP to enhance healthcare services.</p>
             </div>
-            <div class="bg-white p-8 rounded-lg shadow-lg text-center transition-transform hover:scale-105 fade-in">
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:scale-105 hover:shadow-xl fade-in">
                <i class="fas fa-chart-line text-4xl text-primary-blue mb-4" aria-label="Data Analysis Icon"></i>
                <h3 class="text-xl font-semibold text-gray-900">Data Analysis</h3>
                <p class="text-gray-600 mt-3 font-light">Extract insights from diverse datasets with analytical reports and dynamic dashboards.</p>
             </div>
-            <div class="bg-white p-8 rounded-lg shadow-lg text-center transition-transform hover:scale-105 fade-in">
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:scale-105 hover:shadow-xl fade-in">
                <i class="fas fa-database text-4xl text-primary-blue mb-4" aria-label="Data Mining Icon"></i>
                <h3 class="text-xl font-semibold text-gray-900">Data Mining</h3>
                <p class="text-gray-600 mt-3 font-light">Use advanced statistical and ML techniques to gain predictive insights.</p>
             </div>
-            <div class="bg-white p-8 rounded-lg shadow-lg text-center transition-transform hover:scale-105 fade-in">
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:scale-105 hover:shadow-xl fade-in">
                <i class="fas fa-chalkboard-teacher text-4xl text-primary-blue mb-4" aria-label="Training Icon"></i>
                <h3 class="text-xl font-semibold text-gray-900">Training</h3>
                <p class="text-gray-600 mt-3 font-light">Comprehensive training in statistics, data analysis, and machine learning with R and Python.</p>
@@ -786,7 +811,7 @@
    </section>
 
    <!-- Publications Section -->
-   <section id="publications" class="section-bg py-24">
+   <section id="publications" class="section-bg py-28">
       <div class="container mx-auto px-6">
          <h5 class="text-lg text-accent-teal font-medium tracking-wide">Publications</h5>
          <h1 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900 tracking-tight">Research Contributions</h1>
@@ -804,40 +829,40 @@
    </section>
 
    <!-- Contact Section -->
-   <section id="contact" class="section-bg py-24">
+   <section id="contact" class="section-bg py-28">
       <div class="container mx-auto px-6">
          <h5 class="text-lg text-accent-teal font-medium tracking-wide">Contact</h5>
          <h1 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900 tracking-tight">Connect With Me</h1>
          <div class="section-divider"></div>
          <p class="mt-5 text-lg text-gray-600 max-w-3xl font-light">I’m open to questions, ideas, or collaboration opportunities. Reach out to discuss how I can help you achieve your goals.</p>
-         <div class="mt-10 grid md:grid-cols-2 gap-12 fade-in">
+         <div class="mt-12 grid md:grid-cols-2 gap-12 fade-in">
             <div>
                <div id="contactForm" class="space-y-6">
                   <div>
-                     <input name="contactName" type="text" id="contactName" placeholder="Your Name" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" minlength="2" required aria-label="Name">
+                     <input name="contactName" type="text" id="contactName" placeholder="Your Name" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" minlength="2" required aria-label="Name">
                   </div>
                   <div>
-                     <input name="contactEmail" type="email" id="contactEmail" placeholder="Your Email" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" required aria-label="Email">
+                     <input name="contactEmail" type="email" id="contactEmail" placeholder="Your Email" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" required aria-label="Email">
                   </div>
                   <div>
-                     <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" aria-label="Subject">
+                     <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" aria-label="Subject">
                   </div>
                   <div>
-                     <textarea name="contactMessage" id="contactMessage" placeholder="Your Message" rows="5" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" required aria-label="Message"></textarea>
+                     <textarea name="contactMessage" id="contactMessage" placeholder="Your Message" rows="6" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" required aria-label="Message"></textarea>
                   </div>
                   <div>
                      <button type="button" onclick="submitForm()" class="btn-primary px-8 py-3 font-medium">Submit</button>
                   </div>
                </div>
-               <div id="message-success" class="hidden mt-5 text-green-600">
+               <div id="message-success" class="hidden mt-5 text-green-600 font-medium">
                   <i class="fas fa-check mr-2"></i> Your message was sent successfully!
                </div>
-               <div id="message-warning" class="hidden mt-5 text-red-600"></div>
+               <div id="message-warning" class="hidden mt-5 text-red-600 font-medium"></div>
             </div>
-            <div class="space-y-8">
+            <div class="space-y-10">
                <div>
                   <h5 class="text-xl font-semibold text-gray-900"><i class="fas fa-map-marker-alt text-primary-blue mr-2"></i>Location</h5>
-                  <p class="mt-3 text-gray-600 font-light">
+                  <p class="mt-3 text-gray-600 font-light leading-loose">
                      Plot 20A Kawalya Kaggwa Close<br>
                      Kololo Kampala<br>
                      Uganda
@@ -845,14 +870,14 @@
                </div>
                <div>
                   <h5 class="text-xl font-semibold text-gray-900"><i class="fas fa-envelope text-primary-blue mr-2"></i>Email</h5>
-                  <p class="mt-3 text-gray-600 font-light">
+                  <p class="mt-3 text-gray-600 font-light leading-loose">
                      <a href="mailto:mirugwealex@gmail.com" class="custom-link">mirugwealex@gmail.com</a><br>
                      <a href="mailto:amirugwe@musph.ac.ug" class="custom-link">amirugwe@musph.ac.ug</a>
                   </p>
                </div>
                <div>
                   <h5 class="text-xl font-semibold text-gray-900"><i class="fas fa-phone text-primary-blue mr-2"></i>Phone</h5>
-                  <p class="mt-3 text-gray-600 font-light">
+                  <p class="mt-3 text-gray-600 font-light leading-loose">
                      Phone: <a href="tel:+256701120534" class="custom-link">(+256) 701 120534</a><br>
                      Mobile: <a href="tel:+27737062534" class="custom-link">(+27) 73 706 2534</a>
                   </p>
@@ -869,12 +894,12 @@
             <p>© 2025 Mirugwe. Designed by Alex Mirugwe</p>
          </div>
          <ul class="flex space-x-6 mt-6 md:mt-0">
-            <li><a href="https://www.facebook.com/mirugwe.alex" class="text-white hover:text-secondary-gold transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f text-xl"></i></a></li>
-            <li><a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" class="text-white hover:text-secondary-gold transition-colors" aria-label="Google Scholar"><i class="fab fa-google text-xl"></i></a></li>
-            <li><a href="https://twitter.com/mirugwealex1" class="text-white hover:text-secondary-gold transition-colors" aria-label="Twitter"><i class="fab fa-twitter text-xl"></i></a></li>
-            <li><a href="https://www.researchgate.net/profile/Alex-Mirugwe" class="text-white hover:text-secondary-gold transition-colors" aria-label="ResearchGate"><i class="fas fa-file-alt text-xl"></i></a></li>
-            <li><a href="https://www.instagram.com/mirugwe_alex/" class="text-white hover:text-secondary-gold transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a></li>
-            <li><a href="https://github.com/mirugwe1" class="text-white hover:text-secondary-gold transition-colors" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a></li>
+            <li><a href="https://www.facebook.com/mirugwe.alex" class="text-white hover:text-secondary-gold transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f text-2xl"></i></a></li>
+            <li><a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" class="text-white hover:text-secondary-gold transition-colors" aria-label="Google Scholar"><i class="fab fa-google text-2xl"></i></a></li>
+            <li><a href="https://twitter.com/mirugwealex1" class="text-white hover:text-secondary-gold transition-colors" aria-label="Twitter"><i class="fab fa-twitter text-2xl"></i></a></li>
+            <li><a href="https://www.researchgate.net/profile/Alex-Mirugwe" class="text-white hover:text-secondary-gold transition-colors" aria-label="ResearchGate"><i class="fas fa-file-alt text-2xl"></i></a></li>
+            <li><a href="https://www.instagram.com/mirugwe_alex/" class="text-white hover:text-secondary-gold transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-2xl"></i></a></li>
+            <li><a href="https://github.com/mirugwe1" class="text-white hover:text-secondary-gold transition-colors" aria-label="GitHub"><i class="fab fa-github text-2xl"></i></a></li>
          </ul>
          <div class="mt-6 md:mt-0">
             <a href="#top" class="smoothscroll text-white hover:text-secondary-gold transition-colors">Back to Top <i class="fas fa-arrow-up ml-2"></i></a>
@@ -945,12 +970,22 @@
             e.preventDefault();
             const target = $($(this).attr('href'));
             if (target.length) {
-               $('html, body').animate({ scrollTop: target.offset().top }, 500);
+               $('html, body').animate({ scrollTop: target.offset().top }, 600);
                $(this).addClass('active').siblings().removeClass('active');
                $('.mobile-nav a').removeClass('active');
                $('.mobile-nav a[href="' + this.hash + '"]').addClass('active');
             }
          });
+
+         // Parallax effect
+         if ($(window).width() > 768) {
+            var scene = document.getElementById('intro');
+            var parallax = new Parallax(scene, {
+               relativeInput: true,
+               scalarX: 10,
+               scalarY: 10
+            });
+         }
       });
 
       // Form submission with validation
@@ -977,24 +1012,7 @@
             return;
          }
 
-         // Placeholder for AJAX submission (e.g., to Formspree)
-         // $.ajax({
-         //     url: 'https://formspree.io/f/your_form_id',
-         //     method: 'POST',
-         //     data: $('#contactForm').serialize(),
-         //     dataType: 'json',
-         //     success: function() {
-         //         success.removeClass('hidden');
-         //         warning.addClass('hidden');
-         //         $('#contactForm')[0].reset();
-         //     },
-         //     error: function() {
-         //         warning.removeClass('hidden').text('Error sending message. Please try again.');
-         //         success.addClass('hidden');
-         //     }
-         // });
-
-         // Temporary success message for demo
+         // Placeholder for AJAX submission
          success.removeClass('hidden');
          $('#contactForm')[0].reset();
       }
