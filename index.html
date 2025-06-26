@@ -133,6 +133,16 @@
          color: var(--secondary-gold);
       }
 
+      .nav-link.active {
+         font-weight: bold;
+         color: var(--secondary-gold);
+      }
+
+      .nav-link.active::after {
+         width: 100%;
+         border-bottom: 3px solid var(--secondary-gold);
+      }
+
       .btn-primary {
          background-color: var(--primary-blue);
          color: #fff;
@@ -187,9 +197,10 @@
       }
 
       .intro-bg {
-         background: linear-gradient(135deg, var(--bg-dark), var(--primary-blue));
+         background: linear-gradient(45deg, var(--bg-dark), var(--primary-blue));
          position: relative;
          overflow: hidden;
+         animation: gradientFlow 20s ease infinite;
       }
 
       .intro-bg::before {
@@ -206,6 +217,12 @@
       .intro-bg > * {
          position: relative;
          z-index: 1;
+      }
+
+      @keyframes gradientFlow {
+         0% { background-position: 0% 50%; }
+         50% { background-position: 100% 50%; }
+         100% { background-position: 0% 50%; }
       }
 
       .skill-bars .progress {
@@ -893,6 +910,39 @@
 
          $(window).on('scroll', checkFadeIn);
          checkFadeIn();
+
+         // Highlight navigation tabs based on scroll position
+         $(window).on('scroll', function() {
+            const scrollPosition = $(window).scrollTop();
+            const windowHeight = $(window).height();
+
+            $('section[id]').each(function() {
+               const section = $(this);
+               const sectionId = section.attr('id');
+               const sectionTop = section.offset().top;
+               const sectionBottom = sectionTop + section.outerHeight();
+
+               const navLink = $('a[href="#' + sectionId + '"]');
+               const mobileNavLink = $('.mobile-nav a[href="#' + sectionId + '"]');
+
+               if (scrollPosition + windowHeight / 2 >= sectionTop && scrollPosition < sectionBottom) {
+                  navLink.addClass('active').siblings().removeClass('active');
+                  mobileNavLink.addClass('active').siblings().removeClass('active');
+               }
+            });
+         });
+
+         // Smooth scroll with active state on click
+         $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            const target = $($(this).attr('href'));
+            if (target.length) {
+               $('html, body').animate({ scrollTop: target.offset().top }, 500);
+               $(this).addClass('active').siblings().removeClass('active');
+               $('.mobile-nav a').removeClass('active');
+               $('.mobile-nav a[href="' + this.hash + '"]').addClass('active');
+            }
+         });
       });
 
       // Form submission with validation
