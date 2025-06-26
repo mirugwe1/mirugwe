@@ -6,9 +6,9 @@
    <title>Mirugwe - Data Scientist Portfolio</title>
    <meta name="description" content="Portfolio of Alex Mirugwe, a data scientist specializing in AI, machine learning, and healthcare solutions.">
    <meta name="author" content="Alex Mirugwe">
-   <meta name="keywords" content="data scientist, AI, machine learning, healthcare, Alex Mirugwe, portfolio">
+   <meta name="keywords" content="data scientist, AI, machine learning, healthcare, Alex Mirugwe, portfolio, blogs">
    <meta property="og:title" content="Mirugwe - Data Scientist Portfolio">
-   <meta property="og:description" content="Portfolio of Alex Mirugwe, a data scientist specializing in AI, machine learning, and healthcare solutions.">
+   <meta property="og:description" content="Portfolio of Alex Mirugwe, a data scientist specializing in AI, machine learning, healthcare solutions, and blogs.">
    <meta property="og:image" content="https://yourdomain.com/images/profile-pic.png">
    <meta property="og:url" content="https://yourdomain.com">
 
@@ -369,6 +369,55 @@
          transform: translateY(0);
       }
 
+      .blog-post {
+         background: linear-gradient(135deg, #ffffff, #f9fafb);
+         border-radius: 15px;
+         overflow: hidden;
+         transition: transform 0.4s ease, box-shadow 0.4s ease;
+         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+         margin-bottom: 2rem;
+      }
+
+      .blog-post:hover {
+         transform: translateY(-12px) rotate(1deg);
+         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .blog-post .content {
+         padding: 1.5rem;
+      }
+
+      .blog-post h3 {
+         font-size: 1.5rem;
+         font-weight: 700;
+         color: var(--text-dark);
+         margin-bottom: 0.5rem;
+      }
+
+      .blog-post p {
+         font-size: 1rem;
+         color: #4b5563;
+         margin-bottom: 1rem;
+      }
+
+      .blog-post .date {
+         font-size: 0.875rem;
+         color: #6b7280;
+         font-style: italic;
+      }
+
+      .blog-post a {
+         color: var(--primary-blue);
+         font-weight: 600;
+         text-decoration: none;
+         transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      .blog-post a:hover {
+         color: var(--secondary-gold);
+         transform: translateY(-2px);
+      }
+
       @media (max-width: 767px) {
          .mobile-nav {
             position: fixed;
@@ -387,6 +436,9 @@
          .portfolio-item img {
             height: 200px;
          }
+         .blog-post h3 {
+            font-size: 1.25rem;
+         }
       }
 
       @media (min-width: 1024px) {
@@ -396,6 +448,11 @@
             grid-template-rows: repeat(2, auto);
             gap: 2.5rem;
          }
+         .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+         }
       }
 
       @media (max-width: 1023px) and (min-width: 768px) {
@@ -404,10 +461,20 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
          }
+         .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+         }
       }
 
       @media (max-width: 767px) {
          .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+         }
+         .blog-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 2rem;
@@ -464,6 +531,7 @@
             <a href="#portfolio" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Portfolio</a>
             <a href="#services" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Services</a>
             <a href="#publications" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Publications</a>
+            <a href="#blogs" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Blogs</a>
             <a href="#contact" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Contact</a>
          </nav>
          <a class="menu-toggle md:hidden text-gray-700 hover:text-gray-900" href="#" aria-label="Toggle Menu"><i class="fas fa-bars text-2xl"></i></a>
@@ -475,6 +543,7 @@
          <a href="#portfolio" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Portfolio</a>
          <a href="#services" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Services</a>
          <a href="#publications" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Publications</a>
+         <a href="#blogs" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Blogs</a>
          <a href="#contact" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Contact</a>
       </nav>
    </header>
@@ -819,6 +888,42 @@
             <li>A. Mirugwe, “Adoption of Artificial Intelligence in the Ugandan Health Sector: A Review of Literature,” [Preprint] <a href="https://www.researchgate.net/publication/370073027_Adoption_of_Artificial_Intelligence_in_the_Ugandan_Health_Sector_a_review_of_Literature" class="publication-link" aria-label="View publication on ResearchGate">ResearchGate</a></li>
             <li>A. Mirugwe, “Restaurant Tip Prediction Using Linear Regression,” in International Journal of Data Science and Big Data Analytics, vol. 1, Iss. 2, 2021, pp. 31–38 <a href="https://www.researchgate.net/publication/353100937_Restaurant_tip_prediction_using_linear_regression" class="publication-link" aria-label="View publication on ResearchGate">ResearchGate</a></li>
          </ul>
+      </div>
+   </section>
+
+   <!-- Blogs Section -->
+   <section id="blogs" class="section-bg py-28">
+      <div class="container mx-auto px-6">
+         <h5 class="text-lg text-accent-teal font-medium tracking-wide">Blogs</h5>
+         <h1 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900 tracking-tight">My Substack Articles</h1>
+         <div class="section-divider"></div>
+         <p class="mt-5 text-lg text-gray-600 max-w-3xl font-light">Explore my latest thoughts and insights on data science and AI.</p>
+         <div class="mt-12 blog-grid">
+            <div class="blog-post fade-in">
+               <div class="content">
+                  <h3>Why Skipping the Basics in AI Creates Pseudo-Experts</h3>
+                  <p class="date">June 24, 2025</p>
+                  <p>AI tools are ubiquitous, but many overlook the basics and end up with a superficial understanding. In this piece, I explain why that matters and how to build real expertise.</p>
+                  <a href="https://alexmirugwe.substack.com/p/why-skipping-the-basics-in-ai-creates" class="custom-link">Read More</a>
+               </div>
+            </div>
+            <div class="blog-post fade-in">
+               <div class="content">
+                  <h3>AI Panic: Why Strategy Must Come Before Hype</h3>
+                  <p class="date">June 12, 2025</p>
+                  <p>I have been seeing too many teams and organizations dive into AI without a clear plan - no defined use cases, no ROI thinking, just fear of missing out. That kind of rush usually ends badly.
+                     Wrote this article to unpack why hype isn’t enough and what real strategy looks like.</p>
+                  <a href="https://alexmirugwe.substack.com/p/where-is-africa-in-the-ai-conversation" class="custom-link">Read More</a>
+            </div>
+            <div class="blog-post fade-in">
+                  <div class="content">
+                     <h3>Where is Africa in the AI Conversation?</h3>
+                     <p class="date">February 17, 2025</p>
+                     <p>I Africa is missing from the global AI revolution. Why? What can be done? Read my latest article on the challenges and opportunities for AI in Africa.</p>
+                     <a href="https://www.linkedin.com/pulse/where-africa-ai-conversation-mirugwe-alex-eu0ef/?trackingId=CVbmNkcvQUoD%2BBlrQ1ZOmg%3D%3D" class="custom-link">Read More</a>
+                  </div>
+               </div>
+         </div>
       </div>
    </section>
 
