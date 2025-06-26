@@ -220,6 +220,7 @@
          background: radial-gradient(circle at 30% 30%, rgba(20, 184, 166, 0.1), transparent), radial-gradient(circle at 70% 70%, rgba(245, 158, 11, 0.1), transparent);
          z-index: 0;
          animation: particleFlow 20s linear infinite;
+         pointer-events: none; /* Prevents pseudo-element from blocking clicks */
       }
 
       .intro-bg > * {
@@ -559,13 +560,13 @@
             Machine Learning | Deep Learning | Health Informatics
          </p>
          <a href="#about" class="smoothscroll mt-8 inline-block btn-primary px-8 py-3 font-medium">Discover More</a>
-         <ul class="flex justify-center space-x-6 mt-12">
-            <li><a href="https://www.facebook.com/mirugwe.alex" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f text-2xl"></i></a></li>
-            <li><a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Google Scholar"><i class="fab fa-google text-2xl"></i></a></li>
-            <li><a href="https://twitter.com/mirugwealex1" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Twitter"><i class="fab fa-twitter text-2xl"></i></a></li>
-            <li><a href="https://www.researchgate.net/profile/Alex-Mirugwe" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="ResearchGate"><i class="fas fa-file-alt text-2xl"></i></a></li>
-            <li><a href="https://www.instagram.com/mirugwe_alex/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-2xl"></i></a></li>
-            <li><a href="https://github.com/mirugwe1" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="GitHub"><i class="fab fa-github text-2xl"></i></a></li>
+         <ul class="flex justify-center space-x-6 mt-12" style="pointer-events: auto !important;">
+            <li><a href="https://www.facebook.com/mirugwe.alex" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Facebook" style="pointer-events: auto !important;"><i class="fab fa-facebook-f text-2xl"></i></a></li>
+            <li><a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Google Scholar" style="pointer-events: auto !important;"><i class="fab fa-google text-2xl"></i></a></li>
+            <li><a href="https://twitter.com/mirugwealex1" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Twitter" style="pointer-events: auto !important;"><i class="fab fa-twitter text-2xl"></i></a></li>
+            <li><a href="https://www.researchgate.net/profile/Alex-Mirugwe" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="ResearchGate" style="pointer-events: auto !important;"><i class="fas fa-file-alt text-2xl"></i></a></li>
+            <li><a href="https://www.instagram.com/mirugwe_alex/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Instagram" style="pointer-events: auto !important;"><i class="fab fa-instagram text-2xl"></i></a></li>
+            <li><a href="https://github.com/mirugwe1" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="GitHub" style="pointer-events: auto !important;"><i class="fab fa-github text-2xl"></i></a></li>
          </ul>
       </div>
    </section>
@@ -1075,7 +1076,7 @@
          });
 
          // Smooth scroll with active state on click
-         $('a[href^="#"]').on('click', function(e) {
+         $('a[href^="#"]').not('.social-links a').on('click', function(e) { // Exclude social links
             e.preventDefault();
             const target = $($(this).attr('href'));
             if (target.length) {
