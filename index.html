@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" data-theme="dark">
 <head>
-   <!-- Basic page needs -->
    <meta charset="utf-8">
    <title>Mirugwe - Data Scientist Portfolio</title>
    <meta name="description" content="Portfolio of Alex Mirugwe, a data scientist specializing in AI, machine learning, and healthcare solutions.">
@@ -11,495 +10,13 @@
    <meta property="og:description" content="Portfolio of Alex Mirugwe, a data scientist specializing in AI, machine learning, healthcare solutions, and blogs.">
    <meta property="og:image" content="https://yourdomain.com/images/profile-pic.png">
    <meta property="og:url" content="https://yourdomain.com">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   <!-- Mobile specific metas -->
-   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-   <!-- CSS -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+   <!-- Fonts & Icons -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:wght@400;700&display=swap">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
 
-   <!-- Custom Styles -->
-   <style>
-      :root {
-         --primary-blue: #1e3a8a;
-         --secondary-gold: #f59e0b;
-         --accent-teal: #14b8a6;
-         --bg-light: #f8fafc;
-         --bg-dark: #1e293b;
-         --text-dark: #0f172a;
-         --glow-gold: 0 0 10px rgba(245, 158, 11, 0.7);
-      }
-
-      body {
-         font-family: 'Lora', serif;
-         background-color: var(--bg-light);
-         color: var(--text-dark);
-         line-height: 1.8;
-         overflow-x: hidden;
-      }
-
-      .smoothscroll {
-         scroll-behavior: smooth;
-      }
-
-      #preloader {
-         position: fixed;
-         inset: 0;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         background: linear-gradient(135deg, #f8fafc, #e0e7ff);
-         z-index: 50;
-         transition: opacity 0.5s ease-out;
-      }
-
-      .loader {
-         width: 80px;
-         height: 80px;
-         position: relative;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-      }
-
-      .loader::before,
-      .loader::after {
-         content: '';
-         position: absolute;
-         border-radius: 50%;
-         border: 8px solid transparent;
-         border-top-color: var(--primary-blue);
-         border-bottom-color: var(--secondary-gold);
-         animation: spin 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-      }
-
-      .loader::before {
-         width: 80px;
-         height: 80px;
-         animation-delay: -0.3s;
-      }
-
-      .loader::after {
-         width: 60px;
-         height: 60px;
-         animation-delay: 0s;
-      }
-
-      .loader .dot {
-         width: 16px;
-         height: 16px;
-         background: var(--accent-teal);
-         border-radius: 50%;
-         animation: pulse 1.5s ease-in-out infinite;
-      }
-
-      @keyframes spin {
-         0% { transform: rotate(0deg); }
-         100% { transform: rotate(360deg); }
-      }
-
-      @keyframes pulse {
-         0%, 100% { transform: scale(0.7); opacity: 0.6; }
-         50% { transform: scale(1.3); opacity: 1; }
-      }
-
-      .header-shadow {
-         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-         background: linear-gradient(135deg, #ffffff, #eef2ff);
-         transition: background 0.3s ease;
-      }
-
-      .nav-link {
-         position: relative;
-         transition: color 0.3s ease, box-shadow 0.3s ease;
-         font-family: 'Poppins', sans-serif;
-      }
-
-      .nav-link::after {
-         content: '';
-         position: absolute;
-         width: 0;
-         height: 4px;
-         bottom: -6px;
-         left: 0;
-         background: var(--secondary-gold);
-         transition: width 0.3s ease;
-         border-radius: 2px;
-      }
-
-      .nav-link:hover::after {
-         width: 100%;
-      }
-
-      .nav-link:hover {
-         color: var(--secondary-gold);
-      }
-
-      .nav-link.active {
-         font-weight: 600;
-         color: var(--secondary-gold);
-         box-shadow: var(--glow-gold);
-      }
-
-      .nav-link.active::after {
-         width: 100%;
-         border-bottom: 4px solid var(--secondary-gold);
-      }
-
-      .btn-primary {
-         background: linear-gradient(45deg, var(--primary-blue), #3b82f6);
-         color: #fff;
-         padding: 14px 28px;
-         border-radius: 9999px;
-         transition: all 0.4s ease;
-         box-shadow: 0 6px 15px rgba(30, 58, 138, 0.3);
-         font-family: 'Poppins', sans-serif;
-      }
-
-      .btn-primary:hover {
-         background: linear-gradient(45deg, #1e40af, #60a5fa);
-         transform: translateY(-4px) scale(1.05);
-         box-shadow: 0 8px 20px rgba(30, 58, 138, 0.4);
-      }
-
-      .btn-secondary {
-         background: linear-gradient(45deg, var(--secondary-gold), #fbbf24);
-         color: var(--text-dark);
-         padding: 14px 28px;
-         border-radius: 9999px;
-         transition: all 0.4s ease;
-         box-shadow: 0 6px 15px rgba(245, 158, 11, 0.3);
-         font-family: 'Poppins', sans-serif;
-      }
-
-      .btn-secondary:hover {
-         background: linear-gradient(45deg, #d97706, #f59e0b);
-         transform: translateY(-4px) scale(1.05);
-         box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
-      }
-
-      .section-bg {
-         background: linear-gradient(135deg, #ffffff, #f9fafb);
-         position: relative;
-         overflow: hidden;
-      }
-
-      .section-bg::before {
-         content: '';
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background: url('https://www.transparenttextures.com/patterns/white-carbon.png');
-         opacity: 0.03;
-         z-index: 0;
-      }
-
-      .section-bg > * {
-         position: relative;
-         z-index: 1;
-      }
-
-      .intro-bg {
-         background: linear-gradient(45deg, var(--bg-dark), #2a4580);
-         position: relative;
-         overflow: hidden;
-         animation: gradientFlow 15s ease infinite;
-      }
-
-      .intro-bg::before {
-         content: '';
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background: radial-gradient(circle at 30% 30%, rgba(20, 184, 166, 0.1), transparent), radial-gradient(circle at 70% 70%, rgba(245, 158, 11, 0.1), transparent);
-         z-index: 0;
-         animation: particleFlow 20s linear infinite;
-         pointer-events: none; /* Prevents pseudo-element from blocking clicks */
-      }
-
-      .intro-bg > * {
-         position: relative;
-         z-index: 1;
-      }
-
-      @keyframes gradientFlow {
-         0% { background-position: 0% 50%; }
-         50% { background-position: 100% 50%; }
-         100% { background-position: 0% 50%; }
-      }
-
-      @keyframes particleFlow {
-         0% { transform: translate(0, 0); }
-         100% { transform: translate(-50%, 50%); }
-      }
-
-      .skill-bars .progress {
-         height: 12px;
-         background: #e0e7ff;
-         border-radius: 6px;
-         overflow: hidden;
-         box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-      }
-
-      .skill-bars .progress div {
-         height: 100%;
-         background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
-         transition: width 1.8s ease-in-out;
-         position: relative;
-         border-radius: 6px;
-      }
-
-      .skill-bars .progress div span {
-         position: absolute;
-         right: 12px;
-         top: -24px;
-         font-size: 14px;
-         font-weight: 500;
-         color: var(--text-dark);
-         background: rgba(255, 255, 255, 0.9);
-         padding: 2px 6px;
-         border-radius: 3px;
-      }
-
-      .portfolio-item {
-         background: linear-gradient(135deg, #ffffff, #f9fafb);
-         border-radius: 15px;
-         overflow: hidden;
-         transition: transform 0.4s ease, box-shadow 0.4s ease;
-         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      }
-
-      .portfolio-item:hover {
-         transform: translateY(-12px) rotate(1deg);
-         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-      }
-
-      .portfolio-item img {
-         width: 100%;
-         height: 256px;
-         object-fit: cover;
-         transition: transform 0.4s ease;
-      }
-
-      .portfolio-item:hover img {
-         transform: scale(1.1) rotate(-1deg);
-      }
-
-      .portfolio-item img:not([src]) {
-         background: linear-gradient(135deg, #e5e7eb, #d1d5db);
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         color: #4b5563;
-         font-size: 16px;
-         text-align: center;
-         padding: 15px;
-      }
-
-      .custom-list li, .course-list li, .expertise-list li {
-         position: relative;
-         margin-bottom: 15px;
-         padding-left: 1.75rem;
-         transition: transform 0.3s ease, color 0.3s ease;
-      }
-
-      .custom-list li:hover, .course-list li:hover, .expertise-list li:hover {
-         transform: translateX(12px);
-         color: var(--primary-blue);
-      }
-
-      .custom-list li::before, .course-list li::before, .expertise-list li::before {
-         content: '\f058';
-         font-family: 'Font Awesome 6 Free';
-         font-weight: 900;
-         color: var(--accent-teal);
-         position: absolute;
-         left: 0;
-         top: 3px;
-         font-size: 1.2rem;
-      }
-
-      .publication-link, .custom-link {
-         color: var(--primary-blue);
-         font-weight: 600;
-         text-decoration: none;
-         transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-         padding: 4px 8px;
-         border-radius: 6px;
-         display: inline-block;
-      }
-
-      .publication-link:hover, .custom-link:hover {
-         color: var(--secondary-gold);
-         background: rgba(245, 158, 11, 0.15);
-         transform: translateY(-2px);
-      }
-
-      .section-divider {
-         width: 100px;
-         height: 5px;
-         background: linear-gradient(to right, transparent, var(--secondary-gold), transparent);
-         margin: 25px auto;
-         border-radius: 5px;
-      }
-
-      .fade-in {
-         opacity: 0;
-         transform: translateY(30px);
-         transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      }
-
-      .fade-in.visible {
-         opacity: 1;
-         transform: translateY(0);
-      }
-
-      .mobile-nav {
-         transition: transform 0.4s ease, background 0.4s ease;
-         transform: translateY(-100%);
-         background: linear-gradient(135deg, #ffffff, #f9fafb);
-      }
-
-      .mobile-nav.active {
-         transform: translateY(0);
-      }
-
-      .blog-post {
-         background: linear-gradient(135deg, #ffffff, #f9fafb);
-         border-radius: 15px;
-         overflow: hidden;
-         transition: transform 0.4s ease, box-shadow 0.4s ease;
-         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-         margin-bottom: 2rem;
-      }
-
-      .blog-post:hover {
-         transform: translateY(-12px) rotate(1deg);
-         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-      }
-
-      .blog-post .content {
-         padding: 1.5rem;
-      }
-
-      .blog-post h3 {
-         font-size: 1.5rem;
-         font-weight: 700;
-         color: var(--text-dark);
-         margin-bottom: 0.5rem;
-      }
-
-      .blog-post p {
-         font-size: 1rem;
-         color: #4b5563;
-         margin-bottom: 1rem;
-      }
-
-      .blog-post .date {
-         font-size: 0.875rem;
-         color: #6b7280;
-         font-style: italic;
-      }
-
-      .blog-post a {
-         color: var(--primary-blue);
-         font-weight: 600;
-         text-decoration: none;
-         transition: color 0.3s ease, transform 0.3s ease;
-      }
-
-      .blog-post a:hover {
-         color: var(--secondary-gold);
-         transform: translateY(-2px);
-      }
-
-      @media (max-width: 767px) {
-         .mobile-nav {
-            position: fixed;
-            top: 64px;
-            left: 0;
-            width: 100%;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            z-index: 30;
-         }
-         .mobile-nav a {
-            display: block;
-            padding: 18px 24px;
-            border-bottom: 1px solid #e5e7eb;
-            font-size: 1.1rem;
-         }
-         .portfolio-item img {
-            height: 200px;
-         }
-         .blog-post h3 {
-            font-size: 1.25rem;
-         }
-      }
-
-      @media (min-width: 1024px) {
-         .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, auto);
-            gap: 2.5rem;
-         }
-         .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, auto);
-            gap: 2rem;
-         }
-      }
-
-      @media (max-width: 1023px) and (min-width: 768px) {
-         .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-         }
-         .blog-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-         }
-      }
-
-      @media (max-width: 767px) {
-         .portfolio-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-         }
-         .blog-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-         }
-      }
-
-      h1, h2, h3, h5 {
-         transition: transform 0.3s ease, color 0.3s ease;
-      }
-
-      h1:hover, h2:hover, h3:hover, h5:hover {
-         transform: scale(1.02);
-         color: var(--primary-blue);
-      }
-   </style>
-
-   <!-- Scripts -->
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-
-   <!-- Favicons -->
+   <!-- Favicon -->
    <link rel="icon" type="image/png" href="icon.png">
 
    <!-- Google Analytics -->
@@ -510,185 +27,1539 @@
       gtag('js', new Date());
       gtag('config', 'G-4RCFTDXNXP');
    </script>
+
+   <style>
+      /* ===== CSS VARIABLES (Dark-first) ===== */
+      :root {
+         --bg-primary: #0a0a0f;
+         --bg-secondary: #12121a;
+         --bg-tertiary: #1a1a2e;
+         --bg-card: rgba(18, 18, 26, 0.8);
+         --text-primary: #e4e4e7;
+         --text-secondary: #a1a1aa;
+         --text-muted: #71717a;
+         --accent-cyan: #06b6d4;
+         --accent-purple: #8b5cf6;
+         --accent-amber: #f59e0b;
+         --accent-teal: #14b8a6;
+         --border-color: rgba(255, 255, 255, 0.08);
+         --glow-cyan: 0 0 20px rgba(6, 182, 212, 0.3);
+         --glow-purple: 0 0 20px rgba(139, 92, 246, 0.3);
+         --glow-amber: 0 0 20px rgba(245, 158, 11, 0.3);
+         --glass-bg: rgba(18, 18, 26, 0.6);
+         --glass-border: rgba(255, 255, 255, 0.06);
+         --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+         --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+         --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      [data-theme="light"] {
+         --bg-primary: #f8fafc;
+         --bg-secondary: #ffffff;
+         --bg-tertiary: #f1f5f9;
+         --bg-card: rgba(255, 255, 255, 0.9);
+         --text-primary: #0f172a;
+         --text-secondary: #475569;
+         --text-muted: #94a3b8;
+         --border-color: rgba(0, 0, 0, 0.08);
+         --glass-bg: rgba(255, 255, 255, 0.7);
+         --glass-border: rgba(0, 0, 0, 0.06);
+      }
+
+      /* ===== RESET & BASE ===== */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      html {
+         scroll-behavior: smooth;
+         scroll-padding-top: 80px;
+      }
+
+      body {
+         font-family: var(--font-sans);
+         background: var(--bg-primary);
+         color: var(--text-primary);
+         line-height: 1.7;
+         overflow-x: hidden;
+         transition: background var(--transition), color var(--transition);
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+      ul { list-style: none; }
+
+      .container {
+         max-width: 1200px;
+         margin: 0 auto;
+         padding: 0 24px;
+      }
+
+      /* ===== PRELOADER ===== */
+      #preloader {
+         position: fixed;
+         inset: 0;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         background: var(--bg-primary);
+         z-index: 9999;
+         transition: opacity 0.5s ease;
+      }
+
+      #preloader.hidden {
+         opacity: 0;
+         pointer-events: none;
+      }
+
+      .loader {
+         width: 48px;
+         height: 48px;
+         border: 3px solid var(--border-color);
+         border-top-color: var(--accent-cyan);
+         border-radius: 50%;
+         animation: spin 0.8s linear infinite;
+      }
+
+      @keyframes spin { to { transform: rotate(360deg); } }
+
+      /* ===== HEADER / NAV ===== */
+      .header {
+         position: fixed;
+         top: 0;
+         left: 0;
+         right: 0;
+         z-index: 100;
+         background: var(--glass-bg);
+         -webkit-backdrop-filter: blur(16px);
+         backdrop-filter: blur(16px);
+         border-bottom: 1px solid var(--glass-border);
+         transition: background var(--transition);
+      }
+
+      .header-inner {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         padding: 16px 24px;
+         max-width: 1200px;
+         margin: 0 auto;
+      }
+
+      .logo {
+         font-family: var(--font-mono);
+         font-size: 1.25rem;
+         font-weight: 700;
+         color: var(--text-primary);
+         letter-spacing: -0.5px;
+         transition: text-shadow var(--transition);
+      }
+
+      .logo:hover { text-shadow: var(--glow-cyan); }
+
+      .logo span { color: var(--accent-cyan); }
+
+      .nav-desktop {
+         display: none;
+         gap: 32px;
+         align-items: center;
+      }
+
+      @media (min-width: 1024px) {
+         .nav-desktop { display: flex; }
+      }
+
+      .nav-link {
+         font-size: 0.875rem;
+         font-weight: 500;
+         color: var(--text-secondary);
+         transition: color var(--transition);
+         position: relative;
+      }
+
+      .nav-link::after {
+         content: '';
+         position: absolute;
+         bottom: -4px;
+         left: 0;
+         width: 0;
+         height: 2px;
+         background: var(--accent-cyan);
+         transition: width var(--transition);
+         border-radius: 1px;
+      }
+
+      .nav-link:hover, .nav-link.active {
+         color: var(--accent-cyan);
+      }
+
+      .nav-link.active::after, .nav-link:hover::after {
+         width: 100%;
+      }
+
+      .nav-actions {
+         display: flex;
+         align-items: center;
+         gap: 12px;
+      }
+
+      .theme-toggle {
+         width: 40px;
+         height: 40px;
+         border: 1px solid var(--border-color);
+         border-radius: 10px;
+         background: transparent;
+         color: var(--text-secondary);
+         cursor: pointer;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 1.1rem;
+         transition: all var(--transition);
+      }
+
+      .theme-toggle:hover {
+         border-color: var(--accent-amber);
+         color: var(--accent-amber);
+         box-shadow: var(--glow-amber);
+      }
+
+      .menu-toggle {
+         display: flex;
+         width: 40px;
+         height: 40px;
+         border: 1px solid var(--border-color);
+         border-radius: 10px;
+         background: transparent;
+         color: var(--text-secondary);
+         cursor: pointer;
+         align-items: center;
+         justify-content: center;
+         font-size: 1.2rem;
+         transition: all var(--transition);
+      }
+
+      @media (min-width: 1024px) {
+         .menu-toggle { display: none; }
+      }
+
+      .menu-toggle:hover {
+         border-color: var(--accent-cyan);
+         color: var(--accent-cyan);
+      }
+
+      /* Mobile nav */
+      .mobile-nav {
+         position: fixed;
+         top: 73px;
+         left: 0;
+         right: 0;
+         background: var(--glass-bg);
+         -webkit-backdrop-filter: blur(16px);
+         backdrop-filter: blur(16px);
+         border-bottom: 1px solid var(--glass-border);
+         transform: translateY(-120%);
+         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+         z-index: 99;
+         padding: 16px 24px;
+      }
+
+      .mobile-nav.active {
+         transform: translateY(0);
+      }
+
+      .mobile-nav a {
+         display: block;
+         padding: 12px 0;
+         color: var(--text-secondary);
+         font-weight: 500;
+         border-bottom: 1px solid var(--border-color);
+         transition: color var(--transition);
+      }
+
+      .mobile-nav a:last-child { border-bottom: none; }
+
+      .mobile-nav a:hover, .mobile-nav a.active {
+         color: var(--accent-cyan);
+      }
+
+      /* ===== SECTION COMMON ===== */
+      .section {
+         padding: 100px 0;
+         position: relative;
+      }
+
+      .section-label {
+         font-family: var(--font-mono);
+         font-size: 0.875rem;
+         font-weight: 500;
+         color: var(--accent-cyan);
+         text-transform: uppercase;
+         letter-spacing: 3px;
+         margin-bottom: 12px;
+      }
+
+      .section-title {
+         font-size: clamp(2rem, 5vw, 3rem);
+         font-weight: 800;
+         line-height: 1.2;
+         margin-bottom: 16px;
+         letter-spacing: -1px;
+      }
+
+      .section-desc {
+         font-size: 1.1rem;
+         color: var(--text-secondary);
+         max-width: 600px;
+         line-height: 1.8;
+      }
+
+      .section-divider {
+         width: 60px;
+         height: 3px;
+         background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+         border-radius: 3px;
+         margin: 24px 0 0;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+         min-height: 100vh;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         position: relative;
+         overflow: hidden;
+         padding-top: 80px;
+      }
+
+      .hero::before {
+         content: '';
+         position: absolute;
+         inset: 0;
+         background:
+            radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 50% 80%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+         z-index: 0;
+      }
+
+      .hero-grid {
+         position: absolute;
+         inset: 0;
+         background-image:
+            linear-gradient(var(--border-color) 1px, transparent 1px),
+            linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+         background-size: 60px 60px;
+         opacity: 0.4;
+         z-index: 0;
+      }
+
+      [data-theme="light"] .hero-grid { opacity: 0.15; }
+
+      .hero-content {
+         position: relative;
+         z-index: 1;
+         text-align: center;
+         padding: 0 24px;
+      }
+
+      .hero-badge {
+         display: inline-block;
+         font-family: var(--font-mono);
+         font-size: 0.8rem;
+         padding: 6px 16px;
+         border: 1px solid var(--accent-cyan);
+         border-radius: 999px;
+         color: var(--accent-cyan);
+         margin-bottom: 24px;
+         letter-spacing: 1px;
+      }
+
+      .hero-name {
+         font-size: clamp(2.5rem, 8vw, 5rem);
+         font-weight: 800;
+         letter-spacing: -2px;
+         line-height: 1.1;
+         background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         background-clip: text;
+         margin-bottom: 20px;
+      }
+
+      .hero-tagline {
+         font-family: var(--font-mono);
+         font-size: clamp(0.85rem, 2vw, 1.1rem);
+         color: var(--text-secondary);
+         margin-bottom: 40px;
+         line-height: 1.8;
+      }
+
+      .hero-tagline span {
+         color: var(--accent-amber);
+      }
+
+      /* Stats row */
+      .hero-stats {
+         display: flex;
+         justify-content: center;
+         gap: 48px;
+         margin-bottom: 40px;
+         flex-wrap: wrap;
+      }
+
+      .stat-item {
+         text-align: center;
+      }
+
+      .stat-number {
+         font-family: var(--font-mono);
+         font-size: 2.5rem;
+         font-weight: 700;
+         color: var(--accent-cyan);
+         line-height: 1;
+      }
+
+      .stat-label {
+         font-size: 0.8rem;
+         color: var(--text-muted);
+         text-transform: uppercase;
+         letter-spacing: 2px;
+         margin-top: 8px;
+      }
+
+      /* Social links */
+      .social-links {
+         display: flex;
+         justify-content: center;
+         gap: 16px;
+         margin-top: 32px;
+      }
+
+      .social-link {
+         width: 44px;
+         height: 44px;
+         border: 1px solid var(--border-color);
+         border-radius: 12px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         color: var(--text-secondary);
+         font-size: 1.1rem;
+         transition: all var(--transition);
+      }
+
+      .social-link:hover {
+         border-color: var(--accent-cyan);
+         color: var(--accent-cyan);
+         box-shadow: var(--glow-cyan);
+         transform: translateY(-3px);
+      }
+
+      /* CTA buttons */
+      .btn {
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+         padding: 12px 28px;
+         border-radius: 12px;
+         font-weight: 600;
+         font-size: 0.95rem;
+         transition: all var(--transition);
+         cursor: pointer;
+         border: none;
+      }
+
+      .btn-primary {
+         background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+         color: #fff;
+         box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+      }
+
+      .btn-primary:hover {
+         transform: translateY(-2px);
+         box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+      }
+
+      .btn-secondary {
+         background: transparent;
+         color: var(--text-primary);
+         border: 1px solid var(--border-color);
+      }
+
+      .btn-secondary:hover {
+         border-color: var(--accent-cyan);
+         color: var(--accent-cyan);
+         transform: translateY(-2px);
+      }
+
+      .hero-buttons {
+         display: flex;
+         gap: 16px;
+         justify-content: center;
+         flex-wrap: wrap;
+      }
+
+      /* ===== ABOUT ===== */
+      .about-grid {
+         display: grid;
+         gap: 48px;
+         margin-top: 48px;
+      }
+
+      @media (min-width: 768px) {
+         .about-grid { grid-template-columns: 1fr 1fr; }
+      }
+
+      .about-image-wrapper {
+         display: flex;
+         justify-content: center;
+      }
+
+      .about-image {
+         width: 240px;
+         height: 240px;
+         border-radius: 24px;
+         object-fit: cover;
+         border: 2px solid var(--border-color);
+         box-shadow: var(--glow-cyan);
+         transition: box-shadow var(--transition);
+      }
+
+      .about-image:hover {
+         box-shadow: 0 0 40px rgba(6, 182, 212, 0.4);
+      }
+
+      .about-text h3 {
+         font-size: 1.5rem;
+         font-weight: 700;
+         margin-bottom: 16px;
+         margin-top: 24px;
+      }
+
+      .about-text h3:first-child { margin-top: 0; }
+
+      .about-text p {
+         color: var(--text-secondary);
+         font-size: 1rem;
+         line-height: 1.8;
+      }
+
+      /* Skill chips */
+      .skills-section { margin-top: 48px; }
+
+      .skills-grid {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 10px;
+         margin-top: 20px;
+      }
+
+      .skill-chip {
+         font-family: var(--font-mono);
+         font-size: 0.8rem;
+         padding: 8px 16px;
+         border-radius: 8px;
+         border: 1px solid var(--border-color);
+         background: var(--bg-card);
+         color: var(--text-secondary);
+         transition: all var(--transition);
+      }
+
+      .skill-chip:hover {
+         border-color: var(--accent-cyan);
+         color: var(--accent-cyan);
+         box-shadow: var(--glow-cyan);
+      }
+
+      .skill-chip.highlight {
+         border-color: var(--accent-cyan);
+         color: var(--accent-cyan);
+      }
+
+      .skill-chip.purple { border-color: var(--accent-purple); color: var(--accent-purple); }
+      .skill-chip.purple:hover { box-shadow: var(--glow-purple); }
+      .skill-chip.amber { border-color: var(--accent-amber); color: var(--accent-amber); }
+      .skill-chip.amber:hover { box-shadow: var(--glow-amber); }
+
+      /* Expertise grid */
+      .expertise-grid {
+         display: grid;
+         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+         gap: 16px;
+         margin-top: 20px;
+      }
+
+      .expertise-card {
+         padding: 20px;
+         border-radius: 12px;
+         border: 1px solid var(--border-color);
+         background: var(--bg-card);
+         transition: all var(--transition);
+      }
+
+      .expertise-card:hover {
+         border-color: var(--accent-purple);
+         transform: translateY(-4px);
+         box-shadow: var(--glow-purple);
+      }
+
+      .expertise-card i {
+         font-size: 1.5rem;
+         color: var(--accent-purple);
+         margin-bottom: 10px;
+      }
+
+      .expertise-card span {
+         display: block;
+         font-size: 0.9rem;
+         font-weight: 500;
+         color: var(--text-primary);
+      }
+
+      .about-buttons {
+         margin-top: 40px;
+         display: flex;
+         gap: 16px;
+         flex-wrap: wrap;
+      }
+
+      .about-text-spaced { margin-top: 32px; }
+
+      .section-heading-sm {
+         font-size: 1.25rem;
+         font-weight: 700;
+         margin-bottom: 16px;
+      }
+
+      .section-heading-sm-tight {
+         font-size: 1.25rem;
+         font-weight: 700;
+         margin-bottom: 4px;
+      }
+
+      .link-amber {
+         color: var(--accent-amber);
+      }
+
+      .courses-heading {
+         font-size: 1.1rem;
+         font-weight: 700;
+         display: flex;
+         align-items: center;
+         gap: 10px;
+         margin-bottom: 16px;
+      }
+
+      .courses-heading i { color: var(--accent-amber); }
+
+      .btn-full { width: 100%; justify-content: center; }
+
+      /* ===== RESUME ===== */
+      .resume-section { background: var(--bg-secondary); }
+
+      .resume-columns {
+         display: grid;
+         gap: 48px;
+         margin-top: 48px;
+      }
+
+      @media (min-width: 768px) {
+         .resume-columns { grid-template-columns: 1fr 1fr; }
+      }
+
+      .resume-group h3 {
+         font-size: 1.25rem;
+         font-weight: 700;
+         margin-bottom: 24px;
+         display: flex;
+         align-items: center;
+         gap: 10px;
+      }
+
+      .resume-group h3 i {
+         color: var(--accent-cyan);
+      }
+
+      .timeline {
+         position: relative;
+         padding-left: 28px;
+      }
+
+      .timeline::before {
+         content: '';
+         position: absolute;
+         left: 6px;
+         top: 8px;
+         bottom: 8px;
+         width: 2px;
+         background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple), transparent);
+         border-radius: 2px;
+      }
+
+      .timeline-item {
+         position: relative;
+         margin-bottom: 32px;
+         padding: 20px;
+         border-radius: 12px;
+         border: 1px solid var(--border-color);
+         background: var(--bg-card);
+         -webkit-backdrop-filter: blur(8px);
+         backdrop-filter: blur(8px);
+         transition: all var(--transition);
+      }
+
+      .timeline-item:last-child { margin-bottom: 0; }
+
+      .timeline-item:hover {
+         border-color: var(--accent-cyan);
+         box-shadow: var(--glow-cyan);
+         transform: translateX(4px);
+      }
+
+      .timeline-item::before {
+         content: '';
+         position: absolute;
+         left: -24px;
+         top: 26px;
+         width: 10px;
+         height: 10px;
+         border-radius: 50%;
+         background: var(--accent-cyan);
+         box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+      }
+
+      .timeline-item h4 {
+         font-size: 1.1rem;
+         font-weight: 700;
+         color: var(--text-primary);
+         margin-bottom: 4px;
+      }
+
+      .timeline-item .date {
+         font-family: var(--font-mono);
+         font-size: 0.75rem;
+         color: var(--accent-cyan);
+         margin-bottom: 6px;
+      }
+
+      .timeline-item .org {
+         font-size: 0.9rem;
+         color: var(--text-secondary);
+         margin-bottom: 12px;
+      }
+
+      .timeline-item .org a {
+         color: var(--accent-amber);
+         transition: color var(--transition);
+      }
+
+      .timeline-item .org a:hover {
+         text-decoration: underline;
+      }
+
+      .timeline-item ul {
+         padding-left: 0;
+      }
+
+      .timeline-item li {
+         font-size: 0.9rem;
+         color: var(--text-secondary);
+         margin-bottom: 8px;
+         padding-left: 20px;
+         position: relative;
+      }
+
+      .timeline-item li::before {
+         content: '';
+         position: absolute;
+         left: 0;
+         top: 10px;
+         width: 6px;
+         height: 6px;
+         border-radius: 50%;
+         background: var(--accent-purple);
+      }
+
+      /* Courses compact */
+      .courses-block {
+         margin-top: 32px;
+      }
+
+      .courses-block h4 {
+         font-size: 1rem;
+         font-weight: 600;
+         color: var(--text-primary);
+         margin-bottom: 12px;
+         margin-top: 16px;
+      }
+
+      .course-tags {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 8px;
+      }
+
+      .course-tag {
+         font-size: 0.75rem;
+         padding: 6px 12px;
+         border-radius: 6px;
+         border: 1px solid var(--border-color);
+         color: var(--text-secondary);
+         transition: all var(--transition);
+      }
+
+      .course-tag:hover {
+         border-color: var(--accent-amber);
+         color: var(--accent-amber);
+      }
+
+      /* ===== PORTFOLIO ===== */
+      .portfolio-grid {
+         display: grid;
+         gap: 24px;
+         margin-top: 48px;
+      }
+
+      @media (min-width: 640px) {
+         .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+
+      @media (min-width: 1024px) {
+         .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
+      }
+
+      .portfolio-card {
+         border-radius: 16px;
+         border: 1px solid var(--border-color);
+         background: var(--bg-card);
+         overflow: hidden;
+         transition: all var(--transition);
+      }
+
+      .portfolio-card:hover {
+         border-color: var(--accent-cyan);
+         transform: translateY(-8px);
+         box-shadow: var(--glow-cyan);
+      }
+
+      .portfolio-card-img {
+         position: relative;
+         overflow: hidden;
+         height: 200px;
+      }
+
+      .portfolio-card-img img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         transition: transform 0.5s ease;
+      }
+
+      .portfolio-card:hover .portfolio-card-img img {
+         transform: scale(1.08);
+      }
+
+      .portfolio-card-img::after {
+         content: '';
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         height: 50%;
+         background: linear-gradient(transparent, var(--bg-card));
+      }
+
+      .portfolio-card-body {
+         padding: 20px;
+      }
+
+      .portfolio-card-body h3 {
+         font-size: 1.1rem;
+         font-weight: 700;
+         margin-bottom: 8px;
+      }
+
+      .portfolio-card-body p {
+         font-size: 0.9rem;
+         color: var(--text-secondary);
+         margin-bottom: 16px;
+         line-height: 1.6;
+      }
+
+      .portfolio-link {
+         font-family: var(--font-mono);
+         font-size: 0.8rem;
+         color: var(--accent-cyan);
+         display: inline-flex;
+         align-items: center;
+         gap: 6px;
+         transition: all var(--transition);
+      }
+
+      .portfolio-link:hover {
+         color: var(--accent-purple);
+         gap: 10px;
+      }
+
+      /* ===== SERVICES ===== */
+      .services-section { background: var(--bg-secondary); }
+
+      .services-grid {
+         display: grid;
+         gap: 24px;
+         margin-top: 48px;
+      }
+
+      @media (min-width: 640px) {
+         .services-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+
+      @media (min-width: 1024px) {
+         .services-grid { grid-template-columns: repeat(4, 1fr); }
+      }
+
+      .service-card {
+         padding: 32px 24px;
+         border-radius: 16px;
+         border: 1px solid var(--border-color);
+         background: var(--bg-card);
+         text-align: center;
+         transition: all var(--transition);
+      }
+
+      .service-card:hover {
+         border-color: var(--accent-purple);
+         transform: translateY(-6px);
+         box-shadow: var(--glow-purple);
+      }
+
+      .service-card i {
+         font-size: 2rem;
+         margin-bottom: 16px;
+         background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         background-clip: text;
+      }
+
+      .service-card h3 {
+         font-size: 1.1rem;
+         font-weight: 700;
+         margin-bottom: 10px;
+      }
+
+      .service-card p {
+         font-size: 0.9rem;
+         color: var(--text-secondary);
+         line-height: 1.6;
+      }
+
+      /* ===== PUBLICATIONS ===== */
+      .pub-list {
+         margin-top: 48px;
+         display: grid;
+         gap: 16px;
+      }
+
+      .pub-item {
+         padding: 20px 24px;
+         border-radius: 12px;
+         border: 1px solid var(--border-color);
+         background: var(--bg-card);
+         display: flex;
+         gap: 16px;
+         align-items: flex-start;
+         transition: all var(--transition);
+      }
+
+      .pub-item:hover {
+         border-color: var(--accent-cyan);
+         transform: translateX(4px);
+      }
+
+      .pub-number {
+         font-family: var(--font-mono);
+         font-size: 0.75rem;
+         font-weight: 700;
+         color: var(--accent-cyan);
+         background: rgba(6, 182, 212, 0.1);
+         width: 32px;
+         height: 32px;
+         border-radius: 8px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-shrink: 0;
+         margin-top: 2px;
+      }
+
+      .pub-content {
+         font-size: 0.9rem;
+         color: var(--text-secondary);
+         line-height: 1.7;
+      }
+
+      .pub-link {
+         display: inline-flex;
+         align-items: center;
+         gap: 4px;
+         font-family: var(--font-mono);
+         font-size: 0.75rem;
+         font-weight: 600;
+         padding: 4px 12px;
+         border-radius: 6px;
+         background: rgba(6, 182, 212, 0.1);
+         color: var(--accent-cyan);
+         margin-left: 6px;
+         transition: all var(--transition);
+      }
+
+      .pub-link:hover {
+         background: rgba(6, 182, 212, 0.2);
+         box-shadow: var(--glow-cyan);
+      }
+
+      /* ===== BLOGS ===== */
+      .blog-section { background: var(--bg-secondary); }
+
+      .blog-grid {
+         display: grid;
+         gap: 24px;
+         margin-top: 48px;
+      }
+
+      @media (min-width: 768px) {
+         .blog-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+
+      .blog-card {
+         padding: 24px;
+         border-radius: 16px;
+         border: 1px solid var(--border-color);
+         background: var(--bg-card);
+         border-left: 3px solid var(--accent-purple);
+         transition: all var(--transition);
+      }
+
+      .blog-card:hover {
+         border-color: var(--accent-purple);
+         transform: translateY(-4px);
+         box-shadow: var(--glow-purple);
+      }
+
+      .blog-card .blog-date {
+         font-family: var(--font-mono);
+         font-size: 0.75rem;
+         color: var(--accent-amber);
+         margin-bottom: 10px;
+      }
+
+      .blog-card h3 {
+         font-size: 1.15rem;
+         font-weight: 700;
+         margin-bottom: 10px;
+         line-height: 1.4;
+      }
+
+      .blog-card p {
+         font-size: 0.9rem;
+         color: var(--text-secondary);
+         margin-bottom: 16px;
+         line-height: 1.6;
+      }
+
+      .blog-link {
+         font-family: var(--font-mono);
+         font-size: 0.8rem;
+         color: var(--accent-cyan);
+         display: inline-flex;
+         align-items: center;
+         gap: 6px;
+         transition: all var(--transition);
+      }
+
+      .blog-link:hover {
+         color: var(--accent-purple);
+         gap: 10px;
+      }
+
+      /* ===== CONTACT ===== */
+      .contact-grid {
+         display: grid;
+         gap: 48px;
+         margin-top: 48px;
+      }
+
+      @media (min-width: 768px) {
+         .contact-grid { grid-template-columns: 1fr 1fr; }
+      }
+
+      .form-group { margin-bottom: 16px; }
+
+      .form-input {
+         width: 100%;
+         padding: 14px 16px;
+         border-radius: 12px;
+         border: 1px solid var(--border-color);
+         background: var(--bg-card);
+         color: var(--text-primary);
+         font-family: var(--font-sans);
+         font-size: 0.95rem;
+         transition: all var(--transition);
+         outline: none;
+      }
+
+      .form-input:focus {
+         border-color: var(--accent-cyan);
+         box-shadow: var(--glow-cyan);
+      }
+
+      .form-input::placeholder {
+         color: var(--text-muted);
+      }
+
+      textarea.form-input {
+         resize: vertical;
+         min-height: 140px;
+      }
+
+      .form-message {
+         padding: 12px 16px;
+         border-radius: 10px;
+         font-size: 0.9rem;
+         margin-top: 12px;
+         display: none;
+      }
+
+      .form-message.success {
+         display: block;
+         background: rgba(20, 184, 166, 0.1);
+         border: 1px solid var(--accent-teal);
+         color: var(--accent-teal);
+      }
+
+      .form-message.error {
+         display: block;
+         background: rgba(239, 68, 68, 0.1);
+         border: 1px solid #ef4444;
+         color: #ef4444;
+      }
+
+      .contact-info-item {
+         margin-bottom: 32px;
+      }
+
+      .contact-info-item h4 {
+         font-size: 1rem;
+         font-weight: 700;
+         display: flex;
+         align-items: center;
+         gap: 10px;
+         margin-bottom: 10px;
+      }
+
+      .contact-info-item h4 i {
+         color: var(--accent-cyan);
+         font-size: 1.1rem;
+      }
+
+      .contact-info-item p, .contact-info-item a {
+         font-size: 0.9rem;
+         color: var(--text-secondary);
+         line-height: 1.8;
+         transition: color var(--transition);
+      }
+
+      .contact-info-item a:hover {
+         color: var(--accent-cyan);
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+         padding: 40px 0;
+         border-top: 1px solid var(--border-color);
+         background: var(--bg-primary);
+      }
+
+      .footer::before {
+         content: '';
+         display: block;
+         height: 2px;
+         background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-purple), transparent);
+         margin-bottom: 40px;
+         margin-top: -41px;
+      }
+
+      .footer-inner {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         gap: 24px;
+      }
+
+      @media (min-width: 768px) {
+         .footer-inner {
+            flex-direction: row;
+            justify-content: space-between;
+         }
+      }
+
+      .footer-copy {
+         font-size: 0.85rem;
+         color: var(--text-muted);
+      }
+
+      .footer-links {
+         display: flex;
+         gap: 12px;
+      }
+
+      .footer-link {
+         width: 36px;
+         height: 36px;
+         border-radius: 8px;
+         border: 1px solid var(--border-color);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         color: var(--text-muted);
+         font-size: 0.9rem;
+         transition: all var(--transition);
+      }
+
+      .footer-link:hover {
+         border-color: var(--accent-cyan);
+         color: var(--accent-cyan);
+         box-shadow: var(--glow-cyan);
+      }
+
+      .back-to-top {
+         font-family: var(--font-mono);
+         font-size: 0.8rem;
+         color: var(--text-muted);
+         display: flex;
+         align-items: center;
+         gap: 6px;
+         transition: color var(--transition);
+      }
+
+      .back-to-top:hover { color: var(--accent-cyan); }
+
+      /* ===== ANIMATIONS ===== */
+      .fade-up {
+         opacity: 0;
+         transform: translateY(30px);
+         transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-up.visible {
+         opacity: 1;
+         transform: translateY(0);
+      }
+
+      /* Stagger children */
+      .stagger > * {
+         opacity: 0;
+         transform: translateY(20px);
+         transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+      .stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+      .stagger.visible > *:nth-child(3) { transition-delay: 0.15s; }
+      .stagger.visible > *:nth-child(4) { transition-delay: 0.2s; }
+      .stagger.visible > *:nth-child(5) { transition-delay: 0.25s; }
+      .stagger.visible > *:nth-child(6) { transition-delay: 0.3s; }
+
+      .stagger.visible > * {
+         opacity: 1;
+         transform: translateY(0);
+      }
+
+      /* ===== MOBILE RESPONSIVE ===== */
+      @media (max-width: 767px) {
+         .container { padding: 0 16px; }
+
+         .section { padding: 64px 0; }
+
+         .hero { padding-top: 72px; min-height: 100svh; }
+         .hero-content { padding: 0 12px; }
+         .hero-badge { font-size: 0.7rem; padding: 5px 12px; margin-bottom: 16px; }
+         .hero-name { margin-bottom: 14px; }
+         .hero-tagline { margin-bottom: 28px; font-size: 0.8rem; }
+
+         .hero-stats { gap: 28px; margin-bottom: 28px; }
+         .stat-number { font-size: 2rem; }
+         .stat-label { font-size: 0.7rem; letter-spacing: 1px; }
+
+         .hero-buttons { gap: 12px; }
+         .btn { padding: 11px 22px; font-size: 0.875rem; }
+
+         .social-links { gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+         .social-link { width: 40px; height: 40px; font-size: 1rem; border-radius: 10px; }
+
+         .section-title { margin-bottom: 12px; }
+         .section-divider { margin: 16px 0 0; }
+
+         .about-image { width: 180px; height: 180px; border-radius: 20px; }
+         .about-text h3 { font-size: 1.25rem; }
+
+         .expertise-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+         }
+         .expertise-card { padding: 14px; }
+         .expertise-card i { font-size: 1.2rem; margin-bottom: 6px; }
+         .expertise-card span { font-size: 0.8rem; }
+
+         .skills-section { margin-top: 32px; }
+         .skill-chip { font-size: 0.7rem; padding: 6px 12px; }
+
+         .about-buttons { justify-content: center; }
+
+         .timeline { padding-left: 22px; }
+         .timeline-item { padding: 16px; }
+         .timeline-item::before { left: -20px; width: 8px; height: 8px; top: 22px; }
+         .timeline-item h4 { font-size: 1rem; }
+         .timeline-item li { font-size: 0.85rem; padding-left: 16px; }
+         .timeline-item li::before { width: 5px; height: 5px; top: 9px; }
+
+         .courses-block h4 { font-size: 0.9rem; }
+         .course-tag { font-size: 0.7rem; padding: 5px 10px; }
+
+         .portfolio-card-img { height: 160px; }
+         .portfolio-card-body { padding: 16px; }
+         .portfolio-card-body h3 { font-size: 1rem; }
+         .portfolio-card-body p { font-size: 0.85rem; }
+
+         .service-card { padding: 24px 16px; }
+         .service-card i { font-size: 1.6rem; margin-bottom: 12px; }
+         .service-card h3 { font-size: 1rem; }
+         .service-card p { font-size: 0.85rem; }
+
+         .pub-item { padding: 16px; gap: 12px; flex-direction: column; }
+         .pub-number { width: 28px; height: 28px; font-size: 0.7rem; }
+         .pub-content { font-size: 0.85rem; }
+         .pub-link { font-size: 0.7rem; margin-left: 0; margin-top: 8px; }
+
+         .blog-card { padding: 18px; }
+         .blog-card h3 { font-size: 1rem; }
+         .blog-card p { font-size: 0.85rem; }
+
+         .form-input { padding: 12px 14px; font-size: 0.9rem; border-radius: 10px; }
+         textarea.form-input { min-height: 120px; }
+
+         .contact-info-item { margin-bottom: 24px; }
+
+         .footer-inner { gap: 20px; text-align: center; }
+         .footer-copy { font-size: 0.8rem; }
+         .footer-link { width: 32px; height: 32px; font-size: 0.8rem; }
+
+         .header-inner { padding: 12px 16px; }
+         .logo { font-size: 1.1rem; }
+
+         .nav-desktop { gap: 20px; }
+      }
+
+      /* Very small phones */
+      @media (max-width: 374px) {
+         .hero-stats { gap: 20px; }
+         .stat-number { font-size: 1.6rem; }
+         .hero-buttons { flex-direction: column; align-items: center; }
+         .btn { width: 100%; justify-content: center; }
+         .about-image { width: 150px; height: 150px; }
+         .expertise-grid { grid-template-columns: 1fr 1fr; }
+         .social-links { gap: 8px; }
+         .social-link { width: 36px; height: 36px; font-size: 0.9rem; }
+      }
+
+      /* Tablet tweaks */
+      @media (min-width: 768px) and (max-width: 1023px) {
+         .section { padding: 80px 0; }
+         .services-grid { grid-template-columns: repeat(2, 1fr); }
+         .nav-desktop { gap: 20px; }
+         .nav-link { font-size: 0.8rem; }
+      }
+
+      /* Touch device optimizations */
+      @media (hover: none) {
+         .portfolio-card:hover { transform: none; box-shadow: none; }
+         .portfolio-card:active { transform: translateY(-4px); box-shadow: var(--glow-cyan); }
+         .service-card:hover { transform: none; box-shadow: none; }
+         .service-card:active { transform: translateY(-3px); box-shadow: var(--glow-purple); }
+         .blog-card:hover { transform: none; box-shadow: none; }
+         .blog-card:active { transform: translateY(-2px); box-shadow: var(--glow-purple); }
+         .social-link:hover { transform: none; }
+         .social-link:active { transform: translateY(-2px); box-shadow: var(--glow-cyan); }
+         .timeline-item:hover { transform: none; }
+         .expertise-card:hover { transform: none; }
+      }
+   </style>
 </head>
-<body id="top" class="bg-gray-50">
+<body>
 
    <!-- Preloader -->
-   <div id="preloader" aria-label="Loading, please wait...">
-      <div class="loader">
-         <div class="dot"></div>
-      </div>
+   <div id="preloader">
+      <div class="loader"></div>
    </div>
 
    <!-- Header -->
-   <header class="bg-white header-shadow sticky top-0 z-40">
-      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-         <div class="logo">
-            <a href="index.html" class="text-3xl font-bold text-gray-900 tracking-tight">MIRUGWE</a>
-         </div>
-         <nav class="hidden md:flex space-x-8">
-            <a href="#intro" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Home</a>
-            <a href="#about" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">About</a>
-            <a href="#resume" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Resume</a>
-            <a href="#portfolio" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Portfolio</a>
-            <a href="#services" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Services</a>
-            <a href="#publications" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Publications</a>
-            <a href="#blogs" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Blogs</a>
-            <a href="#contact" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Contact</a>
+   <header class="header">
+      <div class="header-inner">
+         <a href="#hero" class="logo"><span>&lt;</span>MIRUGWE<span>/&gt;</span></a>
+         <nav class="nav-desktop" aria-label="Main navigation">
+            <a href="#hero" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#resume" class="nav-link">Resume</a>
+            <a href="#portfolio" class="nav-link">Portfolio</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#publications" class="nav-link">Publications</a>
+            <a href="#blogs" class="nav-link">Blogs</a>
+            <a href="#contact" class="nav-link">Contact</a>
          </nav>
-         <a class="menu-toggle md:hidden text-gray-700 hover:text-gray-900" href="#" aria-label="Toggle Menu"><i class="fas fa-bars text-2xl"></i></a>
+         <div class="nav-actions">
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+               <i class="fas fa-sun"></i>
+            </button>
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+               <i class="fas fa-bars"></i>
+            </button>
+         </div>
       </div>
-      <nav class="mobile-nav hidden md:hidden flex-col w-full bg-white">
-         <a href="#intro" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Home</a>
-         <a href="#about" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">About</a>
-         <a href="#resume" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Resume</a>
-         <a href="#portfolio" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Portfolio</a>
-         <a href="#services" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Services</a>
-         <a href="#publications" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Publications</a>
-         <a href="#blogs" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Blogs</a>
-         <a href="#contact" class="nav-link smoothscroll text-gray-700 hover:text-gray-900 font-medium">Contact</a>
-      </nav>
    </header>
 
-   <!-- Intro Section -->
-   <section id="intro" class="intro-bg text-white py-32 relative" data-parallax="scroll" data-image-src="https://source.unsplash.com/1600x900/?data,science">
-      <div class="container mx-auto px-6 text-center fade-in">
-         <h5 class="text-lg font-light tracking-wide text-teal-200">Welcome</h5>
-         <h1 class="text-5xl md:text-7xl font-bold mt-3 tracking-tight text-white">Alex Mirugwe</h1>
-         <p class="mt-5 text-xl md:text-2xl max-w-3xl mx-auto font-light text-gray-100">
-            Data Scientist Specializing in<br>
-            Machine Learning | Deep Learning | Health Informatics
+   <!-- Mobile Nav -->
+   <nav class="mobile-nav" id="mobileNav">
+      <a href="#hero" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#resume">Resume</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#publications">Publications</a>
+      <a href="#blogs">Blogs</a>
+      <a href="#contact">Contact</a>
+   </nav>
+
+   <!-- Hero -->
+   <section id="hero" class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+         <div class="hero-badge">// DATA SCIENTIST</div>
+         <h1 class="hero-name">Alex Mirugwe</h1>
+         <p class="hero-tagline">
+            <span>Machine Learning</span> &nbsp;|&nbsp; <span>Deep Learning</span> &nbsp;|&nbsp; <span>Health Informatics</span>
          </p>
-         <a href="#about" class="smoothscroll mt-8 inline-block btn-primary px-8 py-3 font-medium">Discover More</a>
-         <ul class="flex justify-center space-x-6 mt-12" style="pointer-events: auto !important;">
-            <li><a href="https://www.facebook.com/mirugwe.alex" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Facebook" style="pointer-events: auto !important;"><i class="fab fa-facebook-f text-2xl"></i></a></li>
-            <li><a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Google Scholar" style="pointer-events: auto !important;"><i class="fab fa-google text-2xl"></i></a></li>
-            <li><a href="https://twitter.com/mirugwealex1" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Twitter" style="pointer-events: auto !important;"><i class="fab fa-twitter text-2xl"></i></a></li>
-            <li><a href="https://www.researchgate.net/profile/Alex-Mirugwe" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="ResearchGate" style="pointer-events: auto !important;"><i class="fas fa-file-alt text-2xl"></i></a></li>
-            <li><a href="https://www.instagram.com/mirugwe_alex/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Instagram" style="pointer-events: auto !important;"><i class="fab fa-instagram text-2xl"></i></a></li>
-            <li><a href="https://github.com/mirugwe1" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="GitHub" style="pointer-events: auto !important;"><i class="fab fa-github text-2xl"></i></a></li>
-         </ul>
+         <div class="hero-stats fade-up">
+            <div class="stat-item">
+               <div class="stat-number" data-target="7">0</div>
+               <div class="stat-label">Publications</div>
+            </div>
+            <div class="stat-item">
+               <div class="stat-number" data-target="6">0</div>
+               <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item">
+               <div class="stat-number" data-target="4">0</div>
+               <div class="stat-label">Years Exp.</div>
+            </div>
+         </div>
+         <div class="hero-buttons fade-up">
+            <a href="#about" class="btn btn-primary">Discover More <i class="fas fa-arrow-down"></i></a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+         </div>
+         <div class="social-links fade-up">
+            <a href="https://github.com/mirugwe1" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Google Scholar"><i class="fab fa-google-scholar"></i></a>
+            <a href="https://twitter.com/mirugwealex1" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.researchgate.net/profile/Alex-Mirugwe" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+            <a href="https://www.linkedin.com/in/mirugwe-alex/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/mirugwe_alex/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/mirugwe.alex" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+         </div>
       </div>
    </section>
 
-   <!-- About Section -->
-   <section id="about" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h2 class="text-lg text-accent-teal font-medium tracking-wide">About</h2>
+   <!-- About -->
+   <section id="about" class="section">
+      <div class="container">
+         <div class="section-label">// About</div>
+         <h2 class="section-title">Who I Am</h2>
          <div class="section-divider"></div>
-         <div class="mt-12 flex flex-col md:grid md:grid-cols-2 gap-12 fade-in">
-            <div class="flex flex-col space-y-10">
-               <div class="flex items-center">
-                  <img src="images/profile-pic.png" alt="Profile Picture of Alex Mirugwe" class="w-56 h-56 rounded-full mb-6 md:mb-0 md:mr-12 border-4 border-white shadow-2xl" loading="lazy">
-                  <div class="max-w-xl">
-                     <h3 class="text-2xl font-semibold text-gray-900 mb-4">About Me</h3>
-                     <p class="text-lg text-gray-700 font-light leading-relaxed">
-                        As a highly skilled Data Scientist with over four years of experience, I specialize in developing and deploying machine learning solutions that significantly impact healthcare outcomes, particularly in HIV, Cancer, Tuberculosis, and public health emergencies. I have successfully utilized data-driven methodologies to improve patient outcomes and public health responses.
-                     </p>
-                     <h3 class="text-2xl font-semibold text-gray-900 mt-6 mb-4">My Vision</h3>
-                     <p class="text-lg text-gray-700 font-light leading-relaxed">
-                        My work is driven by a vision to harness the power of AI and data science to transform conventional health systems into dynamic, adaptive, and intelligent health ecosystems that proactively respond to the needs of communities, particularly in resource-constrained settings. My goal is to create a resilient infrastructure that elevates healthcare service delivery, accelerates disease prevention, and enhances the impact of diagnosis and treatment. By integrating cutting-edge technology with a deep understanding of public health challenges, I strive to lead initiatives that drive sustainable health outcomes and revolutionize how we address complex health issues globally.
-                     </p>
+
+         <div class="about-grid">
+            <div>
+               <div class="about-image-wrapper fade-up">
+                  <img src="images/profile-pic.png" alt="Alex Mirugwe" class="about-image" loading="lazy">
+               </div>
+               <div class="about-text fade-up about-text-spaced">
+                  <h3>About Me</h3>
+                  <p>As a highly skilled Data Scientist with over four years of experience, I specialize in developing and deploying machine learning solutions that significantly impact healthcare outcomes, particularly in HIV, Cancer, Tuberculosis, and public health emergencies. I have successfully utilized data-driven methodologies to improve patient outcomes and public health responses.</p>
+                  <h3>My Vision</h3>
+                  <p>My work is driven by a vision to harness the power of AI and data science to transform conventional health systems into dynamic, adaptive, and intelligent health ecosystems that proactively respond to the needs of communities, particularly in resource-constrained settings. My goal is to create a resilient infrastructure that elevates healthcare service delivery, accelerates disease prevention, and enhances the impact of diagnosis and treatment.</p>
+               </div>
+            </div>
+
+            <div>
+               <div class="fade-up">
+                  <h3 class="section-heading-sm">Core Expertise</h3>
+                  <div class="expertise-grid">
+                     <div class="expertise-card"><i class="fas fa-brain"></i><span>Machine Learning</span></div>
+                     <div class="expertise-card"><i class="fas fa-network-wired"></i><span>Deep Learning</span></div>
+                     <div class="expertise-card"><i class="fas fa-language"></i><span>NLP</span></div>
+                     <div class="expertise-card"><i class="fas fa-heartbeat"></i><span>Health Informatics</span></div>
+                     <div class="expertise-card"><i class="fas fa-x-ray"></i><span>Medical Imaging</span></div>
+                     <div class="expertise-card"><i class="fas fa-globe-africa"></i><span>Geospatial Modelling</span></div>
+                     <div class="expertise-card"><i class="fas fa-chart-line"></i><span>Time-Series</span></div>
+                     <div class="expertise-card"><i class="fas fa-chart-bar"></i><span>Data Visualization</span></div>
                   </div>
                </div>
-               <div>
-                  <h3 class="text-2xl font-semibold text-gray-900">Core Expertise</h3>
-                  <ul class="expertise-list mt-6 text-gray-600 font-light">
-                     <li>Machine Learning</li>
-                     <li>Deep Learning</li>
-                     <li>Natural Language Processing</li>
-                     <li>Health Informatics</li>
-                     <li>AI in Medical Imaging</li>
-                     <li>Geospatial Modelling</li>
-                     <li>Time-Series Analysis </li>
-                     <li>Data Analytics & Visualization</li>
-                  </ul>
+
+               <div class="skills-section fade-up">
+                  <h3 class="section-heading-sm-tight">Tech Stack</h3>
+                  <div class="skills-grid">
+                     <span class="skill-chip highlight">Python</span>
+                     <span class="skill-chip highlight">R</span>
+                     <span class="skill-chip highlight">SQL</span>
+                     <span class="skill-chip purple">TensorFlow</span>
+                     <span class="skill-chip purple">PyTorch</span>
+                     <span class="skill-chip purple">Keras</span>
+                     <span class="skill-chip purple">Scikit-Learn</span>
+                     <span class="skill-chip purple">OpenCV</span>
+                     <span class="skill-chip amber">LangChain</span>
+                     <span class="skill-chip amber">AWS</span>
+                     <span class="skill-chip amber">MLFlow</span>
+                     <span class="skill-chip amber">GIT</span>
+                     <span class="skill-chip">PowerBI</span>
+                     <span class="skill-chip">LaTeX</span>
+                  </div>
                </div>
             </div>
-            <div class="p-8 bg-white rounded-xl shadow-lg">
-               <h3 class="text-2xl font-semibold text-gray-900">Skills</h3>
-               <ul class="skill-bars mt-6 space-y-6">
-                  <li>
-                     <strong class="text-gray-800 font-medium">Python</strong>
-                     <div class="progress"><div data-skill="90"><span>90%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">R</strong>
-                     <div class="progress"><div data-skill="95"><span>95%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">SQL</strong>
-                     <div class="progress"><div data-skill="70"><span>70%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">PowerBI</strong>
-                     <div class="progress"><div data-skill="60"><span>60%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">LaTeX</strong>
-                     <div class="progress"><div data-skill="80"><span>80%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">Scikit-Learn</strong>
-                     <div class="progress"><div data-skill="85"><span>85%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">TensorFlow</strong>
-                     <div class="progress"><div data-skill="80"><span>80%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">OpenCV</strong>
-                     <div class="progress"><div data-skill="80"><span>60%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">Keras</strong>
-                     <div class="progress"><div data-skill="80"><span>70%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">AWS</strong>
-                     <div class="progress"><div data-skill="45"><span>45%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">MLFlow</strong>
-                     <div class="progress"><div data-skill="50"><span>50%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">LangChain</strong>
-                     <div class="progress"><div data-skill="50"><span>50%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">GIT</strong>
-                     <div class="progress"><div data-skill="90"><span>90%</span></div></div>
-                  </li>
-                  <li>
-                     <strong class="text-gray-800 font-medium">PyTorch</strong>
-                     <div class="progress"><div data-skill="60"><span>90%</span></div></div>
-                  </li>
-               </ul>
-            </div>
          </div>
-         <div class="mt-16 text-center">
-            <a href="#contact" class="smoothscroll inline-block btn-primary px-8 py-3 font-medium">Hire Me</a>
-            <a href="https://drive.google.com/drive/u/0/folders/1Xua1E1iASNrR7XZ7ICUEm7lE4VMi1Q9l" target="_blank" rel="noopener noreferrer" class="inline-block btn-secondary px-8 py-3 font-medium ml-6">Download CV</a>
+
+         <div class="about-buttons fade-up">
+            <a href="#contact" class="btn btn-primary">Hire Me</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1Xua1E1iASNrR7XZ7ICUEm7lE4VMi1Q9l" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-download"></i> Download CV</a>
          </div>
       </div>
    </section>
 
-   <!-- Resume Section -->
-   <section id="resume" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h5 class="text-lg text-accent-teal font-medium tracking-wide">Resume</h5>
+   <!-- Resume -->
+   <section id="resume" class="section resume-section">
+      <div class="container">
+         <div class="section-label">// Resume</div>
+         <h2 class="section-title">Experience & Education</h2>
          <div class="section-divider"></div>
-         <div class="mt-12 fade-in">
-            <h2 class="text-2xl font-semibold text-gray-900">Work Experience</h2>
-            <div class="mt-6 space-y-12">
-               <div class="timeline-block flex items-start">
-                  <div class="timeline-ico mr-6"><i class="fas fa-briefcase text-accent-teal text-2xl"></i></div>
-                  <div>
-                     <h3 class="text-xl font-semibold text-gray-900">Data Scientist</h3>
-                     <p class="text-gray-500 font-light">April 2022 - Present</p>
-                     <h4 class="mt-2 text-gray-800 font-medium">Makerere University School of Public Health (<a href="https://mets.or.ug/" target="_blank" rel="noopener noreferrer" class="custom-link">METS-CDC Project</a>)</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
+
+         <div class="resume-columns">
+            <!-- Work Experience -->
+            <div class="resume-group fade-up">
+               <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+               <div class="timeline">
+                  <div class="timeline-item">
+                     <div class="date">April 2022 - Present</div>
+                     <h4>Data Scientist</h4>
+                     <div class="org">Makerere University School of Public Health (<a href="https://mets.or.ug/" target="_blank" rel="noopener noreferrer">METS-CDC Project</a>)</div>
+                     <ul>
                         <li>Developed a machine learning model to predict HIV patient dropout, enabling proactive interventions.</li>
                         <li>Designed a deep learning algorithm for cervical cancer screening, improving accuracy and early detection.</li>
                         <li>Created a patient matching algorithm to reduce HIV patient data duplicates by 4.8%.</li>
@@ -696,27 +1567,21 @@
                         <li>Conducted sentiment analysis on Ebola social media data to inform risk communication.</li>
                      </ul>
                   </div>
-               </div>
-               <div class="timeline-block flex items-start">
-                  <div class="timeline-ico mr-6"><i class="fas fa-briefcase text-accent-teal text-2xl"></i></div>
-                  <div>
-                     <h3 class="text-xl font-semibold text-gray-900">Assistant Lecturer</h3>
-                     <p class="text-gray-500 font-light">January 2022 - Present</p>
-                     <h4 class="mt-2 text-gray-800 font-medium">Faculty of Science, Victoria University, Kampala</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
+                  <div class="timeline-item">
+                     <div class="date">January 2022 - Present</div>
+                     <h4>Assistant Lecturer</h4>
+                     <div class="org">Faculty of Science, Victoria University, Kampala</div>
+                     <ul>
                         <li>Taught courses including Python, Machine Learning, and AI.</li>
                         <li>Developed course materials and assignments to enhance learning.</li>
                         <li>Contributed to curriculum development for Software Engineering and Blockchain programs.</li>
                      </ul>
                   </div>
-               </div>
-               <div class="timeline-block flex items-start">
-                  <div class="timeline-ico mr-6"><i class="fas fa-briefcase text-accent-teal text-2xl"></i></div>
-                  <div>
-                     <h3 class="text-xl font-semibold text-gray-900">Tutor</h3>
-                     <p class="text-gray-500 font-light">Jan 2021 - Sept 2021</p>
-                     <h4 class="mt-2 text-gray-800 font-medium">Department of Computer Science, University of Cape Town</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
+                  <div class="timeline-item">
+                     <div class="date">Jan 2021 - Sept 2021</div>
+                     <h4>Tutor</h4>
+                     <div class="org">Department of Computer Science, University of Cape Town</div>
+                     <ul>
                         <li>Supervised lab sessions on machine learning topics like regression and SVMs.</li>
                         <li>Prepared instructional materials to enhance understanding.</li>
                         <li>Guided students on projects and collaborated on course content.</li>
@@ -724,67 +1589,65 @@
                   </div>
                </div>
             </div>
-         </div>
-         <div class="mt-12 fade-in">
-            <h2 class="text-2xl font-semibold text-gray-900">Education</h2>
-            <div class="mt-6 space-y-12">
-               <div class="timeline-block flex items-start">
-                  <div class="timeline-ico mr-6"><i class="fas fa-graduation-cap text-accent-teal text-2xl"></i></div>
-                  <div>
-                     <h3 class="text-xl font-semibold text-gray-900">MSc. Data Science</h3>
-                     <p class="text-gray-500 font-light">Jan 2020 - Nov 2021</p>
-                     <h4 class="mt-2 text-gray-800 font-medium">University of Cape Town, South Africa</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
-                        <li>Thesis: <a href="https://open.uct.ac.za/handle/11427/36492" target="_blank" rel="noopener noreferrer" class="custom-link">Automating bird detection using deep learning</a></li>
+
+            <!-- Education -->
+            <div class="resume-group fade-up">
+               <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+               <div class="timeline">
+                  <div class="timeline-item">
+                     <div class="date">Jan 2020 - Nov 2021</div>
+                     <h4>MSc. Data Science</h4>
+                     <div class="org">University of Cape Town, South Africa</div>
+                     <ul>
+                        <li>Thesis: <a href="https://open.uct.ac.za/handle/11427/36492" target="_blank" rel="noopener noreferrer" class="link-amber">Automating bird detection using deep learning</a></li>
+                     </ul>
+                  </div>
+                  <div class="timeline-item">
+                     <div class="date">Aug 2014 - June 2019</div>
+                     <h4>BSc. Computer Engineering</h4>
+                     <div class="org">Makerere University, Uganda</div>
+                     <ul>
+                        <li>Dissertation: <a href="http://dissertations.mak.ac.ug/handle/20.500.12281/4468" target="_blank" rel="noopener noreferrer" class="link-amber">A low-cost wireless TV audio transceiver</a></li>
                      </ul>
                   </div>
                </div>
-               <div class="timeline-block flex items-start">
-                  <div class="timeline-ico mr-6"><i class="fas fa-graduation-cap text-accent-teal text-2xl"></i></div>
-                  <div>
-                     <h3 class="text-xl font-semibold text-gray-900">BSc. Computer Engineering</h3>
-                     <p class="text-gray-500 font-light">Aug 2014 - June 2019</p>
-                     <h4 class="mt-2 text-gray-800 font-medium">Makerere University, Uganda</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
-                        <li>Dissertation: <a href="http://dissertations.mak.ac.ug/handle/20.500.12281/4468" target="_blank" rel="noopener noreferrer" class="custom-link">A low-cost wireless TV audio transceiver</a></li>
-                     </ul>
+
+               <!-- Courses -->
+               <div class="courses-block">
+                  <h3 class="courses-heading"><i class="fas fa-certificate"></i> Online Certifications</h3>
+
+                  <h4>Coursera</h4>
+                  <div class="course-tags">
+                     <a href="https://www.coursera.org/account/accomplishments/certificate/HZD3ZEGF67LZ" target="_blank" rel="noopener noreferrer" class="course-tag">Data & Health Indicators</a>
+                     <a href="https://www.coursera.org/account/accomplishments/certificate/D262GCLVX3LE" target="_blank" rel="noopener noreferrer" class="course-tag">Epidemiologic Tools</a>
+                     <a href="https://www.coursera.org/account/accomplishments/certificate/7W4DEFG5FTUE" target="_blank" rel="noopener noreferrer" class="course-tag">Data Foundations</a>
+                     <a href="https://www.coursera.org/account/accomplishments/certificate/8VGHM22NHQUB" target="_blank" rel="noopener noreferrer" class="course-tag">Neural Networks & DL</a>
                   </div>
-               </div>
-               <div class="timeline-block flex items-start">
-                  <div class="timeline-ico mr-6"><i class="fas fa-graduation-cap text-accent-teal text-2xl"></i></div>
-                  <div>
-                     <h3 class="text-xl font-semibold text-gray-900">Online Courses</h3>
-                     <h4 class="mt-2 text-gray-800 font-medium">Coursera</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
-                        <li><a href="https://www.coursera.org/account/accomplishments/certificate/HZD3ZEGF67LZ" target="_blank" rel="noopener noreferrer" class="custom-link">Data and Health Indicators in Public Health</a></li>
-                        <li><a href="https://www.coursera.org/account/accomplishments/certificate/D262GCLVX3LE" target="_blank" rel="noopener noreferrer" class="custom-link">Essential Epidemiologic Tools</a></li>
-                        <li><a href="https://www.coursera.org/account/accomplishments/certificate/7W4DEFG5FTUE" target="_blank" rel="noopener noreferrer" class="custom-link">Foundations: Data, Data, Everywhere</a></li>
-                        <li><a href="https://www.coursera.org/account/accomplishments/certificate/8VGHM22NHQUB" target="_blank" rel="noopener noreferrer" class="custom-link">Neural Networks and Deep Learning</a></li>
-                     </ul>
-                     <h4 class="mt-4 text-gray-800 font-medium">DataCamp</h4>
-                     <ul class="course-list mt-3 text-gray-600 font-light">
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/4879b90475c84c893319e24a91987155c2a57b16" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Exploratory Data Analysis in Python">Exploratory Data Analysis in Python</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/8f5d45e308cdfebc5a211285bf1a3aeeff9e51e9" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to Data Visualization with Matplotlib">Introduction to Data Visualization with Matplotlib</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/e26cfb9cc6df07a1d93425b3efb8b31041376b4c" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to Relational Databases in SQL">Introduction to Relational Databases in SQL</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/9fddb1d3db2f01d2c9cd5746420ca9b5efd200a3" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Credit Risk Modeling in R">Credit Risk Modeling in R</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/9d102f54535691e2ca81d86be44384d603b3cd0d" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to Git">Introduction to Git</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/93b2513a16a10c6fc1a5529897f0ecdba500980b" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Data Analysis in Excel">Data Analysis in Excel</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/4b6fcdb8b9d1741acdb5aa30012034342402a0ba" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Multiple and Logistic Regression in R">Multiple and Logistic Regression in R</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/cdf5440f2bebe92813397afae426fe714aad23f8" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to Programming Using Python">Introduction to Programming Using Python</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/528d540505abc3e2feb471c78a602f5ae16a7c2c" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to SQL">Introduction to SQL</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/23bac8e8e0bde08d14f9825acb0d15b30a860b51" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Supervised Learning in R">Supervised Learning in R</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/92cff6f784fe3b540e0cd18e5378ccb2ef08bbf3" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Intermediate R">Intermediate R</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/412ca032e1c652e96b929b4d354db4b0b5542687" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to R">Introduction to R</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/68b490bb4ac66e31dd4c2f245e12b187d6967375" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Introduction to the Tidyverse">Introduction to the Tidyverse</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/429d6cbd065812f950f8adf690d7d4a2ab9d418a" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Data Manipulation with dplyr">Data Manipulation with dplyr</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/7a6e0b73263a1463d3bd3dfde8b1b27185c449f3" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Data Visualization with ggplot2 Part 1">Data Visualization with ggplot2 (Part 1)</a></li>
-                        <li><a href="https://www.datacamp.com/statement-of-accomplishment/course/48bf8bfea492065ce361dee4c8448821c41e059e" target="_blank" rel="noopener noreferrer" class="custom-link" aria-label="Certificate for Data Visualization with ggplot2 Part 2">Data Visualization with ggplot2 (Part 2)</a></li>
-                     </ul>
-                     <h4 class="mt-4 text-gray-800 font-medium">YALI Regional Leadership Center</h4>
-                     <ul class="custom-list mt-3 text-gray-600 font-light">
-                        <li>Understanding Climate Change</li>
-                        <li>Understanding Renewable Energy</li>
-                     </ul>
+
+                  <h4>DataCamp</h4>
+                  <div class="course-tags">
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/4879b90475c84c893319e24a91987155c2a57b16" target="_blank" rel="noopener noreferrer" class="course-tag">EDA in Python</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/8f5d45e308cdfebc5a211285bf1a3aeeff9e51e9" target="_blank" rel="noopener noreferrer" class="course-tag">Matplotlib</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/e26cfb9cc6df07a1d93425b3efb8b31041376b4c" target="_blank" rel="noopener noreferrer" class="course-tag">SQL Databases</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/9fddb1d3db2f01d2c9cd5746420ca9b5efd200a3" target="_blank" rel="noopener noreferrer" class="course-tag">Credit Risk in R</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/9d102f54535691e2ca81d86be44384d603b3cd0d" target="_blank" rel="noopener noreferrer" class="course-tag">Intro to Git</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/93b2513a16a10c6fc1a5529897f0ecdba500980b" target="_blank" rel="noopener noreferrer" class="course-tag">Excel Analysis</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/4b6fcdb8b9d1741acdb5aa30012034342402a0ba" target="_blank" rel="noopener noreferrer" class="course-tag">Logistic Regression</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/cdf5440f2bebe92813397afae426fe714aad23f8" target="_blank" rel="noopener noreferrer" class="course-tag">Python Programming</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/528d540505abc3e2feb471c78a602f5ae16a7c2c" target="_blank" rel="noopener noreferrer" class="course-tag">Intro to SQL</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/23bac8e8e0bde08d14f9825acb0d15b30a860b51" target="_blank" rel="noopener noreferrer" class="course-tag">Supervised Learning in R</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/92cff6f784fe3b540e0cd18e5378ccb2ef08bbf3" target="_blank" rel="noopener noreferrer" class="course-tag">Intermediate R</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/412ca032e1c652e96b929b4d354db4b0b5542687" target="_blank" rel="noopener noreferrer" class="course-tag">Introduction to R</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/68b490bb4ac66e31dd4c2f245e12b187d6967375" target="_blank" rel="noopener noreferrer" class="course-tag">Tidyverse</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/429d6cbd065812f950f8adf690d7d4a2ab9d418a" target="_blank" rel="noopener noreferrer" class="course-tag">dplyr</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/7a6e0b73263a1463d3bd3dfde8b1b27185c449f3" target="_blank" rel="noopener noreferrer" class="course-tag">ggplot2 (Part 1)</a>
+                     <a href="https://www.datacamp.com/statement-of-accomplishment/course/48bf8bfea492065ce361dee4c8448821c41e059e" target="_blank" rel="noopener noreferrer" class="course-tag">ggplot2 (Part 2)</a>
+                  </div>
+
+                  <h4>YALI Regional Leadership Center</h4>
+                  <div class="course-tags">
+                     <span class="course-tag">Climate Change</span>
+                     <span class="course-tag">Renewable Energy</span>
                   </div>
                </div>
             </div>
@@ -792,210 +1655,254 @@
       </div>
    </section>
 
-   <!-- Portfolio Section -->
-   <section id="portfolio" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h5 class="text-lg text-accent-teal font-medium tracking-wide">Portfolio</h5>
+   <!-- Portfolio -->
+   <section id="portfolio" class="section">
+      <div class="container">
+         <div class="section-label">// Portfolio</div>
+         <h2 class="section-title">Featured Projects</h2>
+         <p class="section-desc">Projects showcasing expertise in machine learning, deep learning, computer vision, and NLP, with applications in healthcare and ecology.</p>
          <div class="section-divider"></div>
-         <p class="mt-5 text-lg text-gray-600 max-w-3xl font-light">Projects showcasing expertise in machine learning, deep learning, computer vision, and NLP, with applications in healthcare and ecology.</p>
-         <div class="mt-12 portfolio-grid">
-            <div class="portfolio-item fade-in">
-               <img src="images/portfolio/cervical_cancer.png" alt="Cervical Cancer Screening Project Image" class="w-full h-64 object-cover" loading="lazy">
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold text-gray-900">Cervical Cancer Screening</h3>
-                  <p class="text-gray-600 mt-3 font-light">Developed a deep learning algorithm to enhance cervical cancer screening accuracy in Uganda.</p>
-                  <a href="https://github.com/mirugwe1/Cervical_Cancer_Screening" target="_blank" rel="noopener noreferrer" class="custom-link mt-4 inline-block font-medium">View Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+
+         <div class="portfolio-grid stagger">
+            <div class="portfolio-card">
+               <div class="portfolio-card-img">
+                  <img src="images/portfolio/cervical_cancer.png" alt="Cervical Cancer Screening" loading="lazy">
+               </div>
+               <div class="portfolio-card-body">
+                  <h3>Cervical Cancer Screening</h3>
+                  <p>Developed a deep learning algorithm to enhance cervical cancer screening accuracy in Uganda.</p>
+                  <a href="https://github.com/mirugwe1/Cervical_Cancer_Screening" target="_blank" rel="noopener noreferrer" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
                </div>
             </div>
-            <div class="portfolio-item fade-in">
-               <img src="images/portfolio/encryption.png" alt="Encryption and Decryption Project Image" class="w-full h-64 object-cover" loading="lazy">
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold text-gray-900">Encryption and Decryption</h3>
-                  <p class="text-gray-600 mt-3 font-light">Implemented AES and RSA algorithms for secure data protection.</p>
-                  <a href="https://github.com/mirugwe1/Data_Protection" target="_blank" rel="noopener noreferrer" class="custom-link mt-4 inline-block font-medium">View Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+            <div class="portfolio-card">
+               <div class="portfolio-card-img">
+                  <img src="images/portfolio/encryption.png" alt="Encryption and Decryption" loading="lazy">
+               </div>
+               <div class="portfolio-card-body">
+                  <h3>Encryption & Decryption</h3>
+                  <p>Implemented AES and RSA algorithms for secure data protection.</p>
+                  <a href="https://github.com/mirugwe1/Data_Protection" target="_blank" rel="noopener noreferrer" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
                </div>
             </div>
-            <div class="portfolio-item fade-in">
-               <img src="images/portfolio/sentiment.png" alt="Sentiment Analysis Project Image" class="w-full h-64 object-cover" loading="lazy">
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold text-gray-900">Sentiment Analysis</h3>
-                  <p class="text-gray-600 mt-3 font-light">Applied deep learning to analyze public sentiment on social media during the Ebola outbreak.</p>
-                  <a href="https://github.com/mirugwe1/Sentiment_Analysis" target="_blank" rel="noopener noreferrer" class="custom-link mt-4 inline-block font-medium">View Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+            <div class="portfolio-card">
+               <div class="portfolio-card-img">
+                  <img src="images/portfolio/sentiment.png" alt="Sentiment Analysis" loading="lazy">
+               </div>
+               <div class="portfolio-card-body">
+                  <h3>Sentiment Analysis</h3>
+                  <p>Applied deep learning to analyze public sentiment on social media during the Ebola outbreak.</p>
+                  <a href="https://github.com/mirugwe1/Sentiment_Analysis" target="_blank" rel="noopener noreferrer" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
                </div>
             </div>
-            <div class="portfolio-item fade-in">
-               <img src="images/portfolio/Deduplication.png" alt="Patient Matching Algorithm Project Image" class="w-full h-64 object-cover" loading="lazy">
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold text-gray-900">Patient Matching Algorithm</h3>
-                  <p class="text-gray-600 mt-3 font-light">Developed an algorithm to deduplicate HIV patient data, reducing duplicates by 4.8%.</p>
-                  <a href="https://github.com/mirugwe1/Patient_Matching" target="_blank" rel="noopener noreferrer" class="custom-link mt-4 inline-block font-medium">View Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+            <div class="portfolio-card">
+               <div class="portfolio-card-img">
+                  <img src="images/portfolio/Deduplication.png" alt="Patient Matching Algorithm" loading="lazy">
+               </div>
+               <div class="portfolio-card-body">
+                  <h3>Patient Matching Algorithm</h3>
+                  <p>Developed an algorithm to deduplicate HIV patient data, reducing duplicates by 4.8%.</p>
+                  <a href="https://github.com/mirugwe1/Patient_Matching" target="_blank" rel="noopener noreferrer" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
                </div>
             </div>
-            <div class="portfolio-item fade-in">
-               <img src="images/portfolio/birds.png" alt="Webcam Bird Detection Project Image" class="w-full h-64 object-cover" loading="lazy">
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold text-gray-900">Webcam Bird Detection</h3>
-                  <p class="text-gray-600 mt-3 font-light">Built a deep learning model for automated bird detection from webcam images.</p>
-                  <a href="https://github.com/mirugwe1/bird_detection" target="_blank" rel="noopener noreferrer" class="custom-link mt-4 inline-block font-medium">View Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+            <div class="portfolio-card">
+               <div class="portfolio-card-img">
+                  <img src="images/portfolio/birds.png" alt="Webcam Bird Detection" loading="lazy">
+               </div>
+               <div class="portfolio-card-body">
+                  <h3>Webcam Bird Detection</h3>
+                  <p>Built a deep learning model for automated bird detection from webcam images.</p>
+                  <a href="https://github.com/mirugwe1/bird_detection" target="_blank" rel="noopener noreferrer" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
                </div>
             </div>
-            <div class="portfolio-item fade-in">
-               <img src="images/portfolio/recommendation.png" alt="Recommendation Systems Project Image" class="w-full h-64 object-cover" loading="lazy">
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold text-gray-900">Recommendation Systems</h3>
-                  <p class="text-gray-600 mt-3 font-light">Developed machine learning-based recommendation systems for personalized content.</p>
-                  <a href="https://github.com/mirugwe1/Recommendation-Systems" target="_blank" rel="noopener noreferrer" class="custom-link mt-4 inline-block font-medium">View Details <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+            <div class="portfolio-card">
+               <div class="portfolio-card-img">
+                  <img src="images/portfolio/recommendation.png" alt="Recommendation Systems" loading="lazy">
+               </div>
+               <div class="portfolio-card-body">
+                  <h3>Recommendation Systems</h3>
+                  <p>Developed machine learning-based recommendation systems for personalized content.</p>
+                  <a href="https://github.com/mirugwe1/Recommendation-Systems" target="_blank" rel="noopener noreferrer" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
                </div>
             </div>
          </div>
       </div>
    </section>
 
-   <!-- Services Section -->
-   <section id="services" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h5 class="text-lg text-accent-teal font-medium tracking-wide">Services</h5>
+   <!-- Services -->
+   <section id="services" class="section services-section">
+      <div class="container">
+         <div class="section-label">// Services</div>
+         <h2 class="section-title">What I Offer</h2>
          <div class="section-divider"></div>
-         <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:scale-105 hover:shadow-xl fade-in">
-               <i class="fas fa-comment text-4xl text-primary-blue mb-4" aria-label="Consultancy Icon"></i>
-               <h3 class="text-xl font-semibold text-gray-900">Consultancy</h3>
-               <p class="text-gray-600 mt-3 font-light">Leverage AI technologies like machine learning and NLP to enhance healthcare services.</p>
+
+         <div class="services-grid stagger">
+            <div class="service-card">
+               <i class="fas fa-comment-dots"></i>
+               <h3>Consultancy</h3>
+               <p>Leverage AI technologies like machine learning and NLP to enhance healthcare services.</p>
             </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:scale-105 hover:shadow-xl fade-in">
-               <i class="fas fa-chart-line text-4xl text-primary-blue mb-4" aria-label="Data Analysis Icon"></i>
-               <h3 class="text-xl font-semibold text-gray-900">Data Analysis</h3>
-               <p class="text-gray-600 mt-3 font-light">Extract insights from diverse datasets with analytical reports and dynamic dashboards.</p>
+            <div class="service-card">
+               <i class="fas fa-chart-line"></i>
+               <h3>Data Analysis</h3>
+               <p>Extract insights from diverse datasets with analytical reports and dynamic dashboards.</p>
             </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:scale-105 hover:shadow-xl fade-in">
-               <i class="fas fa-database text-4xl text-primary-blue mb-4" aria-label="Data Mining Icon"></i>
-               <h3 class="text-xl font-semibold text-gray-900">Data Mining</h3>
-               <p class="text-gray-600 mt-3 font-light">Use advanced statistical and ML techniques to gain predictive insights.</p>
+            <div class="service-card">
+               <i class="fas fa-database"></i>
+               <h3>Data Mining</h3>
+               <p>Use advanced statistical and ML techniques to gain predictive insights.</p>
             </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:scale-105 hover:shadow-xl fade-in">
-               <i class="fas fa-chalkboard-teacher text-4xl text-primary-blue mb-4" aria-label="Training Icon"></i>
-               <h3 class="text-xl font-semibold text-gray-900">Training</h3>
-               <p class="text-gray-600 mt-3 font-light">Comprehensive training in statistics, data analysis, and machine learning with R and Python.</p>
+            <div class="service-card">
+               <i class="fas fa-chalkboard-teacher"></i>
+               <h3>Training</h3>
+               <p>Comprehensive training in statistics, data analysis, and machine learning with R and Python.</p>
             </div>
          </div>
       </div>
    </section>
 
-   <!-- Publications Section -->
-   <section id="publications" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h5 class="text-lg text-accent-teal font-medium tracking-wide">Publications</h5>
+   <!-- Publications -->
+   <section id="publications" class="section">
+      <div class="container">
+         <div class="section-label">// Publications</div>
+         <h2 class="section-title">Research & Papers</h2>
          <div class="section-divider"></div>
-         <ul class="custom-list mt-10 text-gray-600 font-light fade-in">
-            <li>A. Mirugwe, J. Nyirenda, and E. Dufourq, “Automating bird detection based on webcam captured images using deep learning,” in Proceedings of 43rd Conference of the South African Insti, vol. 85, 2022, pp. 62–76 <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Hk-4f5AAAAAJ&citation_for_view=Hk-4f5AAAAAJ:W7OEmFMy1HYC" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on Google Scholar">Google Scholar</a></li>
-            <li>A. Mirugwe, C. Ashaba, A. Namale, E. Akello, E. Bichetero, E. Kansiime, and J. Nyirenda, “Sentiment Analysis of Social Media Data on Ebola Outbreak Using Deep Learning Classifiers,” in MDPI Life 2024, 14, 708 <a href="https://doi.org/10.3390/life14060708" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on MDPI">MDPI</a></li>
-            <li>A. Mirugwe, L. Tamale, J. Nyirenda, “Improving Tuberculosis Detection in Chest X-Ray Images Through Transfer Learning and Deep Learning: Comparative Study of Convolutional Neural Network Architectures,” in JMIRx Med, Vol.5, 2025: 2563-6316 <a href="https://www.sciencedirect.com/org/science/article/pii/S2563631625000627" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on Google Scholar">JMIRx Med</a></li>
-            <li>A. Mirugwe, C. Ashaba, “Cervical Cancer Screening: Artificial Intelligence Algorithm For Automatic Diagnostic Support,” in Translational Medicine, vol. 13, Iss. 13, 2023, pp. 1–2 <a href="https://www.researchgate.net/publication/378373924_Cervical_Cancer_Screening_Artificial_Intelligence_Algorithm_for_Automatic_Diagnostic_Support" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on ResearchGate">ResearchGate</a></li>
-            <li>A. Mirugwe, J. B. Kibanga, “Digital Outbreak Response System: A Research Study on the Use of the Go.Data Tool for Ebola Outbreak Data Management in Uganda,” in American Journal of Preventive Medicine and Public Health, vol. 9, No. 5, 2023, pp. 01–06 <a href="https://www.researchgate.net/publication/373118609_Digital_Outbreak_Response_System_A_Research_Study_on_the_Use_of_the_GoData_Tool_for_Ebola_Outbreak_Data_Management_in_Uganda" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on ResearchGate">ResearchGate</a></li>
-            <li>A. Mirugwe, “Adoption of Artificial Intelligence in the Ugandan Health Sector: A Review of Literature,” [Preprint] <a href="https://www.researchgate.net/publication/370073027_Adoption_of_Artificial_Intelligence_in_the_Ugandan_Health_Sector_a_review_of_Literature" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on ResearchGate">ResearchGate</a></li>
-            <li>A. Mirugwe, “Restaurant Tip Prediction Using Linear Regression,” in International Journal of Data Science and Big Data Analytics, vol. 1, Iss. 2, 2021, pp. 31–38 <a href="https://www.researchgate.net/publication/353100937_Restaurant_tip_prediction_using_linear_regression" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="View publication on ResearchGate">ResearchGate</a></li>
-         </ul>
-      </div>
-   </section>
 
-   <!-- Blogs Section -->
-   <section id="blogs" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h5 class="text-lg text-accent-teal font-medium tracking-wide">Blogs</h5>
-         <h1 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900 tracking-tight">My Substack Articles</h1>
-         <div class="section-divider"></div>
-         <p class="mt-5 text-lg text-gray-600 max-w-3xl font-light">Explore my latest thoughts and insights on data science and AI.</p>
-         <div class="mt-12 blog-grid">
-            <div class="blog-post fade-in">
-               <div class="content">
-                  <h3>Why Skipping the Basics in AI Creates Pseudo-Experts</h3>
-                  <p class="date">June 24, 2025</p>
-                  <p>AI tools are ubiquitous, but many overlook the basics and end up with a superficial understanding. In this piece, I explain why that matters and how to build real expertise.</p>
-                  <a href="https://alexmirugwe.substack.com/p/why-skipping-the-basics-in-ai-creates" target="_blank" rel="noopener noreferrer" class="custom-link">Read More</a>
+         <div class="pub-list stagger">
+            <div class="pub-item">
+               <div class="pub-number">01</div>
+               <div class="pub-content">
+                  A. Mirugwe, J. Nyirenda, and E. Dufourq, "Automating bird detection based on webcam captured images using deep learning," in Proceedings of 43rd Conference of the South African Insti, vol. 85, 2022, pp. 62-76
+                  <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Hk-4f5AAAAAJ&citation_for_view=Hk-4f5AAAAAJ:W7OEmFMy1HYC" target="_blank" rel="noopener noreferrer" class="pub-link">Google Scholar <i class="fas fa-external-link-alt"></i></a>
                </div>
             </div>
-            <div class="blog-post fade-in">
-               <div class="content">
-                  <h3>AI Panic: Why Strategy Must Come Before Hype</h3>
-                  <p class="date">June 12, 2025</p>
-                  <p>I have been seeing too many teams and organizations dive into AI without a clear plan - no defined use cases, no ROI thinking, just fear of missing out. That kind of rush usually ends badly.
-                     Wrote this article to unpack why hype isn’t enough and what real strategy looks like.</p>
-                  <a href="https://alexmirugwe.substack.com/p/ai-panic-why-strategy-must-come-before" target="_blank" rel="noopener noreferrer" class="custom-link">Read More</a>
+            <div class="pub-item">
+               <div class="pub-number">02</div>
+               <div class="pub-content">
+                  A. Mirugwe, C. Ashaba, A. Namale, E. Akello, E. Bichetero, E. Kansiime, and J. Nyirenda, "Sentiment Analysis of Social Media Data on Ebola Outbreak Using Deep Learning Classifiers," in MDPI Life 2024, 14, 708
+                  <a href="https://doi.org/10.3390/life14060708" target="_blank" rel="noopener noreferrer" class="pub-link">MDPI <i class="fas fa-external-link-alt"></i></a>
                </div>
             </div>
-            <div class="blog-post fade-in">
-               <div class="content">
-                  <h3>Where is Africa in the AI Conversation?</h3>
-                  <p class="date">February 17, 2025</p>
-                  <p>I Africa is missing from the global AI revolution. Why? What can be done? Read my latest article on the challenges and opportunities for AI in Africa.</p>
-                  <a href="https://alexmirugwe.substack.com/p/where-is-africa-in-the-ai-conversation" target="_blank" rel="noopener noreferrer" class="custom-link">Read More</a>
+            <div class="pub-item">
+               <div class="pub-number">03</div>
+               <div class="pub-content">
+                  A. Mirugwe, L. Tamale, J. Nyirenda, "Improving Tuberculosis Detection in Chest X-Ray Images Through Transfer Learning and Deep Learning," in JMIRx Med, Vol.5, 2025: 2563-6316
+                  <a href="https://www.sciencedirect.com/org/science/article/pii/S2563631625000627" target="_blank" rel="noopener noreferrer" class="pub-link">JMIRx Med <i class="fas fa-external-link-alt"></i></a>
                </div>
             </div>
-            <div class="blog-post fade-in">
-               <div class="content">
-                  <h3>OpenAI's 5-Gigawatt Data Centers: A Technological Marvel or an Energy Crisis in the Making?</h3>
-                  <p class="date">October 7, 2024</p>
-                  <p>OpenAI’s ambitious proposal to build 5-to-7 massive 5-gigawatt data centers! I explore what this means for AI development, global energy use, and sustainability. Could this redefine the tech landscape?</p>
-                  <a href="https://www.linkedin.com/pulse/openais-5-gigawatt-data-centers-technological-marvel-energy-alex-tjq2f/" target="_blank" rel="noopener noreferrer" class="custom-link">Read More</a>
+            <div class="pub-item">
+               <div class="pub-number">04</div>
+               <div class="pub-content">
+                  A. Mirugwe, C. Ashaba, "Cervical Cancer Screening: Artificial Intelligence Algorithm For Automatic Diagnostic Support," in Translational Medicine, vol. 13, Iss. 13, 2023, pp. 1-2
+                  <a href="https://www.researchgate.net/publication/378373924_Cervical_Cancer_Screening_Artificial_Intelligence_Algorithm_for_Automatic_Diagnostic_Support" target="_blank" rel="noopener noreferrer" class="pub-link">ResearchGate <i class="fas fa-external-link-alt"></i></a>
+               </div>
+            </div>
+            <div class="pub-item">
+               <div class="pub-number">05</div>
+               <div class="pub-content">
+                  A. Mirugwe, J. B. Kibanga, "Digital Outbreak Response System: A Research Study on the Use of the Go.Data Tool for Ebola Outbreak Data Management in Uganda," in AJPMPH, vol. 9, No. 5, 2023, pp. 01-06
+                  <a href="https://www.researchgate.net/publication/373118609_Digital_Outbreak_Response_System_A_Research_Study_on_the_Use_of_the_GoData_Tool_for_Ebola_Outbreak_Data_Management_in_Uganda" target="_blank" rel="noopener noreferrer" class="pub-link">ResearchGate <i class="fas fa-external-link-alt"></i></a>
+               </div>
+            </div>
+            <div class="pub-item">
+               <div class="pub-number">06</div>
+               <div class="pub-content">
+                  A. Mirugwe, "Adoption of Artificial Intelligence in the Ugandan Health Sector: A Review of Literature," [Preprint]
+                  <a href="https://www.researchgate.net/publication/370073027_Adoption_of_Artificial_Intelligence_in_the_Ugandan_Health_Sector_a_review_of_Literature" target="_blank" rel="noopener noreferrer" class="pub-link">ResearchGate <i class="fas fa-external-link-alt"></i></a>
+               </div>
+            </div>
+            <div class="pub-item">
+               <div class="pub-number">07</div>
+               <div class="pub-content">
+                  A. Mirugwe, "Restaurant Tip Prediction Using Linear Regression," in IJDSBDA, vol. 1, Iss. 2, 2021, pp. 31-38
+                  <a href="https://www.researchgate.net/publication/353100937_Restaurant_tip_prediction_using_linear_regression" target="_blank" rel="noopener noreferrer" class="pub-link">ResearchGate <i class="fas fa-external-link-alt"></i></a>
                </div>
             </div>
          </div>
       </div>
    </section>
 
-   <!-- Contact Section -->
-   <section id="contact" class="section-bg py-28">
-      <div class="container mx-auto px-6">
-         <h5 class="text-lg text-accent-teal font-medium tracking-wide">Contact</h5>
-         <h1 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900 tracking-tight">Connect With Me</h1>
+   <!-- Blogs -->
+   <section id="blogs" class="section blog-section">
+      <div class="container">
+         <div class="section-label">// Blog</div>
+         <h2 class="section-title">Latest Articles</h2>
+         <p class="section-desc">Explore my latest thoughts and insights on data science and AI.</p>
          <div class="section-divider"></div>
-         <p class="mt-5 text-lg text-gray-600 max-w-3xl font-light">I’m open to questions, ideas, or collaboration opportunities. Reach out to discuss how I can help you achieve your goals.</p>
-         <div class="mt-12 grid md:grid-cols-2 gap-12 fade-in">
-            <div>
-               <div id="contactForm" class="space-y-6">
-                  <div>
-                     <input name="contactName" type="text" id="contactName" placeholder="Your Name" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" minlength="2" required aria-label="Name">
-                  </div>
-                  <div>
-                     <input name="contactEmail" type="email" id="contactEmail" placeholder="Your Email" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" required aria-label="Email">
-                  </div>
-                  <div>
-                     <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" aria-label="Subject">
-                  </div>
-                  <div>
-                     <textarea name="contactMessage" id="contactMessage" placeholder="Your Message" rows="6" class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all" required aria-label="Message"></textarea>
-                  </div>
-                  <div>
-                     <button type="button" onclick="submitForm()" class="btn-primary px-8 py-3 font-medium">Submit</button>
-                  </div>
-               </div>
-               <div id="message-success" class="hidden mt-5 text-green-600 font-medium">
-                  <i class="fas fa-check mr-2"></i> Your message was sent successfully!
-               </div>
-               <div id="message-warning" class="hidden mt-5 text-red-600 font-medium"></div>
+
+         <div class="blog-grid stagger">
+            <div class="blog-card">
+               <div class="blog-date">June 24, 2025</div>
+               <h3>Why Skipping the Basics in AI Creates Pseudo-Experts</h3>
+               <p>AI tools are ubiquitous, but many overlook the basics and end up with a superficial understanding. In this piece, I explain why that matters and how to build real expertise.</p>
+               <a href="https://alexmirugwe.substack.com/p/why-skipping-the-basics-in-ai-creates" target="_blank" rel="noopener noreferrer" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="space-y-10">
-               <div>
-                  <h5 class="text-xl font-semibold text-gray-900"><i class="fas fa-map-marker-alt text-primary-blue mr-2"></i>Location</h5>
-                  <p class="mt-3 text-gray-600 font-light leading-loose">
-                     Plot 20A Kawalya Kaggwa Close<br>
-                     Kololo Kampala<br>
-                     Uganda
-                  </p>
+            <div class="blog-card">
+               <div class="blog-date">June 12, 2025</div>
+               <h3>AI Panic: Why Strategy Must Come Before Hype</h3>
+               <p>Too many teams and organizations dive into AI without a clear plan - no defined use cases, no ROI thinking, just fear of missing out. This article unpacks why hype isn't enough and what real strategy looks like.</p>
+               <a href="https://alexmirugwe.substack.com/p/ai-panic-why-strategy-must-come-before" target="_blank" rel="noopener noreferrer" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="blog-card">
+               <div class="blog-date">February 17, 2025</div>
+               <h3>Where is Africa in the AI Conversation?</h3>
+               <p>Africa is missing from the global AI revolution. Why? What can be done? This article explores the challenges and opportunities for AI in Africa.</p>
+               <a href="https://alexmirugwe.substack.com/p/where-is-africa-in-the-ai-conversation" target="_blank" rel="noopener noreferrer" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="blog-card">
+               <div class="blog-date">October 7, 2024</div>
+               <h3>OpenAI's 5-Gigawatt Data Centers: Marvel or Energy Crisis?</h3>
+               <p>OpenAI's ambitious proposal to build 5-to-7 massive 5-gigawatt data centers. I explore what this means for AI development, global energy use, and sustainability.</p>
+               <a href="https://www.linkedin.com/pulse/openais-5-gigawatt-data-centers-technological-marvel-energy-alex-tjq2f/" target="_blank" rel="noopener noreferrer" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Contact -->
+   <section id="contact" class="section">
+      <div class="container">
+         <div class="section-label">// Contact</div>
+         <h2 class="section-title">Get in Touch</h2>
+         <p class="section-desc">I'm open to questions, ideas, or collaboration opportunities. Reach out to discuss how I can help you achieve your goals.</p>
+         <div class="section-divider"></div>
+
+         <div class="contact-grid">
+            <div class="fade-up">
+               <form id="contactForm" onsubmit="return false;">
+                  <div class="form-group">
+                     <input type="text" id="contactName" placeholder="Your Name" class="form-input" minlength="2" required aria-label="Name">
+                  </div>
+                  <div class="form-group">
+                     <input type="email" id="contactEmail" placeholder="Your Email" class="form-input" required aria-label="Email">
+                  </div>
+                  <div class="form-group">
+                     <input type="text" id="contactSubject" placeholder="Subject" class="form-input" aria-label="Subject">
+                  </div>
+                  <div class="form-group">
+                     <textarea id="contactMessage" placeholder="Your Message" class="form-input" rows="6" required aria-label="Message"></textarea>
+                  </div>
+                  <button type="button" onclick="submitForm()" class="btn btn-primary btn-full">
+                     Send Message <i class="fas fa-paper-plane"></i>
+                  </button>
+               </form>
+               <div id="message-success" class="form-message"><i class="fas fa-check-circle"></i> Your message was sent successfully!</div>
+               <div id="message-warning" class="form-message"></div>
+            </div>
+
+            <div class="fade-up">
+               <div class="contact-info-item">
+                  <h4><i class="fas fa-map-marker-alt"></i> Location</h4>
+                  <p>Plot 20A Kawalya Kaggwa Close<br>Kololo Kampala, Uganda</p>
                </div>
-               <div>
-                  <h5 class="text-xl font-semibold text-gray-900"><i class="fas fa-envelope text-primary-blue mr-2"></i>Email</h5>
-                  <p class="mt-3 text-gray-600 font-light leading-loose">
-                     <a href="mailto:mirugwealex@gmail.com" class="custom-link">mirugwealex@gmail.com</a><br>
-                     <a href="mailto:amirugwe@musph.ac.ug" class="custom-link">amirugwe@musph.ac.ug</a>
-                  </p>
+               <div class="contact-info-item">
+                  <h4><i class="fas fa-envelope"></i> Email</h4>
+                  <a href="mailto:mirugwealex@gmail.com">mirugwealex@gmail.com</a><br>
+                  <a href="mailto:amirugwe@musph.ac.ug">amirugwe@musph.ac.ug</a>
                </div>
-               <div>
-                  <h5 class="text-xl font-semibold text-gray-900"><i class="fas fa-phone text-primary-blue mr-2"></i>Phone</h5>
-                  <p class="mt-3 text-gray-600 font-light leading-loose">
-                     Phone: <a href="tel:+256701120534" class="custom-link">(+256) 701 120534</a><br>
-                     Mobile: <a href="tel:+27737062534" class="custom-link">(+27) 73 706 2534</a>
-                  </p>
+               <div class="contact-info-item">
+                  <h4><i class="fas fa-phone"></i> Phone</h4>
+                  <a href="tel:+256701120534">(+256) 701 120534</a><br>
+                  <a href="tel:+27737062534">(+27) 73 706 2534</a>
                </div>
             </div>
          </div>
@@ -1003,133 +1910,166 @@
    </section>
 
    <!-- Footer -->
-   <footer class="bg-dark text-white py-12">
-      <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-         <div class="copyright text-center md:text-left font-light">
-            <p>© 2025 Mirugwe. Designed by Alex Mirugwe</p>
-         </div>
-         <ul class="flex space-x-6 mt-6 md:mt-0">
-            <li><a href="https://www.facebook.com/mirugwe.alex" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f text-2xl"></i></a></li>
-            <li><a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Google Scholar"><i class="fab fa-google text-2xl"></i></a></li>
-            <li><a href="https://twitter.com/mirugwealex1" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Twitter"><i class="fab fa-twitter text-2xl"></i></a></li>
-            <li><a href="https://www.researchgate.net/profile/Alex-Mirugwe" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="ResearchGate"><i class="fas fa-file-alt text-2xl"></i></a></li>
-            <li><a href="https://www.instagram.com/mirugwe_alex/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-2xl"></i></a></li>
-            <li><a href="https://github.com/mirugwe1" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary-gold transition-colors" aria-label="GitHub"><i class="fab fa-github text-2xl"></i></a></li>
-         </ul>
-         <div class="mt-6 md:mt-0">
-            <a href="#top" class="smoothscroll text-white hover:text-secondary-gold transition-colors">Back to Top <i class="fas fa-arrow-up ml-2"></i></a>
+   <footer class="footer">
+      <div class="container">
+         <div class="footer-inner">
+            <div class="footer-copy">&copy; 2026 Mirugwe. Designed by Alex Mirugwe</div>
+            <div class="footer-links">
+               <a href="https://github.com/mirugwe1" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+               <a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Google Scholar"><i class="fab fa-google-scholar"></i></a>
+               <a href="https://twitter.com/mirugwealex1" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+               <a href="https://www.researchgate.net/profile/Alex-Mirugwe" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+               <a href="https://www.instagram.com/mirugwe_alex/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+               <a href="https://www.facebook.com/mirugwe.alex" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <a href="#hero" class="back-to-top">Back to Top <i class="fas fa-arrow-up"></i></a>
          </div>
       </div>
    </footer>
 
-   <!-- JavaScript -->
+   <!-- JavaScript (Vanilla - no jQuery) -->
    <script>
-      $(document).ready(function() {
-         // Preloader
-         $(window).on('load', function() {
-            $('#preloader').fadeOut('slow', function() {
-               $(this).remove();
-            });
-         });
-
-         // Mobile menu toggle
-         $('.menu-toggle').click(function() {
-            $('.mobile-nav').toggleClass('hidden active');
-         });
-
-         // Animate skill bars on scroll
-         $('.skill-bars').waypoint(function() {
-            $('.progress div').each(function() {
-               const width = $(this).data('skill');
-               $(this).css('width', width + '%');
-            });
-         }, { offset: '80%' });
-
-         // Fade-in animations
-         function checkFadeIn() {
-            $('.fade-in').each(function() {
-               const elementTop = $(this).offset().top;
-               const windowBottom = $(window).scrollTop() + $(window).height();
-               if (elementTop < windowBottom - 50) {
-                  $(this).addClass('visible');
-               }
-            });
-         }
-
-         $(window).on('scroll', checkFadeIn);
-         checkFadeIn();
-
-         // Highlight navigation tabs based on scroll position
-         $(window).on('scroll', function() {
-            const scrollPosition = $(window).scrollTop();
-            const windowHeight = $(window).height();
-
-            $('section[id]').each(function() {
-               const section = $(this);
-               const sectionId = section.attr('id');
-               const sectionTop = section.offset().top;
-               const sectionBottom = sectionTop + section.outerHeight();
-
-               const navLink = $('a[href="#' + sectionId + '"]');
-               const mobileNavLink = $('.mobile-nav a[href="#' + sectionId + '"]');
-
-               if (scrollPosition + windowHeight / 2 >= sectionTop && scrollPosition < sectionBottom) {
-                  navLink.addClass('active').siblings().removeClass('active');
-                  mobileNavLink.addClass('active').siblings().removeClass('active');
-               }
-            });
-         });
-
-         // Smooth scroll with active state on click
-         $('a[href^="#"]').not('.social-links a').on('click', function(e) { // Exclude social links
-            e.preventDefault();
-            const target = $($(this).attr('href'));
-            if (target.length) {
-               $('html, body').animate({ scrollTop: target.offset().top }, 600);
-               $(this).addClass('active').siblings().removeClass('active');
-               $('.mobile-nav a').removeClass('active');
-               $('.mobile-nav a[href="' + this.hash + '"]').addClass('active');
-            }
-         });
-
-         // Parallax effect
-         if ($(window).width() > 768) {
-            var scene = document.getElementById('intro');
-            var parallax = new Parallax(scene, {
-               relativeInput: true,
-               scalarX: 10,
-               scalarY: 10
-            });
-         }
+      // Preloader
+      window.addEventListener('load', () => {
+         const preloader = document.getElementById('preloader');
+         preloader.classList.add('hidden');
+         setTimeout(() => preloader.remove(), 500);
       });
 
-      // Form submission with validation
-      function submitForm() {
-         const name = $('#contactName').val().trim();
-         const email = $('#contactEmail').val().trim();
-         const message = $('#contactMessage').val().trim();
-         const warning = $('#message-warning');
-         const success = $('#message-success');
+      // Theme Toggle
+      const themeToggle = document.getElementById('themeToggle');
+      const html = document.documentElement;
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      html.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
 
-         warning.addClass('hidden').text('');
-         success.addClass('hidden');
+      themeToggle.addEventListener('click', () => {
+         const current = html.getAttribute('data-theme');
+         const next = current === 'dark' ? 'light' : 'dark';
+         html.setAttribute('data-theme', next);
+         localStorage.setItem('theme', next);
+         updateThemeIcon(next);
+      });
+
+      function updateThemeIcon(theme) {
+         themeToggle.innerHTML = theme === 'dark'
+            ? '<i class="fas fa-sun"></i>'
+            : '<i class="fas fa-moon"></i>';
+      }
+
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileNav = document.getElementById('mobileNav');
+
+      menuToggle.addEventListener('click', () => {
+         mobileNav.classList.toggle('active');
+         const icon = menuToggle.querySelector('i');
+         icon.classList.toggle('fa-bars');
+         icon.classList.toggle('fa-times');
+      });
+
+      // Close mobile nav on link click
+      mobileNav.querySelectorAll('a').forEach(link => {
+         link.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+         });
+      });
+
+      // Scroll Animations (IntersectionObserver)
+      const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+
+      const fadeObserver = new IntersectionObserver((entries) => {
+         entries.forEach(entry => {
+            if (entry.isIntersecting) {
+               entry.target.classList.add('visible');
+               fadeObserver.unobserve(entry.target);
+            }
+         });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-up, .stagger').forEach(el => {
+         fadeObserver.observe(el);
+      });
+
+      // Animated Counters
+      const counterObserver = new IntersectionObserver((entries) => {
+         entries.forEach(entry => {
+            if (entry.isIntersecting) {
+               const el = entry.target;
+               const target = parseInt(el.getAttribute('data-target'));
+               let count = 0;
+               const duration = 2000;
+               const step = Math.ceil(duration / target);
+
+               const timer = setInterval(() => {
+                  count++;
+                  el.textContent = count + '+';
+                  if (count >= target) clearInterval(timer);
+               }, step);
+
+               counterObserver.unobserve(el);
+            }
+         });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+         counterObserver.observe(el);
+      });
+
+      // Active Nav Highlighting
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-desktop .nav-link');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+      const navObserver = new IntersectionObserver((entries) => {
+         entries.forEach(entry => {
+            if (entry.isIntersecting) {
+               const id = entry.target.getAttribute('id');
+               navLinks.forEach(link => {
+                  link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+               });
+               mobileNavLinks.forEach(link => {
+                  link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+               });
+            }
+         });
+      }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+
+      sections.forEach(section => navObserver.observe(section));
+
+      // Form Submission
+      function submitForm() {
+         const name = document.getElementById('contactName').value.trim();
+         const email = document.getElementById('contactEmail').value.trim();
+         const message = document.getElementById('contactMessage').value.trim();
+         const warning = document.getElementById('message-warning');
+         const success = document.getElementById('message-success');
+
+         warning.className = 'form-message';
+         warning.textContent = '';
+         success.className = 'form-message';
 
          if (name.length < 2) {
-            warning.removeClass('hidden').text('Name must be at least 2 characters long.');
+            warning.className = 'form-message error';
+            warning.textContent = 'Name must be at least 2 characters long.';
             return;
          }
-         if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
-            warning.removeClass('hidden').text('Please enter a valid email address.');
+         if (!email.match(/^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$/)) {
+            warning.className = 'form-message error';
+            warning.textContent = 'Please enter a valid email address.';
             return;
          }
          if (message.length === 0) {
-            warning.removeClass('hidden').text('Message cannot be empty.');
+            warning.className = 'form-message error';
+            warning.textContent = 'Message cannot be empty.';
             return;
          }
 
-         // Placeholder for AJAX submission
-         success.removeClass('hidden');
-         $('#contactForm')[0].reset();
+         success.className = 'form-message success';
+         document.getElementById('contactForm').reset();
       }
    </script>
 </body>
