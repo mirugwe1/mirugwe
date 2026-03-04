@@ -1485,6 +1485,14 @@
          .timeline-item:hover { transform: none; }
          .expertise-card:hover { transform: none; }
       }
+      /* ===== HERO CANVAS ===== */
+      #hero-canvas {
+         position: absolute;
+         inset: 0;
+         width: 100%;
+         height: 100%;
+         z-index: 0;
+      }
    </style>
 </head>
 <body>
@@ -1536,11 +1544,12 @@
 
    <!-- Hero -->
    <section id="hero" class="hero">
+      <canvas id="hero-canvas"></canvas>
       <div class="hero-grid"></div>
       <div class="hero-content">
          <div class="hero-badge">// DATA SCIENTIST &amp; RESEARCHER</div>
          <h1 class="hero-name">Alex Mirugwe</h1>
-         <p class="hero-subtitle">Building AI that saves lives in African healthcare</p>
+         <p class="hero-subtitle">Building AI that saves lives in African healthcare.</p>
          <p class="hero-tagline">
             <span>Machine Learning</span> &nbsp;|&nbsp; <span>Deep Learning</span> &nbsp;|&nbsp; <span>Health Informatics</span>
          </p>
@@ -2200,6 +2209,103 @@
          success.innerHTML = '<i class="fas fa-check-circle"></i> Opening your email client...';
          document.getElementById('contactForm').reset();
       }
+   </script>
+
+   <!-- Particle network animation for hero -->
+   <script>
+      (function () {
+         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+         const canvas = document.getElementById('hero-canvas');
+         const ctx = canvas.getContext('2d');
+         const COLORS = ['#06b6d4', '#8b5cf6'];
+         const COUNT = 70;
+         const MAX_DIST = 140;
+         let particles = [];
+         let rafId = null;
+         let running = false;
+
+         function resize() {
+            const hero = document.getElementById('hero');
+            canvas.width = hero.offsetWidth;
+            canvas.height = hero.offsetHeight;
+         }
+
+         function makeParticle() {
+            return {
+               x: Math.random() * canvas.width,
+               y: Math.random() * canvas.height,
+               vx: (Math.random() - 0.5) * 0.5,
+               vy: (Math.random() - 0.5) * 0.5,
+               r: Math.random() * 1.5 + 1,
+               color: COLORS[Math.floor(Math.random() * COLORS.length)]
+            };
+         }
+
+         function init() {
+            resize();
+            particles = Array.from({ length: COUNT }, makeParticle);
+         }
+
+         function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < particles.length; i++) {
+               const p = particles[i];
+
+               // Move
+               p.x += p.vx;
+               p.y += p.vy;
+
+               // Wrap edges
+               if (p.x < 0) p.x = canvas.width;
+               if (p.x > canvas.width) p.x = 0;
+               if (p.y < 0) p.y = canvas.height;
+               if (p.y > canvas.height) p.y = 0;
+
+               // Draw dot
+               ctx.beginPath();
+               ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+               ctx.fillStyle = p.color + '99'; // ~60% opacity
+               ctx.fill();
+
+               // Draw connecting lines to nearby particles
+               for (let j = i + 1; j < particles.length; j++) {
+                  const q = particles[j];
+                  const dx = p.x - q.x;
+                  const dy = p.y - q.y;
+                  const dist = Math.sqrt(dx * dx + dy * dy);
+                  if (dist < MAX_DIST) {
+                     const alpha = (1 - dist / MAX_DIST) * 0.35;
+                     ctx.beginPath();
+                     ctx.moveTo(p.x, p.y);
+                     ctx.lineTo(q.x, q.y);
+                     ctx.strokeStyle = p.color + Math.round(alpha * 255).toString(16).padStart(2, '0');
+                     ctx.lineWidth = 0.6;
+                     ctx.stroke();
+                  }
+               }
+            }
+
+            if (running) rafId = requestAnimationFrame(draw);
+         }
+
+         // Only animate while hero is visible
+         const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+               running = true;
+               draw();
+            } else {
+               running = false;
+               cancelAnimationFrame(rafId);
+            }
+         }, { threshold: 0.01 });
+
+         window.addEventListener('resize', () => { resize(); });
+
+         init();
+         observer.observe(document.getElementById('hero'));
+      })();
    </script>
 </body>
 </html>
