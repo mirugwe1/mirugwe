@@ -886,140 +886,6 @@
          color: var(--accent-amber);
       }
 
-      /* ===== PORTFOLIO ===== */
-      .portfolio-grid {
-         display: grid;
-         gap: 24px;
-         margin-top: 48px;
-      }
-
-      @media (min-width: 640px) {
-         .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-      }
-
-      @media (min-width: 1024px) {
-         .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
-      }
-
-      .portfolio-card {
-         border-radius: 16px;
-         border: 1px solid var(--border-color);
-         background: var(--bg-card);
-         overflow: hidden;
-         transition: all var(--transition);
-      }
-
-      .portfolio-card:hover {
-         border-color: var(--accent-cyan);
-         transform: translateY(-8px);
-         box-shadow: var(--glow-cyan);
-      }
-
-      .portfolio-card-img {
-         position: relative;
-         overflow: hidden;
-         height: 200px;
-      }
-
-      .portfolio-card-img img {
-         width: 100%;
-         height: 100%;
-         object-fit: cover;
-         transition: transform 0.5s ease;
-      }
-
-      .portfolio-card:hover .portfolio-card-img img {
-         transform: scale(1.08);
-      }
-
-      .portfolio-card-img::after {
-         content: '';
-         position: absolute;
-         bottom: 0;
-         left: 0;
-         right: 0;
-         height: 50%;
-         background: linear-gradient(transparent, var(--bg-card));
-      }
-
-      .portfolio-card-body {
-         padding: 20px;
-      }
-
-      .portfolio-card-body h3 {
-         font-size: 1.1rem;
-         font-weight: 700;
-         margin-bottom: 8px;
-      }
-
-      .portfolio-card-body p {
-         font-size: 0.9rem;
-         color: var(--text-secondary);
-         margin-bottom: 16px;
-         line-height: 1.6;
-      }
-
-      .portfolio-link {
-         font-family: var(--font-mono);
-         font-size: 0.8rem;
-         color: var(--accent-cyan);
-         display: inline-flex;
-         align-items: center;
-         gap: 6px;
-         transition: all var(--transition);
-      }
-
-      .portfolio-link:hover {
-         color: var(--accent-purple);
-         gap: 10px;
-      }
-
-      .portfolio-card.featured {
-         grid-column: 1 / -1;
-         display: grid;
-         grid-template-columns: 1fr;
-      }
-
-      @media (min-width: 768px) {
-         .portfolio-card.featured {
-            grid-template-columns: 1fr 1fr;
-         }
-         .portfolio-card.featured .portfolio-card-img { height: 100%; min-height: 260px; }
-      }
-
-      .portfolio-card.featured .portfolio-card-body { padding: 28px; display: flex; flex-direction: column; justify-content: center; }
-      .portfolio-card.featured .portfolio-card-body h3 { font-size: 1.4rem; }
-      .portfolio-card.featured .portfolio-card-body p { font-size: 1rem; }
-
-      .featured-badge {
-         display: inline-block;
-         font-family: var(--font-mono);
-         font-size: 0.65rem;
-         text-transform: uppercase;
-         letter-spacing: 2px;
-         color: var(--accent-amber);
-         border: 1px solid var(--accent-amber);
-         padding: 3px 10px;
-         border-radius: 4px;
-         margin-bottom: 12px;
-      }
-
-      .portfolio-tags {
-         display: flex;
-         flex-wrap: wrap;
-         gap: 6px;
-         margin-bottom: 14px;
-      }
-
-      .portfolio-tag {
-         font-family: var(--font-mono);
-         font-size: 0.65rem;
-         padding: 3px 8px;
-         border-radius: 4px;
-         background: rgba(6, 182, 212, 0.1);
-         color: var(--accent-cyan);
-      }
-
       /* ===== SERVICES ===== */
       .services-section { background: var(--bg-secondary); }
 
@@ -1473,11 +1339,6 @@
          .courses-block h4 { font-size: 0.9rem; }
          .course-tag { font-size: 0.7rem; padding: 5px 10px; }
 
-         .portfolio-card-img { height: 160px; }
-         .portfolio-card-body { padding: 16px; }
-         .portfolio-card-body h3 { font-size: 1rem; }
-         .portfolio-card-body p { font-size: 0.85rem; }
-
          .service-card { padding: 24px 16px; }
          .service-card i { font-size: 1.6rem; margin-bottom: 12px; }
          .service-card h3 { font-size: 1rem; }
@@ -1529,8 +1390,6 @@
 
       /* Touch device optimizations */
       @media (hover: none) {
-         .portfolio-card:hover { transform: none; box-shadow: none; }
-         .portfolio-card:active { transform: translateY(-4px); box-shadow: var(--glow-cyan); }
          .service-card:hover { transform: none; box-shadow: none; }
          .service-card:active { transform: translateY(-3px); box-shadow: var(--glow-purple); }
          .blog-card:hover { transform: none; box-shadow: none; }
@@ -1564,7 +1423,6 @@
       .blog-card,
       .pub-item { overflow: hidden; }
 
-      .portfolio-card::after,
       .service-card::after,
       .blog-card::after,
       .pub-item::after {
@@ -1582,7 +1440,6 @@
          pointer-events: none;
          z-index: 1;
       }
-      .portfolio-card:hover::after,
       .service-card:hover::after,
       .blog-card:hover::after,
       .pub-item:hover::after {
@@ -1659,7 +1516,6 @@
             <a href="#hero" class="nav-link active">Home</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#resume" class="nav-link">Resume</a>
-            <a href="#portfolio" class="nav-link">Portfolio</a>
             <a href="#services" class="nav-link">Connect</a>
             <a href="#publications" class="nav-link">Publications</a>
             <a href="#blogs" class="nav-link">Blogs</a>
@@ -1681,7 +1537,6 @@
       <a href="#hero" class="active">Home</a>
       <a href="#about">About</a>
       <a href="#resume">Resume</a>
-      <a href="#portfolio">Portfolio</a>
       <a href="#services">Connect</a>
       <a href="#publications">Publications</a>
       <a href="#blogs">Blogs</a>
@@ -1714,7 +1569,7 @@
             </div>
          </div>
          <div class="hero-buttons fade-up">
-            <a href="#portfolio" class="btn btn-primary">See My Work <i class="fas fa-arrow-down"></i></a>
+            <a href="#publications" class="btn btn-primary">See My Work <i class="fas fa-arrow-down"></i></a>
             <a href="#contact" class="btn btn-secondary">Get in Touch</a>
          </div>
          <div class="social-links fade-up">
@@ -1906,122 +1761,6 @@
                      <span class="course-tag">Climate Change</span>
                      <span class="course-tag">Renewable Energy</span>
                   </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-
-   <!-- Portfolio -->
-   <section id="portfolio" class="section">
-      <div class="container">
-         <div class="section-label">// Portfolio</div>
-         <h2 class="section-title">Featured Projects</h2>
-         <p class="section-desc">Projects showcasing expertise in machine learning, deep learning, computer vision, and NLP, with applications in healthcare and ecology.</p>
-         <div class="section-divider"></div>
-
-         <div class="portfolio-grid stagger">
-            <div class="portfolio-card featured">
-               <div class="portfolio-card-img">
-                  <img src="images/portfolio/tb_screening.png" alt="TB Detection in Chest X-Rays" loading="lazy">
-               </div>
-               <div class="portfolio-card-body">
-                  <div class="featured-badge">Published &middot; JMIRx Med 2025</div>
-                  <h3>TB Detection in Chest X-Rays</h3>
-                  <div class="portfolio-tags">
-                     <span class="portfolio-tag">Deep Learning</span>
-                     <span class="portfolio-tag">Transfer Learning</span>
-                     <span class="portfolio-tag">Computer Vision</span>
-                     <span class="portfolio-tag">Medical Imaging</span>
-                  </div>
-                  <p>Comparative study of CNN architectures for tuberculosis detection in chest X-ray images using transfer learning and deep learning, achieving state-of-the-art diagnostic accuracy to support clinicians in resource-limited settings.</p>
-                  <a href="https://xmed.jmir.org/2025/1/e66029" target="_blank" rel="noopener noreferrer" class="portfolio-link">Read Publication <i class="fas fa-arrow-right"></i></a>
-               </div>
-            </div>
-            <div class="portfolio-card">
-               <div class="portfolio-card-img">
-                  <img src="images/portfolio/cervical_cancer.png" alt="Cervical Cancer Screening" loading="lazy">
-               </div>
-               <div class="portfolio-card-body">
-                  <h3>Cervical Cancer Screening</h3>
-                  <div class="portfolio-tags">
-                     <span class="portfolio-tag">Deep Learning</span>
-                     <span class="portfolio-tag">Medical Imaging</span>
-                     <span class="portfolio-tag">TensorFlow</span>
-                  </div>
-                  <p>AI-powered screening tool that improved early cervical cancer detection accuracy in Uganda, enabling faster diagnosis in underserved clinical settings.</p>
-                  <a href="https://github.com/mirugwe1/Cervical_Cancer_Screening" target="_blank" rel="noopener noreferrer" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-               </div>
-            </div>
-            <div class="portfolio-card">
-               <div class="portfolio-card-img">
-                  <img src="images/portfolio/Deduplication.png" alt="Patient Matching Algorithm" loading="lazy">
-               </div>
-               <div class="portfolio-card-body">
-                  <h3>Patient Matching Algorithm</h3>
-                  <div class="portfolio-tags">
-                     <span class="portfolio-tag">NLP</span>
-                     <span class="portfolio-tag">Record Linkage</span>
-                  </div>
-                  <p>Reduced HIV patient data duplicates by 4.8% across Uganda's national health system.</p>
-                  <a href="https://github.com/mirugwe1/Patient_Matching" target="_blank" rel="noopener noreferrer" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-               </div>
-            </div>
-            <div class="portfolio-card">
-               <div class="portfolio-card-img">
-                  <img src="images/portfolio/sentiment.png" alt="Sentiment Analysis" loading="lazy">
-               </div>
-               <div class="portfolio-card-body">
-                  <h3>Ebola Sentiment Analysis</h3>
-                  <div class="portfolio-tags">
-                     <span class="portfolio-tag">NLP</span>
-                     <span class="portfolio-tag">Deep Learning</span>
-                  </div>
-                  <p>Analyzed public sentiment during Uganda's 2022 Ebola outbreak to inform risk communication strategies.</p>
-                  <a href="https://github.com/mirugwe1/Sentiment_Analysis" target="_blank" rel="noopener noreferrer" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-               </div>
-            </div>
-            <div class="portfolio-card">
-               <div class="portfolio-card-img">
-                  <img src="images/portfolio/birds.png" alt="Webcam Bird Detection" loading="lazy">
-               </div>
-               <div class="portfolio-card-body">
-                  <h3>Webcam Bird Detection</h3>
-                  <div class="portfolio-tags">
-                     <span class="portfolio-tag">Computer Vision</span>
-                     <span class="portfolio-tag">CNN</span>
-                  </div>
-                  <p>Automated bird species detection from webcam footage -- MSc thesis project at University of Cape Town.</p>
-                  <a href="https://github.com/mirugwe1/bird_detection" target="_blank" rel="noopener noreferrer" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-               </div>
-            </div>
-            <div class="portfolio-card">
-               <div class="portfolio-card-img">
-                  <img src="images/portfolio/recommendation.png" alt="Recommendation Systems" loading="lazy">
-               </div>
-               <div class="portfolio-card-body">
-                  <h3>Recommendation Systems</h3>
-                  <div class="portfolio-tags">
-                     <span class="portfolio-tag">Collaborative Filtering</span>
-                     <span class="portfolio-tag">Python</span>
-                  </div>
-                  <p>ML-based recommendation engine for personalized content delivery.</p>
-                  <a href="https://github.com/mirugwe1/Recommendation-Systems" target="_blank" rel="noopener noreferrer" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-               </div>
-            </div>
-            <div class="portfolio-card">
-               <div class="portfolio-card-img">
-                  <img src="images/portfolio/encryption.png" alt="Encryption and Decryption" loading="lazy">
-               </div>
-               <div class="portfolio-card-body">
-                  <h3>Data Encryption Suite</h3>
-                  <div class="portfolio-tags">
-                     <span class="portfolio-tag">AES</span>
-                     <span class="portfolio-tag">RSA</span>
-                     <span class="portfolio-tag">Security</span>
-                  </div>
-                  <p>Implementation of AES and RSA encryption algorithms for secure healthcare data protection.</p>
-                  <a href="https://github.com/mirugwe1/Data_Protection" target="_blank" rel="noopener noreferrer" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
                </div>
             </div>
          </div>
