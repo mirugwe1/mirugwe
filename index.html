@@ -19,6 +19,43 @@
    <!-- Favicon -->
    <link rel="icon" type="image/png" href="icon.png">
 
+   <!-- Structured Data -->
+   <script type="application/ld+json">
+   {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alex Mirugwe",
+      "url": "https://www.mirugwe.com",
+      "image": "https://www.mirugwe.com/images/profile-pic.png",
+      "email": "mailto:mirugwealex@gmail.com",
+      "jobTitle": "PhD Scholar & AI Researcher",
+      "worksFor": {
+         "@type": "CollegeOrUniversity",
+         "name": "Queensland University of Technology"
+      },
+      "alumniOf": [
+         {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Cape Town"
+         },
+         {
+            "@type": "CollegeOrUniversity",
+            "name": "Makerere University"
+         }
+      ],
+      "sameAs": [
+         "https://github.com/mirugwe1",
+         "https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en",
+         "https://orcid.org/0000-0002-3194-4333",
+         "https://twitter.com/mirugwealex1",
+         "https://www.researchgate.net/profile/Alex-Mirugwe",
+         "https://www.linkedin.com/in/mirugwe-alex/",
+         "https://www.instagram.com/mirugwe_alex/",
+         "https://www.facebook.com/mirugwe.alex"
+      ]
+   }
+   </script>
+
    <!-- Google Analytics -->
    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RCFTDXNXP"></script>
    <script>
@@ -992,6 +1029,16 @@
          font-size: 0.95rem;
       }
 
+      .pub-title a {
+         color: inherit;
+         transition: color var(--transition);
+      }
+
+      .pub-title a:hover {
+         color: var(--accent-cyan);
+         text-decoration: underline;
+      }
+
       .pub-venue {
          font-size: 0.8rem;
          color: var(--text-muted);
@@ -1027,6 +1074,15 @@
 
       /* ===== BLOGS ===== */
       .blog-section { background: var(--bg-secondary); }
+
+      .writing-group-heading {
+         font-size: 1.1rem;
+         font-weight: 700;
+         margin-top: 40px;
+         margin-bottom: 20px;
+      }
+
+      .writing-group-heading-spaced { margin-top: 56px; }
 
       .substack-cta { margin-top: 24px; }
 
@@ -1500,6 +1556,7 @@
    <div class="scroll-progress" id="scrollProgress"></div>
 
    <!-- Preloader -->
+   <noscript><style>#preloader { display: none !important; }</style></noscript>
    <div id="preloader">
       <div class="preloader-inner">
          <div class="preloader-logo"><span>&lt;</span>MIRUGWE<span>/&gt;</span></div>
@@ -1575,6 +1632,7 @@
          <div class="social-links fade-up">
             <a href="https://github.com/mirugwe1" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Google Scholar"><i class="fab fa-google-scholar"></i></a>
+            <a href="https://orcid.org/0000-0002-3194-4333" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
             <a href="https://twitter.com/mirugwealex1" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
             <a href="https://www.researchgate.net/profile/Alex-Mirugwe" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
             <a href="https://www.linkedin.com/in/mirugwe-alex/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -1642,7 +1700,7 @@
          </div>
 
          <div class="about-buttons fade-up">
-            <a href="#contact" class="btn btn-primary">Hire Me</a>
+            <a href="#contact" class="btn btn-primary">Work With Me</a>
             <a href="AlexMirugwe_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-download"></i> Download CV</a>
          </div>
       </div>
@@ -1811,7 +1869,7 @@
             <div class="pub-item">
                <div class="pub-number">01</div>
                <div class="pub-content">
-                  <span class="pub-title">Patient deduplication in Uganda’s electronic medical records system: a comparison of three classification algorithms</span>
+                  <span class="pub-title"><a href="publications/patient-deduplication-uganda-emr.html">Patient deduplication in Uganda’s electronic medical records system: a comparison of three classification algorithms</a></span>
                   <span class="pub-venue"><span class="pub-year">2026</span>BMC Digital Health, vol. 4, no. 37</span>
                   <a href="https://doi.org/10.1186/s44247-026-00257-w" target="_blank" rel="noopener noreferrer" class="pub-link">BMC Digital Health <i class="fas fa-external-link-alt"></i></a>
                </div>
@@ -1819,7 +1877,7 @@
             <div class="pub-item">
                <div class="pub-number">02</div>
                <div class="pub-content">
-                  <span class="pub-title">Visit-level Prediction of Missed HIV Appointments Using Machine Learning and Transformer-Based Models in Uganda</span>
+                  <span class="pub-title"><a href="publications/missed-hiv-appointments-prediction.html">Visit-level Prediction of Missed HIV Appointments Using Machine Learning and Transformer-Based Models in Uganda</a></span>
                   <span class="pub-venue"><span class="pub-year">2026</span>BMC Medical Informatics and Decision Making, vol. 25, no. 131</span>
                   <a href="https://doi.org/10.1186/s12911-026-03434-z" target="_blank" rel="noopener noreferrer" class="pub-link">BMC Med Inform <i class="fas fa-external-link-alt"></i></a>
                </div>
@@ -1827,7 +1885,7 @@
             <div class="pub-item">
                <div class="pub-number">03</div>
                <div class="pub-content">
-                  <span class="pub-title">Secure and Efficient Federated Learning for Predictive Modeling in Resource-Constrained Healthcare Systems</span>
+                  <span class="pub-title"><a href="publications/federated-learning-healthcare.html">Secure and Efficient Federated Learning for Predictive Modeling in Resource-Constrained Healthcare Systems</a></span>
                   <span class="pub-venue"><span class="pub-year">2026</span>Medinformatics, vol. 3, no. 2, 178-184</span>
                   <a href="https://doi.org/10.47852/bonviewMEDIN52027621" target="_blank" rel="noopener noreferrer" class="pub-link">Medinformatics <i class="fas fa-external-link-alt"></i></a>
                </div>
@@ -1835,7 +1893,7 @@
             <div class="pub-item">
                <div class="pub-number">04</div>
                <div class="pub-content">
-                  <span class="pub-title">Artificial Intelligence-Powered Multiclass Deep Learning Model for Detection of Aflatoxin-Related Defects in Ugandan Groundnuts</span>
+                  <span class="pub-title"><a href="publications/aflatoxin-groundnuts-deep-learning.html">Artificial Intelligence-Powered Multiclass Deep Learning Model for Detection of Aflatoxin-Related Defects in Ugandan Groundnuts</a></span>
                   <span class="pub-venue"><span class="pub-year">2026</span>Discover Artificial Intelligence, vol. 6, no. 291</span>
                   <a href="https://doi.org/10.1007/s44163-026-01027-3" target="_blank" rel="noopener noreferrer" class="pub-link">Discover AI <i class="fas fa-external-link-alt"></i></a>
                </div>
@@ -1843,7 +1901,7 @@
             <div class="pub-item">
                <div class="pub-number">05</div>
                <div class="pub-content">
-                  <span class="pub-title">Improving Tuberculosis Detection in Chest X-Ray Images Through Transfer Learning and Deep Learning</span>
+                  <span class="pub-title"><a href="publications/tb-detection-chest-xray.html">Improving Tuberculosis Detection in Chest X-Ray Images Through Transfer Learning and Deep Learning</a></span>
                   <span class="pub-venue"><span class="pub-year">2025</span>JMIRx Med, Vol. 5</span>
                   <a href="https://xmed.jmir.org/2025/1/e66029" target="_blank" rel="noopener noreferrer" class="pub-link">JMIRx Med <i class="fas fa-external-link-alt"></i></a>
                </div>
@@ -1851,7 +1909,7 @@
             <div class="pub-item">
                <div class="pub-number">06</div>
                <div class="pub-content">
-                  <span class="pub-title">Sentiment Analysis of Social Media Data on Ebola Outbreak Using Deep Learning Classifiers</span>
+                  <span class="pub-title"><a href="publications/ebola-sentiment-analysis.html">Sentiment Analysis of Social Media Data on Ebola Outbreak Using Deep Learning Classifiers</a></span>
                   <span class="pub-venue"><span class="pub-year">2024</span>MDPI Life, 14, 708</span>
                   <a href="https://doi.org/10.3390/life14060708" target="_blank" rel="noopener noreferrer" class="pub-link">MDPI <i class="fas fa-external-link-alt"></i></a>
                </div>
@@ -1859,7 +1917,7 @@
             <div class="pub-item">
                <div class="pub-number">07</div>
                <div class="pub-content">
-                  <span class="pub-title">Cervical Cancer Screening: AI Algorithm for Automatic Diagnostic Support</span>
+                  <span class="pub-title"><a href="publications/cervical-cancer-screening-ai.html">Cervical Cancer Screening: AI Algorithm for Automatic Diagnostic Support</a></span>
                   <span class="pub-venue"><span class="pub-year">2023</span>Translational Medicine, Vol. 13, Iss. 13</span>
                   <a href="https://www.researchgate.net/publication/378373924_Cervical_Cancer_Screening_Artificial_Intelligence_Algorithm_for_Automatic_Diagnostic_Support" target="_blank" rel="noopener noreferrer" class="pub-link">ResearchGate <i class="fas fa-external-link-alt"></i></a>
                </div>
@@ -1867,7 +1925,7 @@
             <div class="pub-item">
                <div class="pub-number">08</div>
                <div class="pub-content">
-                  <span class="pub-title">Digital Outbreak Response System: Go.Data Tool for Ebola Data Management in Uganda</span>
+                  <span class="pub-title"><a href="publications/godata-ebola-outbreak-management.html">Digital Outbreak Response System: Go.Data Tool for Ebola Data Management in Uganda</a></span>
                   <span class="pub-venue"><span class="pub-year">2023</span>AJPMPH, Vol. 9, No. 5</span>
                   <a href="https://www.researchgate.net/publication/373118609_Digital_Outbreak_Response_System_A_Research_Study_on_the_Use_of_the_GoData_Tool_for_Ebola_Outbreak_Data_Management_in_Uganda" target="_blank" rel="noopener noreferrer" class="pub-link">ResearchGate <i class="fas fa-external-link-alt"></i></a>
                </div>
@@ -1875,7 +1933,7 @@
             <div class="pub-item">
                <div class="pub-number">09</div>
                <div class="pub-content">
-                  <span class="pub-title">Adoption of Artificial Intelligence in the Ugandan Health Sector: A Review</span>
+                  <span class="pub-title"><a href="publications/ai-adoption-ugandan-health-sector.html">Adoption of Artificial Intelligence in the Ugandan Health Sector: A Review</a></span>
                   <span class="pub-venue"><span class="pub-year">2023</span>Preprint</span>
                   <a href="https://www.researchgate.net/publication/370073027_Adoption_of_Artificial_Intelligence_in_the_Ugandan_Health_Sector_a_review_of_Literature" target="_blank" rel="noopener noreferrer" class="pub-link">ResearchGate <i class="fas fa-external-link-alt"></i></a>
                </div>
@@ -1883,7 +1941,7 @@
             <div class="pub-item">
                <div class="pub-number">10</div>
                <div class="pub-content">
-                  <span class="pub-title">Automating Bird Detection Based on Webcam Captured Images Using Deep Learning</span>
+                  <span class="pub-title"><a href="publications/webcam-bird-detection-deep-learning.html">Automating Bird Detection Based on Webcam Captured Images Using Deep Learning</a></span>
                   <span class="pub-venue"><span class="pub-year">2022</span>Proc. 43rd Conf. of the South African Institute, Vol. 85, pp. 62-76</span>
                   <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Hk-4f5AAAAAJ&citation_for_view=Hk-4f5AAAAAJ:W7OEmFMy1HYC" target="_blank" rel="noopener noreferrer" class="pub-link">Google Scholar <i class="fas fa-external-link-alt"></i></a>
                </div>
@@ -1891,7 +1949,7 @@
             <div class="pub-item">
                <div class="pub-number">11</div>
                <div class="pub-content">
-                  <span class="pub-title">Restaurant Tip Prediction Using Linear Regression</span>
+                  <span class="pub-title"><a href="publications/restaurant-tip-prediction.html">Restaurant Tip Prediction Using Linear Regression</a></span>
                   <span class="pub-venue"><span class="pub-year">2021</span>IJDSBDA, Vol. 1, Iss. 2, pp. 31-38</span>
                   <a href="https://www.researchgate.net/publication/353100937_Restaurant_tip_prediction_using_linear_regression" target="_blank" rel="noopener noreferrer" class="pub-link">ResearchGate <i class="fas fa-external-link-alt"></i></a>
                </div>
@@ -1903,28 +1961,33 @@
    <!-- Blogs -->
    <section id="blogs" class="section blog-section">
       <div class="container">
-         <div class="section-label">// Blog</div>
-         <h2 class="section-title">Latest Articles</h2>
-         <p class="section-desc">Explore my latest thoughts and insights on data science and AI.</p>
+         <div class="section-label">// Writing</div>
+         <h2 class="section-title">Research &amp; Writing</h2>
+         <p class="section-desc">Preprints and working papers, alongside articles on AI and data science.</p>
          <div class="section-divider"></div>
 
+         <h3 class="writing-group-heading">Preprints &amp; Working Papers</h3>
+         <div class="blog-grid stagger">
+            <div class="blog-card">
+               <div class="blog-date">SSRN Preprint &middot; May 9, 2026</div>
+               <h3>The Superintelligence Mockery: Why the God in the Machine has no Training Set</h3>
+               <p>The claim that superintelligence is a near-term destination has no training distribution, no mechanism, no benchmark, and no precedent. This paper draws on scaling laws, data exhaustion projections, and embodied cognition to show the gap is being closed by rhetoric, not evidence.</p>
+               <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6687440" target="_blank" rel="noopener noreferrer" class="blog-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="blog-card">
+               <div class="blog-date">SSRN Preprint &middot; April 25, 2026</div>
+               <h3>When the Algorithm Passes the Test but Fails the Patient: A Global Reckoning with AI Evidence Standards in Clinical Diagnosis</h3>
+               <p>AI diagnostic tools are cleared worldwide on benchmark accuracy alone — a metric that tells clinicians little about real-world performance. This paper argues the field has built its evidence edifice on an unstable foundation, and calls for global coordination to fix it.</p>
+               <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6538200" target="_blank" rel="noopener noreferrer" class="blog-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
+            </div>
+         </div>
+
+         <h3 class="writing-group-heading writing-group-heading-spaced">Latest Articles</h3>
          <div class="substack-cta fade-up">
             <a href="https://alexmirugwe.substack.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-rss"></i> Subscribe on Substack</a>
          </div>
 
          <div class="blog-grid stagger">
-            <div class="blog-card">
-               <div class="blog-date">May 9, 2026</div>
-               <h3>The Superintelligence Mockery: Why the God in the Machine has no Training Set</h3>
-               <p>The claim that superintelligence is a near-term destination has no training distribution, no mechanism, no benchmark, and no precedent. This paper draws on scaling laws, data exhaustion projections, and embodied cognition to show the gap is being closed by rhetoric, not evidence.</p>
-               <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6687440" target="_blank" rel="noopener noreferrer" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="blog-card">
-               <div class="blog-date">April 25, 2026</div>
-               <h3>When the Algorithm Passes the Test but Fails the Patient: A Global Reckoning with AI Evidence Standards in Clinical Diagnosis</h3>
-               <p>AI diagnostic tools are cleared worldwide on benchmark accuracy alone — a metric that tells clinicians little about real-world performance. This paper argues the field has built its evidence edifice on an unstable foundation, and calls for global coordination to fix it.</p>
-               <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6538200" target="_blank" rel="noopener noreferrer" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-            </div>
             <div class="blog-card">
                <div class="blog-date">April 22, 2026</div>
                <h3>Can AI Predict When an HIV Patient Will Miss Their Next Appointment?</h3>
@@ -2018,6 +2081,7 @@
             <div class="footer-links">
                <a href="https://github.com/mirugwe1" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
                <a href="https://scholar.google.com/citations?user=Hk-4f5AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Google Scholar"><i class="fab fa-google-scholar"></i></a>
+               <a href="https://orcid.org/0000-0002-3194-4333" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
                <a href="https://twitter.com/mirugwealex1" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
                <a href="https://www.researchgate.net/profile/Alex-Mirugwe" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
                <a href="https://www.instagram.com/mirugwe_alex/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -2031,11 +2095,24 @@
    <!-- JavaScript (Vanilla - no jQuery) -->
    <script>
       // Preloader
-      window.addEventListener('load', () => {
+      (function () {
          const preloader = document.getElementById('preloader');
-         preloader.classList.add('hidden');
-         setTimeout(() => preloader.remove(), 500);
-      });
+         let dismissed = false;
+
+         function dismiss() {
+            if (dismissed) return;
+            dismissed = true;
+            preloader.classList.add('hidden');
+            setTimeout(() => preloader.remove(), 500);
+         }
+
+         // Dismiss once the page is parsed, matching the fill animation's
+         // duration, rather than waiting on window 'load' (fonts, GA, images) --
+         // that wait could stall the overlay over real content indefinitely.
+         document.addEventListener('DOMContentLoaded', () => setTimeout(dismiss, 1400));
+         // Hard safety net in case DOMContentLoaded is delayed or never fires.
+         setTimeout(dismiss, 4000);
+      })();
 
       // Theme Toggle
       const themeToggle = document.getElementById('themeToggle');
